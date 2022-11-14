@@ -1,5 +1,5 @@
-import {wait_for_video_to_load} from "../../utils/wait_for_video_to_load";
-import {CustomLogger} from "../../../../utils/CustomLogger";
+import {wait_for_video_to_load} from "../../../../utils/wait_for_video_to_load";
+import {CustomLogger} from "../../../../utils/classes/CustomLogger";
 
 
 export class CustomPlayer{

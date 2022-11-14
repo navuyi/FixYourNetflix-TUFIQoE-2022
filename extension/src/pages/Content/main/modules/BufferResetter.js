@@ -1,4 +1,4 @@
-import {CustomLogger} from "../../../../utils/CustomLogger";
+import {CustomLogger} from "../../../../utils/classes/CustomLogger";
 
 
 class BufferResetter{

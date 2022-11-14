@@ -1,5 +1,5 @@
 import axios from "axios"
-import { STORAGE_KEYS } from "../../config/config"
+import { STORAGE_KEYS } from "../../config/storage.config"
 import {backend_urls} from "./config"
 
 

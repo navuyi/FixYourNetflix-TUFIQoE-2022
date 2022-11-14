@@ -1,10 +1,10 @@
-import {BitrateMenu} from "../../utils/BitrateMenu";
-import {CustomLogger} from "../../../../utils/CustomLogger";
+import {BitrateMenu} from "../../../../utils/classes/BitrateMenu";
+import {CustomLogger} from "../../../../utils/classes/CustomLogger";
 import {STORAGE_KEYS} from "../../../../config/config";
 import {get_local_datetime} from "../../../../utils/time_utils";
 import {send_bitrate} from "../../../../utils/http_requests/send_bitrate";
 import BufferResetter from "./BufferResetter";
-import {wait_for_video_to_load} from "../../utils/wait_for_video_to_load";
+import {wait_for_video_to_load} from "../../../../utils/wait_for_video_to_load";
 
 class BitrateController{
     scenario; interval; iterator; bitrate_menu; logger; buffer_resetter;

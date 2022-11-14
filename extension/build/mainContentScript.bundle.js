@@ -2462,836 +2462,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./src/config/default_experiment_config.js":
-/*!*************************************************!*\
-  !*** ./src/config/default_experiment_config.js ***!
-  \*************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DEFAULT_EXPERIMENT_CONFIGURATION": () => (/* binding */ DEFAULT_EXPERIMENT_CONFIGURATION)
-/* harmony export */ });
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-const DEFAULT_EXPERIMENT_CONFIGURATION = {
-  "assessment_interval": 150,
-  "bitrate_interval": 150,
-  "description": "can be left as empty string",
-  "videos": [{
-    "bitrate_vmaf_map": [{
-      "bitrate": 80,
-      "vmaf": "37"
-    }, {
-      "bitrate": 100,
-      "vmaf": "43"
-    }, {
-      "bitrate": 141,
-      "vmaf": "52"
-    }, {
-      "bitrate": 218,
-      "vmaf": "63"
-    }, {
-      "bitrate": 338,
-      "vmaf": "71"
-    }, {
-      "bitrate": 601,
-      "vmaf": "79"
-    }, {
-      "bitrate": 1149,
-      "vmaf": "85"
-    }, {
-      "bitrate": 2472,
-      "vmaf": "88"
-    }, {
-      "bitrate": 3439,
-      "vmaf": "89"
-    }, {
-      "bitrate": 5147,
-      "vmaf": "90"
-    }],
-    "description": "Lorem ipsum",
-    "name": "Narcos_s01_e04",
-    "scenario": [{
-      "bitrate": 80,
-      "vmaf": 37,
-      "vmaf_diff": 17,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 141,
-      "vmaf": 52,
-      "vmaf_diff": 2,
-      "vmaf_template": 50
-    }, {
-      "bitrate": 80,
-      "vmaf": 37,
-      "vmaf_diff": 17,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 5147,
-      "vmaf": 90,
-      "vmaf_diff": 0,
-      "vmaf_template": 90
-    }, {
-      "bitrate": 100,
-      "vmaf": 43,
-      "vmaf_diff": 2,
-      "vmaf_template": 45
-    }, {
-      "bitrate": 141,
-      "vmaf": 52,
-      "vmaf_diff": 1,
-      "vmaf_template": 51
-    }],
-    "url": "https://www.netflix.com/watch/70196252?trackId=14170286",
-    "vmaf_template_scenario": [20, 50, 20, 90, 45, 51]
-  }, {
-    "bitrate_vmaf_map": [{
-      "bitrate": 86,
-      "vmaf": "40"
-    }, {
-      "bitrate": 106,
-      "vmaf": "46"
-    }, {
-      "bitrate": 146,
-      "vmaf": "55"
-    }, {
-      "bitrate": 233,
-      "vmaf": "67"
-    }, {
-      "bitrate": 369,
-      "vmaf": "76"
-    }, {
-      "bitrate": 623,
-      "vmaf": "84"
-    }, {
-      "bitrate": 976,
-      "vmaf": "89"
-    }, {
-      "bitrate": 1571,
-      "vmaf": "92"
-    }, {
-      "bitrate": 3083,
-      "vmaf": "95"
-    }],
-    "description": "Lorem ipsum",
-    "name": "Narcos_s02_e02",
-    "scenario": [{
-      "bitrate": 86,
-      "vmaf": 40,
-      "vmaf_diff": 20,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 106,
-      "vmaf": 46,
-      "vmaf_diff": 4,
-      "vmaf_template": 50
-    }, {
-      "bitrate": 86,
-      "vmaf": 40,
-      "vmaf_diff": 20,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 976,
-      "vmaf": 89,
-      "vmaf_diff": 1,
-      "vmaf_template": 90
-    }, {
-      "bitrate": 106,
-      "vmaf": 46,
-      "vmaf_diff": 1,
-      "vmaf_template": 45
-    }, {
-      "bitrate": 146,
-      "vmaf": 55,
-      "vmaf_diff": 4,
-      "vmaf_template": 51
-    }],
-    "url": "https://www.netflix.com/watch/80101274?trackId=14170286",
-    "vmaf_template_scenario": [20, 50, 20, 90, 45, 51]
-  }],
-  "title": "This is my config for development purposes"
-};
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(DEFAULT_EXPERIMENT_CONFIGURATION, "DEFAULT_EXPERIMENT_CONFIGURATION", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/config/default_experiment_config.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
-/***/ "./src/pages/Content/main/index.js":
-/*!*****************************************!*\
-  !*** ./src/pages/Content/main/index.js ***!
-  \*****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_StatsAnalyzer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/StatsAnalyzer */ "./src/pages/Content/main/modules/StatsAnalyzer.ts");
-/* harmony import */ var _modules_QualityScenarioManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/QualityScenarioManager */ "./src/pages/Content/main/modules/QualityScenarioManager.js");
-/* harmony import */ var _modules_CustomPlayer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/CustomPlayer */ "./src/pages/Content/main/modules/CustomPlayer.ts");
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-
-
-
-
-const init = async () => {
-  const statsAnalyzer = new _modules_StatsAnalyzer__WEBPACK_IMPORTED_MODULE_0__.StatsAnalyzer();
-  await statsAnalyzer.init();
-  const customPlayer = new _modules_CustomPlayer__WEBPACK_IMPORTED_MODULE_2__.CustomPlayer();
-  await customPlayer.init();
-  const qualityScenarioManager = new _modules_QualityScenarioManager__WEBPACK_IMPORTED_MODULE_1__["default"]();
-  await qualityScenarioManager.init();
-};
-
-init();
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(init, "init", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/main/index.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
-/***/ "./src/pages/Content/main/modules/BitrateController.js":
-/*!*************************************************************!*\
-  !*** ./src/pages/Content/main/modules/BitrateController.js ***!
-  \*************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _utils_BitrateMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/BitrateMenu */ "./src/pages/Content/utils/BitrateMenu.ts");
-/* harmony import */ var _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/CustomLogger */ "./src/utils/CustomLogger.ts");
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../config/config */ "./src/config/config.ts");
-/* harmony import */ var _utils_time_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../utils/time_utils */ "./src/utils/time_utils.ts");
-/* harmony import */ var _utils_http_requests_send_bitrate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../utils/http_requests/send_bitrate */ "./src/utils/http_requests/send_bitrate.js");
-/* harmony import */ var _BufferResetter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./BufferResetter */ "./src/pages/Content/main/modules/BufferResetter.js");
-/* harmony import */ var _utils_wait_for_video_to_load__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/wait_for_video_to_load */ "./src/pages/Content/utils/wait_for_video_to_load.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-
-
-
-
-
-
-
-
-class BitrateController {
-  scenario;
-  interval;
-  iterator;
-  bitrate_menu;
-  logger;
-  buffer_resetter;
-
-  constructor(scenario, interval, bitrate_menu, iterator) {
-    this.scenario = scenario;
-    this.interval = interval;
-    this.iterator = iterator;
-    this.bitrate_menu = bitrate_menu;
-    this.logger = new _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[BitrateController]");
-    this.buffer_resetter = new _BufferResetter__WEBPACK_IMPORTED_MODULE_5__["default"]();
-  }
-
-  async init() {
-    await (0,_utils_wait_for_video_to_load__WEBPACK_IMPORTED_MODULE_6__.wait_for_video_to_load)();
-    await this.set_bitrate(); // First bitrate set after video is loaded
-
-    await this.buffer_resetter.reset(); // Navigating to the start and resetting buffer
-
-    await this.set_bitrate(); // Second bitrate set after buffer is reset
-
-    this.start_bitrate_change_interval(); // Scheduling the rest of bitrate changes using setInterval
-  }
-  /**
-   * Universal method for setting the next bitrate value in order.
-   * Order of bitrates is defined by video's scenario.
-   * @returns {Promise<void>}
-  */
-
-
-  async set_bitrate() {
-    const settings = this.iterator.next().value;
-    this.logger.log(`Setting bitrate to ${settings.bitrate}kbps which corresponds to VMAF ${settings.vmaf}`);
-    this.logger.log(`VMAF template was ${settings.vmaf_template}. Difference: ${settings.vmaf_diff}`);
-    await this.execute_bitrate_change(settings.bitrate);
-  }
-  /**
-   * Executes bitrate change by invoking actual bitrate menu,
-   * validating selected bitrate and overriding the settings
-   * @param bitrate<number>
-   * @returns {Promise<void>}
-  */
-
-
-  async execute_bitrate_change(bitrate) {
-    // Invoke bitrate menu
-    await this.bitrate_menu.invoke_bitrate_menu(); // ESSENTIAL --> bitrate menu has to be invoked before simulating clicks and changing bitrate
-    // Validate selected bitrate
-
-    const bitrate_validated = this.bitrate_menu.check_bitrate_availability(bitrate); // Set bitrate
-
-    await this.bitrate_menu.set_bitrate(bitrate_validated); // Send bitrate change update to backend server
-
-    await this.send_bitrate_change_update(bitrate_validated);
-  }
-  /**
-   * Prepares data and sends post request to REST API
-   * with information on new bitrate change.
-   * Also updates chrome.storage with current bitrate
-   * @param {Number} bitrate
-  */
-
-
-  async send_bitrate_change_update(bitrate) {
-    // Get previous bitrate and send update
-    const res = await chrome.storage.local.get([_config_config__WEBPACK_IMPORTED_MODULE_2__.STORAGE_KEYS.CURRENT_BITRATE, _config_config__WEBPACK_IMPORTED_MODULE_2__.STORAGE_KEYS.DATABASE_VIDEO_ID]);
-    const bitrate_data = {
-      video_id: res[_config_config__WEBPACK_IMPORTED_MODULE_2__.STORAGE_KEYS.DATABASE_VIDEO_ID],
-      previous: res[_config_config__WEBPACK_IMPORTED_MODULE_2__.STORAGE_KEYS.CURRENT_BITRATE],
-      timestamp: (0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_3__.get_local_datetime)(new Date()),
-      value: bitrate
-    };
-    /*await */
-
-    (0,_utils_http_requests_send_bitrate__WEBPACK_IMPORTED_MODULE_4__.send_bitrate)(bitrate_data); // <-- not waiting for response
-    // Save new current bitrate value to chrome.storage
-
-    await chrome.storage.local.set({
-      [_config_config__WEBPACK_IMPORTED_MODULE_2__.STORAGE_KEYS.CURRENT_BITRATE]: bitrate
-    });
-  }
-  /**
-   * Starts bitrate change interval
-  */
-
-
-  start_bitrate_change_interval() {
-    setInterval(async () => {
-      await this.set_bitrate();
-    }, this.interval);
-  }
-
-  // @ts-ignore
-  __reactstandin__regenerateByEval(key, code) {
-    // @ts-ignore
-    this[key] = eval(code);
-  }
-
-}
-
-const _default = BitrateController;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_default);
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(BitrateController, "BitrateController", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/main/modules/BitrateController.js");
-  reactHotLoader.register(_default, "default", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/main/modules/BitrateController.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
-/***/ "./src/pages/Content/main/modules/BufferResetter.js":
-/*!**********************************************************!*\
-  !*** ./src/pages/Content/main/modules/BufferResetter.js ***!
-  \**********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../utils/CustomLogger */ "./src/utils/CustomLogger.ts");
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-
-
-class BufferResetter {
-  constructor() {
-    this.logger = new _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_0__.CustomLogger("[BufferResetter]");
-    this.inject_code();
-  }
-
-  async reset() {
-    let interval = undefined;
-    const delay = 333;
-    return new Promise(resolve => {
-      interval = setInterval(async () => {
-        const seek_element = document.getElementById("seek_element");
-        const video = document.getElementsByTagName("video")[0];
-
-        if (seek_element != null && video != null) {
-          clearInterval(interval); // Clear interval immediately !!!
-          // Pause, mute and hide video as soon as possible
-
-          video.style.opacity = "0";
-          video.pause();
-          video.muted = true; // Proceed with resetting
-
-          await new Promise(resolve => {
-            setTimeout(() => {
-              this.logger.log("Navigating to 1000th second of video");
-              seek_element.setAttribute("timestamp", String(1000));
-              seek_element.click();
-              resolve();
-            }, delay);
-          });
-          await new Promise(resolve => {
-            setTimeout(() => {
-              this.logger.log("Navigating to the very beginning of the video");
-              seek_element.setAttribute("timestamp", String(0));
-              seek_element.click();
-              resolve();
-            }, delay);
-          });
-          await new Promise(resolve => {
-            setTimeout(() => {
-              this.logger.log("Resuming normal playback");
-              video.muted = false;
-              video.style.opacity = "1";
-              video.play();
-              resolve();
-            }, delay);
-          });
-          resolve();
-        } else {// nothing, try again
-        }
-      }, 10);
-    });
-  }
-
-  inject_code() {
-    this.logger.log("Injecting netflixControls.bundle.js script into the page");
-    const s = document.createElement('script');
-    s.src = chrome.runtime.getURL("netflixControls.bundle.js");
-    (document.head || document.documentElement).appendChild(s);
-    s.remove();
-  }
-
-  // @ts-ignore
-  __reactstandin__regenerateByEval(key, code) {
-    // @ts-ignore
-    this[key] = eval(code);
-  }
-
-}
-
-const _default = BufferResetter;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_default);
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(BufferResetter, "BufferResetter", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/main/modules/BufferResetter.js");
-  reactHotLoader.register(_default, "default", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/main/modules/BufferResetter.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
-/***/ "./src/pages/Content/main/modules/QualityScenarioManager.js":
-/*!******************************************************************!*\
-  !*** ./src/pages/Content/main/modules/QualityScenarioManager.js ***!
-  \******************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "QualityScenarioManager": () => (/* binding */ QualityScenarioManager),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../config/config */ "./src/config/config.ts");
-/* harmony import */ var _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/CustomLogger */ "./src/utils/CustomLogger.ts");
-/* harmony import */ var _BitrateController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BitrateController */ "./src/pages/Content/main/modules/BitrateController.js");
-/* harmony import */ var _utils_BitrateMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/BitrateMenu */ "./src/pages/Content/utils/BitrateMenu.ts");
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-
-
-
-
-
-class QualityScenarioManager {
-  scenario;
-  bitrate_interval;
-  logger;
-  bitrate_menu;
-  iterator;
-  bitrate_controller;
-
-  async init() {
-    this.bitrate_menu = new _utils_BitrateMenu__WEBPACK_IMPORTED_MODULE_3__.BitrateMenu();
-    await this.bitrate_menu.init();
-    this.logger = new _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[QualityScenarioManager]");
-    this.scenario = await this.prepare_video_scenario();
-    this.bitrate_interval = await this.prepare_bitrate_interval();
-    this.iterator = this.scenario_iterator(); // Start bitrate changes
-
-    this.bitrate_controller = new _BitrateController__WEBPACK_IMPORTED_MODULE_2__["default"](this.scenario, this.bitrate_interval, this.bitrate_menu, this.iterator);
-    await this.bitrate_controller.init();
-  }
-  /**
-   *  Method reads bitrate changes interval from config file. Provided in seconds has to be converted to ms.
-   */
-
-
-  async prepare_bitrate_interval() {
-    const configuration = (await chrome.storage.local.get([_config_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.CONFIGURATION]))[_config_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.CONFIGURATION];
-    const interval_s = configuration[_config_config__WEBPACK_IMPORTED_MODULE_0__.CONFIGURATION_KEYS.BITRATE_INTERVAL];
-
-    if (interval_s != null && typeof interval_s == 'number') {
-      this.logger.log(`Configuration's bitrate change interval - OK, ${interval_s}s = ${this.bitrate_interval}ms`);
-      return 1000 * interval_s;
-    } else {
-      this.logger.log(`Configuration's bitrate change interval missing or incorrect. Using default interval`);
-      return _config_config__WEBPACK_IMPORTED_MODULE_0__.BITRATE_INTERVAL;
-    }
-  }
-  /**
-   *  Method prepares scenario for current video.
-   *  Fetches configuration from chrome.storage.
-   */
-
-
-  async prepare_video_scenario() {
-    const storage = await chrome.storage.local.get([_config_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.CONFIGURATION, _config_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.VIDEO_COUNT]);
-    const configuration = storage[_config_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.CONFIGURATION];
-    const video_count = storage[_config_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.VIDEO_COUNT];
-    const video_index = video_count - 1;
-    return configuration[_config_config__WEBPACK_IMPORTED_MODULE_0__.CONFIGURATION_KEYS.VIDEOS][video_index][_config_config__WEBPACK_IMPORTED_MODULE_0__.CONFIGURATION_KEYS.VIDEO_KEYS.SCENARIO];
-  }
-  /**
-   * Yields scenario's items in loop
-   */
-
-
-  *scenario_iterator() {
-    let index = 0;
-
-    while (true) {
-      this.logger.log("Yielding...");
-      this.logger.log(this.scenario[index]);
-      yield this.scenario[index];
-
-      if (index >= this.scenario.length - 1) {
-        index = 0;
-      } else {
-        index += 1;
-      }
-    }
-  }
-
-  // @ts-ignore
-  __reactstandin__regenerateByEval(key, code) {
-    // @ts-ignore
-    this[key] = eval(code);
-  }
-
-}
-const _default = QualityScenarioManager;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_default);
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(QualityScenarioManager, "QualityScenarioManager", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/main/modules/QualityScenarioManager.js");
-  reactHotLoader.register(_default, "default", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/main/modules/QualityScenarioManager.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
-/***/ "./src/pages/Content/utils/keyboard_hotkeys/simulate_bitrate_menu_hotkeys.js":
-/*!***********************************************************************************!*\
-  !*** ./src/pages/Content/utils/keyboard_hotkeys/simulate_bitrate_menu_hotkeys.js ***!
-  \***********************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "simulate_bitrate_menu_hotkey": () => (/* binding */ simulate_bitrate_menu_hotkey)
-/* harmony export */ });
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-const simulate_bitrate_menu_hotkey = () => {
-  document.dispatchEvent(new KeyboardEvent("keydown", {
-    key: "S",
-    altKey: true,
-    ctrlKey: true,
-    shiftKey: true,
-    bubbles: true,
-    code: "KeyS",
-    which: 83,
-    cancelable: true,
-    composed: true,
-    keyCode: 83
-  }));
-};
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(simulate_bitrate_menu_hotkey, "simulate_bitrate_menu_hotkey", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/utils/keyboard_hotkeys/simulate_bitrate_menu_hotkeys.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
-/***/ "./src/pages/Content/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js":
-/*!********************************************************************************!*\
-  !*** ./src/pages/Content/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js ***!
-  \********************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "simulate_nerd_stats_hotkey": () => (/* binding */ simulate_nerd_stats_hotkey)
-/* harmony export */ });
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-const simulate_nerd_stats_hotkey = () => {
-  document.dispatchEvent(new KeyboardEvent("keydown", {
-    key: "D",
-    altKey: true,
-    ctrlKey: true,
-    shiftKey: true,
-    bubbles: true,
-    code: "KeyD",
-    which: 68,
-    cancelable: true,
-    composed: true,
-    keyCode: 68
-  }));
-};
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(simulate_nerd_stats_hotkey, "simulate_nerd_stats_hotkey", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
-/***/ "./src/pages/Content/utils/wait_for_video_to_load.js":
-/*!***********************************************************!*\
-  !*** ./src/pages/Content/utils/wait_for_video_to_load.js ***!
-  \***********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "wait_for_video_to_load": () => (/* binding */ wait_for_video_to_load)
-/* harmony export */ });
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-/**
- * Function waits for the essential html elements to be loaded and available for manipulation.
- * @returns {Promise<unknown>}
- */
-const wait_for_video_to_load = async () => {
-  return new Promise(resolve => {
-    let interval = undefined;
-    interval = setInterval(async () => {
-      try {
-        const video = document.getElementsByTagName("video")[0];
-        const ltr_element = document.querySelectorAll("[data-uia='video-canvas']")[0];
-
-        if (video && ltr_element) {
-          clearInterval(interval); // stop the retrying process - must be first
-
-          console.log("HTML video element is loaded. Proceeding...");
-          resolve();
-        } else {
-          console.log("Video element not found! Retrying...");
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    }, 50);
-  });
-};
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(wait_for_video_to_load, "wait_for_video_to_load", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/pages/Content/utils/wait_for_video_to_load.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
 /***/ "./src/utils/http_requests/config.js":
 /*!*******************************************!*\
   !*** ./src/utils/http_requests/config.js ***!
@@ -3345,65 +2515,6 @@ const backend_urls = {
 
 /***/ }),
 
-/***/ "./src/utils/http_requests/send_bitrate.js":
-/*!*************************************************!*\
-  !*** ./src/utils/http_requests/send_bitrate.js ***!
-  \*************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "send_bitrate": () => (/* binding */ send_bitrate)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config */ "./src/utils/http_requests/config.js");
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-
-
-const send_bitrate = async bitrate_data => {
-  try {
-    console.log(_config__WEBPACK_IMPORTED_MODULE_1__.backend_urls.bitrate);
-    const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(_config__WEBPACK_IMPORTED_MODULE_1__.backend_urls.bitrate, bitrate_data);
-
-    if (response.status === 201) {
-      console.log("Bitrate data submitted successfully");
-    }
-  } catch (err) {
-    console.log(err);
-  }
-};
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(send_bitrate, "send_bitrate", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/utils/http_requests/send_bitrate.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
 /***/ "./src/utils/http_requests/send_playback_data.js":
 /*!*******************************************************!*\
   !*** ./src/utils/http_requests/send_playback_data.js ***!
@@ -3417,7 +2528,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/config */ "./src/config/config.ts");
+/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config */ "./src/utils/http_requests/config.js");
 /* module decorator */ module = __webpack_require__.hmd(module);
 (function () {
@@ -3433,13 +2544,13 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
 
 
 const send_playback_data = async (playback_data, archive) => {
-  const res = await chrome.storage.local.get([_config_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID, _config_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.CURRENT_BITRATE]);
+  const res = await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID, _config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.CURRENT_BITRATE]);
   const data = {
     playback_data: { ...playback_data,
-      bitrate: res[_config_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.CURRENT_BITRATE]
+      bitrate: res[_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.CURRENT_BITRATE]
     },
     archive: archive,
-    video_id: res[_config_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]
+    video_id: res[_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]
   };
 
   try {
@@ -3473,6 +2584,86 @@ const send_playback_data = async (playback_data, archive) => {
 
 /***/ }),
 
+/***/ "./src/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js":
+/*!******************************************************************!*\
+  !*** ./src/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js ***!
+  \******************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "simulate_nerd_stats_hotkey": () => (/* binding */ simulate_nerd_stats_hotkey)
+/* harmony export */ });
+/* module decorator */ module = __webpack_require__.hmd(module);
+(function () {
+  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
+  enterModule && enterModule(module);
+})();
+
+var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
+  return a;
+};
+
+const simulate_nerd_stats_hotkey = () => {
+  document.dispatchEvent(new KeyboardEvent("keydown", {
+    key: "D",
+    altKey: true,
+    ctrlKey: true,
+    shiftKey: true,
+    bubbles: true,
+    code: "KeyD",
+    which: 68,
+    cancelable: true,
+    composed: true,
+    keyCode: 68
+  }));
+};
+;
+
+(function () {
+  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(simulate_nerd_stats_hotkey, "simulate_nerd_stats_hotkey", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js");
+})();
+
+;
+
+(function () {
+  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
+  leaveModule && leaveModule(module);
+})();
+
+/***/ }),
+
+/***/ "./src/config/archive.config.ts":
+/*!**************************************!*\
+  !*** ./src/config/archive.config.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ARCHIVE_DEFAULT": () => (/* binding */ ARCHIVE_DEFAULT),
+/* harmony export */   "ARCHIVE_KEYS": () => (/* binding */ ARCHIVE_KEYS)
+/* harmony export */ });
+const ARCHIVE_KEYS = {
+    DATA: 'data',
+    TIMESTAMP: 'timestamp',
+};
+const ARCHIVE_DEFAULT = {
+    [ARCHIVE_KEYS.DATA]: [],
+    [ARCHIVE_KEYS.TIMESTAMP]: [],
+};
+
+
+/***/ }),
+
 /***/ "./src/config/config.ts":
 /*!******************************!*\
   !*** ./src/config/config.ts ***!
@@ -3482,73 +2673,263 @@ const send_playback_data = async (playback_data, archive) => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ARCHIVE_DEFAULT": () => (/* binding */ ARCHIVE_DEFAULT),
-/* harmony export */   "ARCHIVE_KEYS": () => (/* binding */ ARCHIVE_KEYS),
-/* harmony export */   "ASSESSMENTS_DEFAULT": () => (/* binding */ ASSESSMENTS_DEFAULT),
-/* harmony export */   "ASSESSMENTS_KEYS": () => (/* binding */ ASSESSMENTS_KEYS),
 /* harmony export */   "ASSESSMENT_INTERVAL": () => (/* binding */ ASSESSMENT_INTERVAL),
 /* harmony export */   "BITRATE_INTERVAL": () => (/* binding */ BITRATE_INTERVAL),
-/* harmony export */   "CONFIGURATION_KEYS": () => (/* binding */ CONFIGURATION_KEYS),
-/* harmony export */   "DATABASE_KEYS": () => (/* binding */ DATABASE_KEYS),
-/* harmony export */   "EXTENSION_MODE_AVAILABLE": () => (/* binding */ EXTENSION_MODE_AVAILABLE),
-/* harmony export */   "MESSAGE_HEADERS": () => (/* binding */ MESSAGE_HEADERS),
-/* harmony export */   "MESSAGE_TEMPLATE": () => (/* binding */ MESSAGE_TEMPLATE),
 /* harmony export */   "STATS_INVISIBLE": () => (/* binding */ STATS_INVISIBLE),
 /* harmony export */   "STATS_NONCLICKABLE": () => (/* binding */ STATS_NONCLICKABLE),
-/* harmony export */   "STATS_RECORD_INTERVAL_MS": () => (/* binding */ STATS_RECORD_INTERVAL_MS),
-/* harmony export */   "STORAGE_DEFAULT": () => (/* binding */ STORAGE_DEFAULT),
-/* harmony export */   "STORAGE_KEYS": () => (/* binding */ STORAGE_KEYS)
+/* harmony export */   "STATS_RECORD_INTERVAL_MS": () => (/* binding */ STATS_RECORD_INTERVAL_MS)
 /* harmony export */ });
-/* harmony import */ var _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./default_experiment_config */ "./src/config/default_experiment_config.js");
-
 const STATS_RECORD_INTERVAL_MS = 1000; //1000 <---
 const STATS_NONCLICKABLE = true;
 const STATS_INVISIBLE = false;
 const BITRATE_INTERVAL = 5 * 60 * 1000; // <--- 5 minutes = 5*60*1000
 const ASSESSMENT_INTERVAL = 2.5 * 60 * 1000; // <--- 2.5*60*1000
-const DATABASE_KEYS = {
-    POSITION: 'position',
-    DURATION: 'duration',
-    VOLUME: 'volume',
-    SEGMENT_POSITION: 'segment_position',
-    PLAYER_STATE: 'player_state',
-    BUFFERING_STATE: 'buffering_state',
-    RENDERING_STATE: 'rendering_state',
-    PLAYING_BITRATE_AUDIO: 'playing_bitrate_audio',
-    PLAYING_BITRATE_VIDEO: 'playing_bitrate_video',
-    RESOLUTION: 'resolution',
-    PLAYING_VMAF: 'playing_vmaf',
-    BUFFERING_VMAF: 'buffering_vmaf',
-    BUFFERING_BITRATE_AUDIO: 'buffering_bitrate_audio',
-    BUFFERING_BITRATE_VIDEO: 'buffering_bitrate_video',
-    TOTAL_FRAMES: 'total_frames',
-    TOTAL_DROPPED_FRAMES: 'total_dropped_frames',
-    TOTAL_CORRUPTED_FRAMES: 'total_corrupted_frames',
-    FRAMERATE: 'framerate',
-    TIMESTAMP: 'timestamp',
+
+
+/***/ }),
+
+/***/ "./src/config/default_experiment_config.ts":
+/*!*************************************************!*\
+  !*** ./src/config/default_experiment_config.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DEFAULT_EXPERIMENT_CONFIGURATION": () => (/* binding */ DEFAULT_EXPERIMENT_CONFIGURATION)
+/* harmony export */ });
+const DEFAULT_EXPERIMENT_CONFIGURATION = {
+    "assessment_interval": 150,
+    "bitrate_interval": 150,
+    "description": "can be left as empty string",
+    "videos": [
+        {
+            "bitrate_vmaf_map": [
+                {
+                    "bitrate": 80,
+                    "vmaf": "37"
+                },
+                {
+                    "bitrate": 100,
+                    "vmaf": "43"
+                },
+                {
+                    "bitrate": 141,
+                    "vmaf": "52"
+                },
+                {
+                    "bitrate": 218,
+                    "vmaf": "63"
+                },
+                {
+                    "bitrate": 338,
+                    "vmaf": "71"
+                },
+                {
+                    "bitrate": 601,
+                    "vmaf": "79"
+                },
+                {
+                    "bitrate": 1149,
+                    "vmaf": "85"
+                },
+                {
+                    "bitrate": 2472,
+                    "vmaf": "88"
+                },
+                {
+                    "bitrate": 3439,
+                    "vmaf": "89"
+                },
+                {
+                    "bitrate": 5147,
+                    "vmaf": "90"
+                }
+            ],
+            "description": "Lorem ipsum",
+            "name": "Narcos_s01_e04",
+            "scenario": [
+                {
+                    "bitrate": 80,
+                    "vmaf": 37,
+                    "vmaf_diff": 17,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 141,
+                    "vmaf": 52,
+                    "vmaf_diff": 2,
+                    "vmaf_template": 50
+                },
+                {
+                    "bitrate": 80,
+                    "vmaf": 37,
+                    "vmaf_diff": 17,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 5147,
+                    "vmaf": 90,
+                    "vmaf_diff": 0,
+                    "vmaf_template": 90
+                },
+                {
+                    "bitrate": 100,
+                    "vmaf": 43,
+                    "vmaf_diff": 2,
+                    "vmaf_template": 45
+                },
+                {
+                    "bitrate": 141,
+                    "vmaf": 52,
+                    "vmaf_diff": 1,
+                    "vmaf_template": 51
+                }
+            ],
+            "url": "https://www.netflix.com/watch/70196252?trackId=14170286",
+            "vmaf_template_scenario": [
+                20,
+                50,
+                20,
+                90,
+                45,
+                51
+            ]
+        },
+        {
+            "bitrate_vmaf_map": [
+                {
+                    "bitrate": 86,
+                    "vmaf": "40"
+                },
+                {
+                    "bitrate": 106,
+                    "vmaf": "46"
+                },
+                {
+                    "bitrate": 146,
+                    "vmaf": "55"
+                },
+                {
+                    "bitrate": 233,
+                    "vmaf": "67"
+                },
+                {
+                    "bitrate": 369,
+                    "vmaf": "76"
+                },
+                {
+                    "bitrate": 623,
+                    "vmaf": "84"
+                },
+                {
+                    "bitrate": 976,
+                    "vmaf": "89"
+                },
+                {
+                    "bitrate": 1571,
+                    "vmaf": "92"
+                },
+                {
+                    "bitrate": 3083,
+                    "vmaf": "95"
+                }
+            ],
+            "description": "Lorem ipsum",
+            "name": "Narcos_s02_e02",
+            "scenario": [
+                {
+                    "bitrate": 86,
+                    "vmaf": 40,
+                    "vmaf_diff": 20,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 106,
+                    "vmaf": 46,
+                    "vmaf_diff": 4,
+                    "vmaf_template": 50
+                },
+                {
+                    "bitrate": 86,
+                    "vmaf": 40,
+                    "vmaf_diff": 20,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 976,
+                    "vmaf": 89,
+                    "vmaf_diff": 1,
+                    "vmaf_template": 90
+                },
+                {
+                    "bitrate": 106,
+                    "vmaf": 46,
+                    "vmaf_diff": 1,
+                    "vmaf_template": 45
+                },
+                {
+                    "bitrate": 146,
+                    "vmaf": 55,
+                    "vmaf_diff": 4,
+                    "vmaf_template": 51
+                }
+            ],
+            "url": "https://www.netflix.com/watch/80101274?trackId=14170286",
+            "vmaf_template_scenario": [
+                20,
+                50,
+                20,
+                90,
+                45,
+                51
+            ]
+        }
+    ],
+    "title": "This is my config for development purposes"
 };
-const ARCHIVE_KEYS = {
-    DATA: 'data',
-    TIMESTAMP: 'timestamp',
+
+
+/***/ }),
+
+/***/ "./src/config/messages.config.ts":
+/*!***************************************!*\
+  !*** ./src/config/messages.config.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MESSAGE_HEADERS": () => (/* binding */ MESSAGE_HEADERS)
+/* harmony export */ });
+const MESSAGE_HEADERS = {
+    START_ANALYZING: 'start_analyzing',
+    NERD_STATISTICS: 'nerdstats',
+    ASSESSMENT: 'assessment',
+    FINISHED: 'finished',
+    CREDITS: 'credits',
+    REDIRECT: 'redirect'
 };
-const ARCHIVE_DEFAULT = {
-    [ARCHIVE_KEYS.DATA]: [],
-    [ARCHIVE_KEYS.TIMESTAMP]: [],
-};
-const ASSESSMENTS_KEYS = {
-    VALUE: 'value',
-    DESCRIPTION: 'description',
-    TIMESTAMP: 'timestamp',
-    STARTED: 'started',
-    DURATION: 'duration',
-};
-const ASSESSMENTS_DEFAULT = {
-    [ASSESSMENTS_KEYS.VALUE]: [],
-    [ASSESSMENTS_KEYS.DESCRIPTION]: [],
-    [ASSESSMENTS_KEYS.TIMESTAMP]: [],
-    [ASSESSMENTS_KEYS.STARTED]: [],
-    [ASSESSMENTS_KEYS.DURATION]: [],
-};
+
+
+/***/ }),
+
+/***/ "./src/config/storage.config.ts":
+/*!**************************************!*\
+  !*** ./src/config/storage.config.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "STORAGE_DEFAULT": () => (/* binding */ STORAGE_DEFAULT),
+/* harmony export */   "STORAGE_KEYS": () => (/* binding */ STORAGE_KEYS)
+/* harmony export */ });
+/* harmony import */ var _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./default_experiment_config */ "./src/config/default_experiment_config.ts");
+
 const STORAGE_KEYS = {
     DATA_TO_SAVE: 'data_to_save',
     ARCHIVE_TO_SAVE: 'archive_to_save',
@@ -3568,21 +2949,6 @@ const STORAGE_KEYS = {
     EXTENSION_MODE: "extension_mode",
     CONFIGURATION: "configuration"
 };
-const CONFIGURATION_KEYS = {
-    TITLE: "title",
-    DESCRIPTION: "description",
-    BITRATE_INTERVAL: "bitrate_interval",
-    ASSESSMENT_INTERVAL: "assessment_interval",
-    VIDEOS: "videos",
-    VIDEO_KEYS: {
-        NAME: "name",
-        DESCRIPTION: "description",
-        URL: "url",
-        VMAF_TEMPLATE_SCENARIO: "vmaf_template_scenario",
-        BITRATE_VMAF_MAP: "bitrate_vmaf_map",
-        SCENARIO: "scenario",
-    }
-};
 const STORAGE_DEFAULT = {
     [STORAGE_KEYS.DATABASE_EXPERIMENT_ID]: null,
     [STORAGE_KEYS.DATABASE_VIDEO_ID]: null,
@@ -3596,23 +2962,29 @@ const STORAGE_DEFAULT = {
     [STORAGE_KEYS.EXTENSION_MODE]: "experiment",
     [STORAGE_KEYS.CONFIGURATION]: _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__.DEFAULT_EXPERIMENT_CONFIGURATION
 };
-const EXTENSION_MODE_AVAILABLE = {
-    EXPERIMENT: "experiment",
-    MAPPING: "mapping"
+
+
+/***/ }),
+
+/***/ "./src/pages/Content/main/index.ts":
+/*!*****************************************!*\
+  !*** ./src/pages/Content/main/index.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_StatsAnalyzer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/StatsAnalyzer */ "./src/pages/Content/main/modules/StatsAnalyzer.ts");
+/* harmony import */ var _modules_CustomPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/CustomPlayer */ "./src/pages/Content/main/modules/CustomPlayer.ts");
+
+
+const init = async () => {
+    const statsAnalyzer = new _modules_StatsAnalyzer__WEBPACK_IMPORTED_MODULE_0__.StatsAnalyzer();
+    await statsAnalyzer.init();
+    const customPlayer = new _modules_CustomPlayer__WEBPACK_IMPORTED_MODULE_1__.CustomPlayer();
+    await customPlayer.init();
 };
-const MESSAGE_TEMPLATE = {
-    HEADER: 'header',
-    DATA: 'data',
-    ARCHIVE: 'archive',
-};
-const MESSAGE_HEADERS = {
-    START_ANALYZING: 'start_analyzing',
-    NERD_STATISTICS: 'nerdstats',
-    ASSESSMENT: 'assessment',
-    FINISHED: 'finished',
-    CREDITS: 'credits',
-    REDIRECT: 'redirect'
-};
+init();
 
 
 /***/ }),
@@ -3628,8 +3000,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CustomPlayer": () => (/* binding */ CustomPlayer)
 /* harmony export */ });
-/* harmony import */ var _utils_wait_for_video_to_load__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/wait_for_video_to_load */ "./src/pages/Content/utils/wait_for_video_to_load.js");
-/* harmony import */ var _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/CustomLogger */ "./src/utils/CustomLogger.ts");
+/* harmony import */ var _utils_wait_for_video_to_load__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../utils/wait_for_video_to_load */ "./src/utils/wait_for_video_to_load.ts");
+/* harmony import */ var _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/classes/CustomLogger */ "./src/utils/classes/CustomLogger.ts");
 
 
 class CustomPlayer {
@@ -3666,7 +3038,7 @@ class CustomPlayer {
             const selector = `[data-uia='${element_data_uia}']`;
             return container.querySelectorAll(selector)[0];
         };
-        this.logger = new _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[CustomPlayer]");
+        this.logger = new _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[CustomPlayer]");
     }
     modify_element(element) {
         if (element && element.parentNode) {
@@ -3713,11 +3085,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "StatsAnalyzer": () => (/* binding */ StatsAnalyzer)
 /* harmony export */ });
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../config/config */ "./src/config/config.ts");
-/* harmony import */ var _utils_time_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/time_utils */ "./src/utils/time_utils.ts");
-/* harmony import */ var _utils_http_requests_send_playback_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/http_requests/send_playback_data */ "./src/utils/http_requests/send_playback_data.js");
-/* harmony import */ var _utils_StatisticsMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/StatisticsMenu */ "./src/pages/Content/utils/StatisticsMenu.ts");
-/* harmony import */ var _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../utils/CustomLogger */ "./src/utils/CustomLogger.ts");
+/* harmony import */ var _config_messages_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../config/messages.config */ "./src/config/messages.config.ts");
+/* harmony import */ var _config_archive_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../config/archive.config */ "./src/config/archive.config.ts");
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../config/config */ "./src/config/config.ts");
+/* harmony import */ var _utils_time_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../utils/time_utils */ "./src/utils/time_utils.ts");
+/* harmony import */ var _utils_http_requests_send_playback_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../utils/http_requests/send_playback_data */ "./src/utils/http_requests/send_playback_data.js");
+/* harmony import */ var _utils_classes_StatisticsMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/classes/StatisticsMenu */ "./src/utils/classes/StatisticsMenu.ts");
+/* harmony import */ var _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../utils/classes/CustomLogger */ "./src/utils/classes/CustomLogger.ts");
+
 
 
 
@@ -3729,7 +3104,7 @@ class StatsAnalyzer {
         this.init = async () => {
             this.logger.log(`Initializing...`);
             // Create StatisticsMenu class instance
-            this.stats_menu = new _utils_StatisticsMenu__WEBPACK_IMPORTED_MODULE_3__.StatisticsMenu();
+            this.stats_menu = new _utils_classes_StatisticsMenu__WEBPACK_IMPORTED_MODULE_5__.StatisticsMenu();
             await this.stats_menu.init();
             // Start recording playback statistics
             await this.start_recording();
@@ -3739,24 +3114,24 @@ class StatsAnalyzer {
                 if (this.stats_menu == null) {
                     return;
                 }
-                const timestamp = (0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_1__.get_local_datetime)(new Date());
+                const timestamp = (0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_3__.get_local_datetime)(new Date());
                 const data = this.stats_menu.analyze_statistics_text();
                 data.timestamp = timestamp;
                 const archive = this.compile_archive(this.stats_menu.get_statistics_text(), timestamp);
                 // Send playback data to backend
                 // NOT USING await --> not waiting for response
-                /*await*/ (0,_utils_http_requests_send_playback_data__WEBPACK_IMPORTED_MODULE_2__.send_playback_data)(data, archive);
+                /*await*/ (0,_utils_http_requests_send_playback_data__WEBPACK_IMPORTED_MODULE_4__.send_playback_data)(data, archive);
                 // Check if credits are available and remove container
                 await this.are_credits_available();
-            }, _config_config__WEBPACK_IMPORTED_MODULE_0__.STATS_RECORD_INTERVAL_MS);
+            }, _config_config__WEBPACK_IMPORTED_MODULE_2__.STATS_RECORD_INTERVAL_MS);
         };
         this.compile_archive = (data, timestamp) => {
             return {
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.ARCHIVE_KEYS.DATA]: data,
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.ARCHIVE_KEYS.TIMESTAMP]: timestamp
+                [_config_archive_config__WEBPACK_IMPORTED_MODULE_1__.ARCHIVE_KEYS.DATA]: data,
+                [_config_archive_config__WEBPACK_IMPORTED_MODULE_1__.ARCHIVE_KEYS.TIMESTAMP]: timestamp
             };
         };
-        this.logger = new _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_4__.CustomLogger("[StatsAnalyzer]");
+        this.logger = new _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_6__.CustomLogger("[StatsAnalyzer]");
     }
     /**
      * This method checks if certain HTML elements are available in DOM tree.
@@ -3776,10 +3151,10 @@ class StatsAnalyzer {
             // Pause the video
             document.getElementsByTagName("video")[0].pause();
             // Send FINISHED signal to the BackgroundScript
-            await chrome.runtime.sendMessage({
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_TEMPLATE.HEADER]: _config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_HEADERS.FINISHED,
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_TEMPLATE.DATA]: true
-            });
+            const message = {
+                header: _config_messages_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_HEADERS.FINISHED
+            };
+            await chrome.runtime.sendMessage(message);
         }
         else if (player_space) {
             // Stop analyzing
@@ -3787,10 +3162,10 @@ class StatsAnalyzer {
             // Pause the video
             document.getElementsByTagName("video")[0].pause();
             // Send FINISHED signal to the BackgroundScript
-            await chrome.runtime.sendMessage({
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_TEMPLATE.HEADER]: _config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_HEADERS.FINISHED,
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_TEMPLATE.DATA]: true
-            });
+            const message = {
+                header: _config_messages_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_HEADERS.FINISHED
+            };
+            await chrome.runtime.sendMessage(message);
         }
         else if (outer_container) {
             // Click watch credits button
@@ -3802,10 +3177,10 @@ class StatsAnalyzer {
             // Pause the video
             document.getElementsByTagName("video")[0].pause();
             // Send FINISHED signal to the BackgroundScript
-            await chrome.runtime.sendMessage({
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_TEMPLATE.HEADER]: _config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_HEADERS.FINISHED,
-                [_config_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_TEMPLATE.DATA]: true
-            });
+            const message = {
+                header: _config_messages_config__WEBPACK_IMPORTED_MODULE_0__.MESSAGE_HEADERS.FINISHED
+            };
+            await chrome.runtime.sendMessage(message);
         }
     }
 }
@@ -3813,111 +3188,37 @@ class StatsAnalyzer {
 
 /***/ }),
 
-/***/ "./src/pages/Content/utils/BitrateMenu.ts":
-/*!************************************************!*\
-  !*** ./src/pages/Content/utils/BitrateMenu.ts ***!
-  \************************************************/
+/***/ "./src/utils/classes/CustomLogger.ts":
+/*!*******************************************!*\
+  !*** ./src/utils/classes/CustomLogger.ts ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BitrateMenu": () => (/* binding */ BitrateMenu)
+/* harmony export */   "CustomLogger": () => (/* binding */ CustomLogger)
 /* harmony export */ });
-/* harmony import */ var _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/CustomLogger */ "./src/utils/CustomLogger.ts");
-/* harmony import */ var _get_bitrate_menu_elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get_bitrate_menu_elements */ "./src/pages/Content/utils/get_bitrate_menu_elements.ts");
-/* harmony import */ var _keyboard_hotkeys_simulate_bitrate_menu_hotkeys__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./keyboard_hotkeys/simulate_bitrate_menu_hotkeys */ "./src/pages/Content/utils/keyboard_hotkeys/simulate_bitrate_menu_hotkeys.js");
+/* harmony import */ var _time_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../time_utils */ "./src/utils/time_utils.ts");
 
-
-
-class BitrateMenu {
-    constructor() {
-        /**
-         *  Invokes bitrate menu and assings bitrate menu's HTML elements
-         *  to instance attributes.
-         *  Closes bitrate menu by simulating click event on Reset button.
-        */
-        this.init = async () => {
-            await this.invoke_bitrate_menu();
-            //this.reset_button.click()   <-- alternative way of closing the menu but it also resets the bitrates
-            (0,_keyboard_hotkeys_simulate_bitrate_menu_hotkeys__WEBPACK_IMPORTED_MODULE_2__.simulate_bitrate_menu_hotkey)(); // Close bitrate menu after initialization is finished
+class CustomLogger {
+    constructor(prefix) {
+        this.log = (content) => {
+            const prefix_date = `${this.prefix} | ${(0,_time_utils__WEBPACK_IMPORTED_MODULE_0__.get_local_datetime)(new Date())} |`;
+            this.original_logger(prefix_date, content);
         };
-        /**
-         *  Invokes bitrate_menu and reassigns HTML elements
-         *  Reassigning elements is important because bitrate menu is removed from DOM tree
-         *  after overriding bitrate value or reseting
-        */
-        this.invoke_bitrate_menu = async () => {
-            this.logger.log("Invoking bitrate menu...");
-            // Invoke bitrate menu and get html elements
-            this.bitrate_menu_elements = await (0,_get_bitrate_menu_elements__WEBPACK_IMPORTED_MODULE_1__.invoke_bitrate_menu_and_get_html_elements)();
-            this.available_bitrates = this.bitrate_menu_elements.bitrate_values;
-            this.override_button = this.bitrate_menu_elements.override_button;
-            this.reset_button = this.bitrate_menu_elements.reset_button;
-            this.select = this.bitrate_menu_elements.select;
-            this.logger.log("Bitrate menu invoked.");
-        };
-        /**
-         * Returns array of available bitrate values
-         * @returns {Array<number>} Available bitrate values
-        */
-        this.get_available_bitrates = () => {
-            return this.available_bitrates;
-        };
-        /**
-         * Returns HTML elements of bitrate menu
-         * @returns {T_BITRATE_MENU_ELEMENTS}
-        */
-        this.get_bitrate_menu_elements = () => {
-            if (this.bitrate_menu_elements) {
-                return this.bitrate_menu_elements;
-            }
-        };
-        /**
-         * Method checks if provided bitrate is available in bitrate menu.
-         * If it is then the same value is returned.
-         * If not - the closest value is found and returned.
-         * @param {number} bitrate
-         * @returns {number} Returns closest available bitrate to provided value
-        */
-        this.check_bitrate_availability = (bitrate) => {
-            if (this.available_bitrates.includes(bitrate)) {
-                return bitrate;
-            }
-            else {
-                this.logger.log("Provided bitrate is not available. Finding closest value...");
-                const closest_bitrate = this.available_bitrates.reduce((prev, curr) => {
-                    return (Math.abs(curr - bitrate) < Math.abs(prev - bitrate) ? curr : prev);
-                });
-                this.logger.log(`Closest bitrate to ${bitrate} is ${closest_bitrate}`);
-                return closest_bitrate;
-            }
-        };
-        this.available_bitrates = [];
-        this.logger = new _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_0__.CustomLogger("[BitrateMenu]");
-    }
-    /**
-     * Overrides current bitrate with new bitrate value
-     * provided as a parameter
-     * @param {number} bitrate
-    */
-    async set_bitrate(bitrate) {
-        if (this.select && this.override_button) {
-            this.logger.log(`Setting bitrate to: ${bitrate}`);
-            this.select.value = bitrate.toString();
-            this.logger.log(`SELECTED BITRATE VALUE: ${this.select.value}`);
-            this.override_button.click();
-        }
+        this.prefix = prefix;
+        this.original_logger = console.log;
     }
 }
 
 
 /***/ }),
 
-/***/ "./src/pages/Content/utils/StatisticsMenu.ts":
-/*!***************************************************!*\
-  !*** ./src/pages/Content/utils/StatisticsMenu.ts ***!
-  \***************************************************/
+/***/ "./src/utils/classes/StatisticsMenu.ts":
+/*!*********************************************!*\
+  !*** ./src/utils/classes/StatisticsMenu.ts ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3925,8 +3226,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "StatisticsMenu": () => (/* binding */ StatisticsMenu)
 /* harmony export */ });
-/* harmony import */ var _get_statistics_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./get_statistics_element */ "./src/pages/Content/utils/get_statistics_element.ts");
-/* harmony import */ var _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/CustomLogger */ "./src/utils/CustomLogger.ts");
+/* harmony import */ var _html_element_extractors_get_statistics_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../html_element_extractors/get_statistics_element */ "./src/utils/html_element_extractors/get_statistics_element.ts");
+/* harmony import */ var _CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CustomLogger */ "./src/utils/classes/CustomLogger.ts");
 
 
 class StatisticsMenu {
@@ -3942,7 +3243,7 @@ class StatisticsMenu {
          *  and assigns statistics element to the instance's attribute
         */
         this.invoke_statistics_menu = async () => {
-            this.stats_element = await (0,_get_statistics_element__WEBPACK_IMPORTED_MODULE_0__.get_statistics_element)();
+            this.stats_element = await (0,_html_element_extractors_get_statistics_element__WEBPACK_IMPORTED_MODULE_0__.get_statistics_element)();
         };
         /**
          * Returns statistics element's value parsed to string.
@@ -4013,87 +3314,17 @@ class StatisticsMenu {
                 return null;
             }
         };
-        this.logger = new _utils_CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[StatisticsMenu]");
+        this.logger = new _CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[StatisticsMenu]");
     }
 }
 
 
 /***/ }),
 
-/***/ "./src/pages/Content/utils/get_bitrate_menu_elements.ts":
-/*!**************************************************************!*\
-  !*** ./src/pages/Content/utils/get_bitrate_menu_elements.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "invoke_bitrate_menu_and_get_html_elements": () => (/* binding */ invoke_bitrate_menu_and_get_html_elements)
-/* harmony export */ });
-/* harmony import */ var _keyboard_hotkeys_simulate_bitrate_menu_hotkeys_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./keyboard_hotkeys/simulate_bitrate_menu_hotkeys.js */ "./src/pages/Content/utils/keyboard_hotkeys/simulate_bitrate_menu_hotkeys.js");
-
-/**
- * Function executes subfunction in intervals until bitrate menu elements are retrieved
- * and HTML elements are extracted using extract_html_elements method
-*/
-const invoke_bitrate_menu_and_get_html_elements = async () => {
-    return new Promise((resolve) => {
-        let timer;
-        timer = setInterval(() => {
-            // Simulate bitrate menu hotkey
-            (0,_keyboard_hotkeys_simulate_bitrate_menu_hotkeys_js__WEBPACK_IMPORTED_MODULE_0__.simulate_bitrate_menu_hotkey)();
-            try {
-                const bitrate_menu_elements = extract_html_elements();
-                const bitrate_values = bitrate_menu_elements.bitrate_values;
-                const override_button = bitrate_menu_elements.override_button;
-                const reset_button = bitrate_menu_elements.reset_button;
-                // Set opacity of the element to required value
-                if (bitrate_values.length > 0 && override_button != null && reset_button != null) {
-                    clearInterval(timer);
-                    resolve(bitrate_menu_elements);
-                }
-            }
-            catch (err) {
-                console.log(err);
-            }
-        }, 500);
-    });
-};
-/**
- * Helper method used to extract HTML elemnets from DOM tree
- * @returns{object} Object of key:values where values are HTML elements, possible to unpack
-*/
-const extract_html_elements = () => {
-    // Get outter menu container
-    const container = [...document.querySelectorAll("div")].filter(item => item.innerText.match("Video Bitrate"))[1];
-    const override_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Override"))[0];
-    const reset_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Reset"))[0];
-    // Get bitrate menu container
-    const bitrate_menu_div = container.childNodes[1];
-    const select = bitrate_menu_div.childNodes[1];
-    const options = Array.from(bitrate_menu_div.childNodes[1].childNodes);
-    const bitrate_values = Array.from(bitrate_menu_div.childNodes[1].childNodes).map(option => {
-        const o = option;
-        return parseInt(o.value);
-    });
-    return {
-        container: container,
-        override_button: override_button,
-        reset_button: reset_button,
-        select: select,
-        options: options,
-        bitrate_values: bitrate_values
-    };
-};
-
-
-/***/ }),
-
-/***/ "./src/pages/Content/utils/get_statistics_element.ts":
-/*!***********************************************************!*\
-  !*** ./src/pages/Content/utils/get_statistics_element.ts ***!
-  \***********************************************************/
+/***/ "./src/utils/html_element_extractors/get_statistics_element.ts":
+/*!*********************************************************************!*\
+  !*** ./src/utils/html_element_extractors/get_statistics_element.ts ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4101,8 +3332,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "get_statistics_element": () => (/* binding */ get_statistics_element)
 /* harmony export */ });
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../config/config */ "./src/config/config.ts");
-/* harmony import */ var _keyboard_hotkeys_simulate_nerd_stats_hotkey__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./keyboard_hotkeys/simulate_nerd_stats_hotkey */ "./src/pages/Content/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js");
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/config */ "./src/config/config.ts");
+/* harmony import */ var _keyboard_hotkeys_simulate_nerd_stats_hotkey__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../keyboard_hotkeys/simulate_nerd_stats_hotkey */ "./src/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js");
 
 
 
@@ -4131,33 +3362,6 @@ const get_statistics_element = () => {
         }, 100);
     });
 };
-
-
-/***/ }),
-
-/***/ "./src/utils/CustomLogger.ts":
-/*!***********************************!*\
-  !*** ./src/utils/CustomLogger.ts ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CustomLogger": () => (/* binding */ CustomLogger)
-/* harmony export */ });
-/* harmony import */ var _time_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./time_utils */ "./src/utils/time_utils.ts");
-
-class CustomLogger {
-    constructor(prefix) {
-        this.log = (content) => {
-            const prefix_date = `${this.prefix} | ${(0,_time_utils__WEBPACK_IMPORTED_MODULE_0__.get_local_datetime)(new Date())} |`;
-            this.original_logger(prefix_date, content);
-        };
-        this.prefix = prefix;
-        this.original_logger = console.log;
-    }
-}
 
 
 /***/ }),
@@ -4206,6 +3410,47 @@ const get_local_datetime_and_timezone = (object) => {
         const timezone_standard = "-" + offset_hrs.toString().padStart(2, "0") + ":" + offset_min.toString().padStart(2, "0");
         return datetime + timezone_standard;
     }
+};
+
+
+/***/ }),
+
+/***/ "./src/utils/wait_for_video_to_load.ts":
+/*!*********************************************!*\
+  !*** ./src/utils/wait_for_video_to_load.ts ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "wait_for_video_to_load": () => (/* binding */ wait_for_video_to_load)
+/* harmony export */ });
+/**
+ * Function waits for the essential html elements to be loaded and available for manipulation.
+ * @returns {Promise<unknown>}
+ */
+const wait_for_video_to_load = async () => {
+    return new Promise((resolve) => {
+        let interval;
+        interval = setInterval(async () => {
+            try {
+                const video = document.getElementsByTagName("video")[0];
+                const video_canvas = document.querySelectorAll("[data-uia='video-canvas']")[0];
+                if (video && video_canvas) {
+                    clearInterval(interval); // stop the retrying process - must be first
+                    console.log("HTML video element is loaded. Proceeding...");
+                    resolve();
+                }
+                else {
+                    console.log("Video element not found! Retrying...");
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }, 50);
+    });
 };
 
 
@@ -4299,7 +3544,7 @@ const get_local_datetime_and_timezone = (object) => {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("074a38af9f8d3560b4f5")
+/******/ 		__webpack_require__.h = () => ("fffd07b2b831b171dc7b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/harmony module decorator */
@@ -5298,7 +4543,7 @@ const get_local_datetime_and_timezone = (object) => {
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/Content/main/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/Content/main/index.ts");
 /******/ 	
 /******/ })()
 ;

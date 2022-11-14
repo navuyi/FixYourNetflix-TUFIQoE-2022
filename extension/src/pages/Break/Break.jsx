@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Break.css';
 import './Break.scss';
 import { save_json } from "../../utils/save_json"
-import { CONFIGURATION_KEYS, STORAGE_DEFAULT } from '../../config/config';
 import { useEffect } from "react";
-import { STORAGE_KEYS } from "../../config/config";
+import { STORAGE_DEFAULT } from '../../config/storage.config';
+import { STORAGE_KEYS } from '../../config/storage.config';
 import { get_local_datetime } from "../../utils/time_utils"
 import { update_video } from '../../utils/http_requests/update_video';
 import { create_video } from '../../utils/http_requests/create_video';

@@ -33497,186 +33497,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./src/config/default_experiment_config.js":
-/*!*************************************************!*\
-  !*** ./src/config/default_experiment_config.js ***!
-  \*************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DEFAULT_EXPERIMENT_CONFIGURATION": () => (/* binding */ DEFAULT_EXPERIMENT_CONFIGURATION)
-/* harmony export */ });
-/* module decorator */ module = __webpack_require__.hmd(module);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
-  return a;
-};
-
-const DEFAULT_EXPERIMENT_CONFIGURATION = {
-  "assessment_interval": 150,
-  "bitrate_interval": 150,
-  "description": "can be left as empty string",
-  "videos": [{
-    "bitrate_vmaf_map": [{
-      "bitrate": 80,
-      "vmaf": "37"
-    }, {
-      "bitrate": 100,
-      "vmaf": "43"
-    }, {
-      "bitrate": 141,
-      "vmaf": "52"
-    }, {
-      "bitrate": 218,
-      "vmaf": "63"
-    }, {
-      "bitrate": 338,
-      "vmaf": "71"
-    }, {
-      "bitrate": 601,
-      "vmaf": "79"
-    }, {
-      "bitrate": 1149,
-      "vmaf": "85"
-    }, {
-      "bitrate": 2472,
-      "vmaf": "88"
-    }, {
-      "bitrate": 3439,
-      "vmaf": "89"
-    }, {
-      "bitrate": 5147,
-      "vmaf": "90"
-    }],
-    "description": "Lorem ipsum",
-    "name": "Narcos_s01_e04",
-    "scenario": [{
-      "bitrate": 80,
-      "vmaf": 37,
-      "vmaf_diff": 17,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 141,
-      "vmaf": 52,
-      "vmaf_diff": 2,
-      "vmaf_template": 50
-    }, {
-      "bitrate": 80,
-      "vmaf": 37,
-      "vmaf_diff": 17,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 5147,
-      "vmaf": 90,
-      "vmaf_diff": 0,
-      "vmaf_template": 90
-    }, {
-      "bitrate": 100,
-      "vmaf": 43,
-      "vmaf_diff": 2,
-      "vmaf_template": 45
-    }, {
-      "bitrate": 141,
-      "vmaf": 52,
-      "vmaf_diff": 1,
-      "vmaf_template": 51
-    }],
-    "url": "https://www.netflix.com/watch/70196252?trackId=14170286",
-    "vmaf_template_scenario": [20, 50, 20, 90, 45, 51]
-  }, {
-    "bitrate_vmaf_map": [{
-      "bitrate": 86,
-      "vmaf": "40"
-    }, {
-      "bitrate": 106,
-      "vmaf": "46"
-    }, {
-      "bitrate": 146,
-      "vmaf": "55"
-    }, {
-      "bitrate": 233,
-      "vmaf": "67"
-    }, {
-      "bitrate": 369,
-      "vmaf": "76"
-    }, {
-      "bitrate": 623,
-      "vmaf": "84"
-    }, {
-      "bitrate": 976,
-      "vmaf": "89"
-    }, {
-      "bitrate": 1571,
-      "vmaf": "92"
-    }, {
-      "bitrate": 3083,
-      "vmaf": "95"
-    }],
-    "description": "Lorem ipsum",
-    "name": "Narcos_s02_e02",
-    "scenario": [{
-      "bitrate": 86,
-      "vmaf": 40,
-      "vmaf_diff": 20,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 106,
-      "vmaf": 46,
-      "vmaf_diff": 4,
-      "vmaf_template": 50
-    }, {
-      "bitrate": 86,
-      "vmaf": 40,
-      "vmaf_diff": 20,
-      "vmaf_template": 20
-    }, {
-      "bitrate": 976,
-      "vmaf": 89,
-      "vmaf_diff": 1,
-      "vmaf_template": 90
-    }, {
-      "bitrate": 106,
-      "vmaf": 46,
-      "vmaf_diff": 1,
-      "vmaf_template": 45
-    }, {
-      "bitrate": 146,
-      "vmaf": 55,
-      "vmaf_diff": 4,
-      "vmaf_template": 51
-    }],
-    "url": "https://www.netflix.com/watch/80101274?trackId=14170286",
-    "vmaf_template_scenario": [20, 50, 20, 90, 45, 51]
-  }],
-  "title": "This is my config for development purposes"
-};
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(DEFAULT_EXPERIMENT_CONFIGURATION, "DEFAULT_EXPERIMENT_CONFIGURATION", "/Users/navuyi/Desktop/tufiqoe/FixYourNetflix-TUFIQoE-2022/extension/src/config/default_experiment_config.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-
-/***/ }),
-
 /***/ "./src/pages/Break/Break.jsx":
 /*!***********************************!*\
   !*** ./src/pages/Break/Break.jsx ***!
@@ -33692,7 +33512,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Break_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Break.css */ "./src/pages/Break/Break.css");
 /* harmony import */ var _Break_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Break.scss */ "./src/pages/Break/Break.scss");
 /* harmony import */ var _utils_save_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/save_json */ "./src/utils/save_json.js");
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config/config */ "./src/config/config.ts");
+/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
 /* harmony import */ var _utils_time_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/time_utils */ "./src/utils/time_utils.ts");
 /* harmony import */ var _utils_http_requests_update_video__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/http_requests/update_video */ "./src/utils/http_requests/update_video.js");
 /* harmony import */ var _utils_http_requests_create_video__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/http_requests/create_video */ "./src/utils/http_requests/create_video.js");
@@ -33734,14 +33554,14 @@ const Break = () => {
   });
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(() => {
     const init = async () => {
-      const res = await chrome.storage.local.get([_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_VIDEO_ID, _config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_EXPERIMENT_ID, _config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_LIMIT, _config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_COUNT]);
-      const video_limit = parseInt(res[_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_LIMIT]);
-      const video_count = parseInt(res[_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_COUNT]);
+      const res = await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_VIDEO_ID, _config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_EXPERIMENT_ID, _config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_LIMIT, _config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_COUNT]);
+      const video_limit = parseInt(res[_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_LIMIT]);
+      const video_count = parseInt(res[_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.VIDEO_COUNT]);
       const video_index = video_count - 1; //Update current video information --> updating video end time
 
       const update_data = {
         timestamp: (0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_5__.get_local_datetime)(new Date()),
-        video_id: res[_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_VIDEO_ID]
+        video_id: res[_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_VIDEO_ID]
       };
       await (0,_utils_http_requests_update_video__WEBPACK_IMPORTED_MODULE_6__.update_video)(update_data);
       console.log(`Video count: ${video_count}     Video limit: ${video_limit}`);
@@ -33759,15 +33579,15 @@ const Break = () => {
   const prepare_to_next_video = (res, video_index) => {
     setTimeout(async () => {
       // Get configuration
-      const configuration = (await chrome.storage.local.get([_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.CONFIGURATION]))[_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.CONFIGURATION];
-      const episodes = configuration[_config_config__WEBPACK_IMPORTED_MODULE_4__.CONFIGURATION_KEYS.VIDEOS]; // Create new video in database
+      const configuration = (await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.CONFIGURATION]))[_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.CONFIGURATION];
+      const episodes = configuration[CONFIGURATION_KEYS.VIDEOS]; // Create new video in database
 
       const next_video_index = video_index + 1;
       const next_url = episodes[next_video_index].url;
       console.log(next_url);
       const next_video_data = {
         started: (0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_5__.get_local_datetime)(new Date()),
-        experiment_id: res[_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_EXPERIMENT_ID],
+        experiment_id: res[_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_KEYS.DATABASE_EXPERIMENT_ID],
         video_index: next_video_index,
         // Next video index
         url: next_url
@@ -33790,7 +33610,7 @@ const Break = () => {
   const finish_experiment = () => {
     setFinished(true);
     setTimeout(async () => {
-      await chrome.storage.local.set(_config_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_DEFAULT); // Set storage to default (includes reseting all the collected data)
+      await chrome.storage.local.set(_config_storage_config__WEBPACK_IMPORTED_MODULE_4__.STORAGE_DEFAULT); // Set storage to default (includes reseting all the collected data)
 
       chrome.runtime.reload();
     }, 10000);
@@ -34089,7 +33909,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/config */ "./src/config/config.ts");
+/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config */ "./src/utils/http_requests/config.js");
 /* harmony import */ var _time_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../time_utils */ "./src/utils/time_utils.ts");
 /* module decorator */ module = __webpack_require__.hmd(module);
@@ -34116,9 +33936,9 @@ const create_video = async data => {
       console.log("Video created");
       const video_id = response.data.video_id;
       await chrome.storage.local.set({
-        [_config_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]: video_id
+        [_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]: video_id
       });
-      console.log(await chrome.storage.local.get([_config_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_EXPERIMENT_ID, _config_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]));
+      console.log(await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_EXPERIMENT_ID, _config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]));
     }
   } catch (err) {
     console.log(err);
@@ -34917,82 +34737,225 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/config/config.ts":
-/*!******************************!*\
-  !*** ./src/config/config.ts ***!
-  \******************************/
+/***/ "./src/config/default_experiment_config.ts":
+/*!*************************************************!*\
+  !*** ./src/config/default_experiment_config.ts ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ARCHIVE_DEFAULT": () => (/* binding */ ARCHIVE_DEFAULT),
-/* harmony export */   "ARCHIVE_KEYS": () => (/* binding */ ARCHIVE_KEYS),
-/* harmony export */   "ASSESSMENTS_DEFAULT": () => (/* binding */ ASSESSMENTS_DEFAULT),
-/* harmony export */   "ASSESSMENTS_KEYS": () => (/* binding */ ASSESSMENTS_KEYS),
-/* harmony export */   "ASSESSMENT_INTERVAL": () => (/* binding */ ASSESSMENT_INTERVAL),
-/* harmony export */   "BITRATE_INTERVAL": () => (/* binding */ BITRATE_INTERVAL),
-/* harmony export */   "CONFIGURATION_KEYS": () => (/* binding */ CONFIGURATION_KEYS),
-/* harmony export */   "DATABASE_KEYS": () => (/* binding */ DATABASE_KEYS),
-/* harmony export */   "EXTENSION_MODE_AVAILABLE": () => (/* binding */ EXTENSION_MODE_AVAILABLE),
-/* harmony export */   "MESSAGE_HEADERS": () => (/* binding */ MESSAGE_HEADERS),
-/* harmony export */   "MESSAGE_TEMPLATE": () => (/* binding */ MESSAGE_TEMPLATE),
-/* harmony export */   "STATS_INVISIBLE": () => (/* binding */ STATS_INVISIBLE),
-/* harmony export */   "STATS_NONCLICKABLE": () => (/* binding */ STATS_NONCLICKABLE),
-/* harmony export */   "STATS_RECORD_INTERVAL_MS": () => (/* binding */ STATS_RECORD_INTERVAL_MS),
+/* harmony export */   "DEFAULT_EXPERIMENT_CONFIGURATION": () => (/* binding */ DEFAULT_EXPERIMENT_CONFIGURATION)
+/* harmony export */ });
+const DEFAULT_EXPERIMENT_CONFIGURATION = {
+    "assessment_interval": 150,
+    "bitrate_interval": 150,
+    "description": "can be left as empty string",
+    "videos": [
+        {
+            "bitrate_vmaf_map": [
+                {
+                    "bitrate": 80,
+                    "vmaf": "37"
+                },
+                {
+                    "bitrate": 100,
+                    "vmaf": "43"
+                },
+                {
+                    "bitrate": 141,
+                    "vmaf": "52"
+                },
+                {
+                    "bitrate": 218,
+                    "vmaf": "63"
+                },
+                {
+                    "bitrate": 338,
+                    "vmaf": "71"
+                },
+                {
+                    "bitrate": 601,
+                    "vmaf": "79"
+                },
+                {
+                    "bitrate": 1149,
+                    "vmaf": "85"
+                },
+                {
+                    "bitrate": 2472,
+                    "vmaf": "88"
+                },
+                {
+                    "bitrate": 3439,
+                    "vmaf": "89"
+                },
+                {
+                    "bitrate": 5147,
+                    "vmaf": "90"
+                }
+            ],
+            "description": "Lorem ipsum",
+            "name": "Narcos_s01_e04",
+            "scenario": [
+                {
+                    "bitrate": 80,
+                    "vmaf": 37,
+                    "vmaf_diff": 17,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 141,
+                    "vmaf": 52,
+                    "vmaf_diff": 2,
+                    "vmaf_template": 50
+                },
+                {
+                    "bitrate": 80,
+                    "vmaf": 37,
+                    "vmaf_diff": 17,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 5147,
+                    "vmaf": 90,
+                    "vmaf_diff": 0,
+                    "vmaf_template": 90
+                },
+                {
+                    "bitrate": 100,
+                    "vmaf": 43,
+                    "vmaf_diff": 2,
+                    "vmaf_template": 45
+                },
+                {
+                    "bitrate": 141,
+                    "vmaf": 52,
+                    "vmaf_diff": 1,
+                    "vmaf_template": 51
+                }
+            ],
+            "url": "https://www.netflix.com/watch/70196252?trackId=14170286",
+            "vmaf_template_scenario": [
+                20,
+                50,
+                20,
+                90,
+                45,
+                51
+            ]
+        },
+        {
+            "bitrate_vmaf_map": [
+                {
+                    "bitrate": 86,
+                    "vmaf": "40"
+                },
+                {
+                    "bitrate": 106,
+                    "vmaf": "46"
+                },
+                {
+                    "bitrate": 146,
+                    "vmaf": "55"
+                },
+                {
+                    "bitrate": 233,
+                    "vmaf": "67"
+                },
+                {
+                    "bitrate": 369,
+                    "vmaf": "76"
+                },
+                {
+                    "bitrate": 623,
+                    "vmaf": "84"
+                },
+                {
+                    "bitrate": 976,
+                    "vmaf": "89"
+                },
+                {
+                    "bitrate": 1571,
+                    "vmaf": "92"
+                },
+                {
+                    "bitrate": 3083,
+                    "vmaf": "95"
+                }
+            ],
+            "description": "Lorem ipsum",
+            "name": "Narcos_s02_e02",
+            "scenario": [
+                {
+                    "bitrate": 86,
+                    "vmaf": 40,
+                    "vmaf_diff": 20,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 106,
+                    "vmaf": 46,
+                    "vmaf_diff": 4,
+                    "vmaf_template": 50
+                },
+                {
+                    "bitrate": 86,
+                    "vmaf": 40,
+                    "vmaf_diff": 20,
+                    "vmaf_template": 20
+                },
+                {
+                    "bitrate": 976,
+                    "vmaf": 89,
+                    "vmaf_diff": 1,
+                    "vmaf_template": 90
+                },
+                {
+                    "bitrate": 106,
+                    "vmaf": 46,
+                    "vmaf_diff": 1,
+                    "vmaf_template": 45
+                },
+                {
+                    "bitrate": 146,
+                    "vmaf": 55,
+                    "vmaf_diff": 4,
+                    "vmaf_template": 51
+                }
+            ],
+            "url": "https://www.netflix.com/watch/80101274?trackId=14170286",
+            "vmaf_template_scenario": [
+                20,
+                50,
+                20,
+                90,
+                45,
+                51
+            ]
+        }
+    ],
+    "title": "This is my config for development purposes"
+};
+
+
+/***/ }),
+
+/***/ "./src/config/storage.config.ts":
+/*!**************************************!*\
+  !*** ./src/config/storage.config.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "STORAGE_DEFAULT": () => (/* binding */ STORAGE_DEFAULT),
 /* harmony export */   "STORAGE_KEYS": () => (/* binding */ STORAGE_KEYS)
 /* harmony export */ });
-/* harmony import */ var _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./default_experiment_config */ "./src/config/default_experiment_config.js");
+/* harmony import */ var _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./default_experiment_config */ "./src/config/default_experiment_config.ts");
 
-const STATS_RECORD_INTERVAL_MS = 1000; //1000 <---
-const STATS_NONCLICKABLE = true;
-const STATS_INVISIBLE = false;
-const BITRATE_INTERVAL = 5 * 60 * 1000; // <--- 5 minutes = 5*60*1000
-const ASSESSMENT_INTERVAL = 2.5 * 60 * 1000; // <--- 2.5*60*1000
-const DATABASE_KEYS = {
-    POSITION: 'position',
-    DURATION: 'duration',
-    VOLUME: 'volume',
-    SEGMENT_POSITION: 'segment_position',
-    PLAYER_STATE: 'player_state',
-    BUFFERING_STATE: 'buffering_state',
-    RENDERING_STATE: 'rendering_state',
-    PLAYING_BITRATE_AUDIO: 'playing_bitrate_audio',
-    PLAYING_BITRATE_VIDEO: 'playing_bitrate_video',
-    RESOLUTION: 'resolution',
-    PLAYING_VMAF: 'playing_vmaf',
-    BUFFERING_VMAF: 'buffering_vmaf',
-    BUFFERING_BITRATE_AUDIO: 'buffering_bitrate_audio',
-    BUFFERING_BITRATE_VIDEO: 'buffering_bitrate_video',
-    TOTAL_FRAMES: 'total_frames',
-    TOTAL_DROPPED_FRAMES: 'total_dropped_frames',
-    TOTAL_CORRUPTED_FRAMES: 'total_corrupted_frames',
-    FRAMERATE: 'framerate',
-    TIMESTAMP: 'timestamp',
-};
-const ARCHIVE_KEYS = {
-    DATA: 'data',
-    TIMESTAMP: 'timestamp',
-};
-const ARCHIVE_DEFAULT = {
-    [ARCHIVE_KEYS.DATA]: [],
-    [ARCHIVE_KEYS.TIMESTAMP]: [],
-};
-const ASSESSMENTS_KEYS = {
-    VALUE: 'value',
-    DESCRIPTION: 'description',
-    TIMESTAMP: 'timestamp',
-    STARTED: 'started',
-    DURATION: 'duration',
-};
-const ASSESSMENTS_DEFAULT = {
-    [ASSESSMENTS_KEYS.VALUE]: [],
-    [ASSESSMENTS_KEYS.DESCRIPTION]: [],
-    [ASSESSMENTS_KEYS.TIMESTAMP]: [],
-    [ASSESSMENTS_KEYS.STARTED]: [],
-    [ASSESSMENTS_KEYS.DURATION]: [],
-};
 const STORAGE_KEYS = {
     DATA_TO_SAVE: 'data_to_save',
     ARCHIVE_TO_SAVE: 'archive_to_save',
@@ -35012,21 +34975,6 @@ const STORAGE_KEYS = {
     EXTENSION_MODE: "extension_mode",
     CONFIGURATION: "configuration"
 };
-const CONFIGURATION_KEYS = {
-    TITLE: "title",
-    DESCRIPTION: "description",
-    BITRATE_INTERVAL: "bitrate_interval",
-    ASSESSMENT_INTERVAL: "assessment_interval",
-    VIDEOS: "videos",
-    VIDEO_KEYS: {
-        NAME: "name",
-        DESCRIPTION: "description",
-        URL: "url",
-        VMAF_TEMPLATE_SCENARIO: "vmaf_template_scenario",
-        BITRATE_VMAF_MAP: "bitrate_vmaf_map",
-        SCENARIO: "scenario",
-    }
-};
 const STORAGE_DEFAULT = {
     [STORAGE_KEYS.DATABASE_EXPERIMENT_ID]: null,
     [STORAGE_KEYS.DATABASE_VIDEO_ID]: null,
@@ -35039,23 +34987,6 @@ const STORAGE_DEFAULT = {
     [STORAGE_KEYS.RUNNING]: false,
     [STORAGE_KEYS.EXTENSION_MODE]: "experiment",
     [STORAGE_KEYS.CONFIGURATION]: _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__.DEFAULT_EXPERIMENT_CONFIGURATION
-};
-const EXTENSION_MODE_AVAILABLE = {
-    EXPERIMENT: "experiment",
-    MAPPING: "mapping"
-};
-const MESSAGE_TEMPLATE = {
-    HEADER: 'header',
-    DATA: 'data',
-    ARCHIVE: 'archive',
-};
-const MESSAGE_HEADERS = {
-    START_ANALYZING: 'start_analyzing',
-    NERD_STATISTICS: 'nerdstats',
-    ASSESSMENT: 'assessment',
-    FINISHED: 'finished',
-    CREDITS: 'credits',
-    REDIRECT: 'redirect'
 };
 
 
@@ -37418,7 +37349,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("074a38af9f8d3560b4f5")
+/******/ 		__webpack_require__.h = () => ("fffd07b2b831b171dc7b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/harmony module decorator */

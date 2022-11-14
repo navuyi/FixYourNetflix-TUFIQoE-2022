@@ -1,8 +1,9 @@
-import {MESSAGE_HEADERS, MESSAGE_TEMPLATE} from "../../config/config"
+
 import {Controller} from "./modules/Controller"
-import { STORAGE_DEFAULT } from "../../config/config"
+import { STORAGE_DEFAULT } from "../../config/storage.config"
 import { get_local_datetime } from "../../utils/time_utils"
 import { types } from "@babel/core"
+import {T_MESSAGE, MESSAGE_HEADERS} from "../../config/messages.config"
 
 /**
  * Detect extension reloads and perform actions.
@@ -32,7 +33,7 @@ chrome.action.onClicked.addListener(async (tab) => {
  * that will asynchronously, that is why sendResponse is mandatory.
  * Using await inside callback's body would result in errors.
 */
-chrome.runtime.onMessage.addListener((message:any, sender:chrome.runtime.MessageSender, sendResponse:Function) => {
+chrome.runtime.onMessage.addListener((message:T_MESSAGE, sender:chrome.runtime.MessageSender, sendResponse:Function) => {
     // do not use async/await within listener callback
 
     /*no await!!!*/ receive_finished_signal(message, sender, sendResponse)
@@ -53,8 +54,8 @@ controller.init()
  * Redirects the tab that the message came from to the custom web page
  * REMEMBER to use sendResponse !!!
 */
-const receive_finished_signal = async (message:any, sender:chrome.runtime.MessageSender, sendResponse:Function) => {
-    if(message[MESSAGE_TEMPLATE.HEADER] === MESSAGE_HEADERS.FINISHED){
+const receive_finished_signal = async (message:T_MESSAGE, sender:chrome.runtime.MessageSender, sendResponse:Function) => {
+    if(message.header === MESSAGE_HEADERS.FINISHED){
         // Redirect to custom webpage
        if(sender.tab){
         const tabId = sender.tab.id as number
@@ -66,8 +67,8 @@ const receive_finished_signal = async (message:any, sender:chrome.runtime.Messag
     }
 }
 
-const receive_redirect_signal = async (message:any, sender:chrome.runtime.MessageSender, sendResponse:Function) => {
-    if(message[MESSAGE_TEMPLATE.HEADER] === MESSAGE_HEADERS.REDIRECT){
+const receive_redirect_signal = async (message:T_MESSAGE, sender:chrome.runtime.MessageSender, sendResponse:Function) => {
+    if(message.header === MESSAGE_HEADERS.REDIRECT){
         if(sender.tab){
             const tabId = sender.tab.id as number
             await chrome.tabs.update(tabId, {

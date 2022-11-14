@@ -38,13 +38,13 @@ var options = {
   entry: {
     break: path.join(__dirname, 'src', 'pages', 'Break', 'index.jsx'),
 
-    setup: path.join(__dirname, 'src', 'pages', 'Setup', 'index.jsx'),
+    setup: path.join(__dirname, 'src', 'pages', 'Setup', 'index.tsx'),
     
     popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.jsx'),
     background: path.join(__dirname, 'src', 'pages', 'Background', 'index.ts'),
 
     // What happens here is described in README.md, content scripts require extra preparation
-    mainContentScript: path.join(__dirname, 'src', 'pages', 'Content','main', 'index.js'), // ContentScript responsible for experiment execution
+    mainContentScript: path.join(__dirname, 'src', 'pages', 'Content','main', 'index.ts'), // ContentScript responsible for experiment execution
     //
     /*
     options: path.join(__dirname, 'src', 'pages', 'Options', 'index.jsx'),

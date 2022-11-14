@@ -1,10 +1,12 @@
-import {ARCHIVE_KEYS, MESSAGE_TEMPLATE, MESSAGE_HEADERS} from "../../../../config/config"
+import { MESSAGE_HEADERS } from "../../../../config/messages.config"
+import { ARCHIVE_KEYS } from "../../../../config/archive.config"
+import { T_MESSAGE } from "../../../../config/messages.config"
 import { STATS_RECORD_INTERVAL_MS } from "../../../../config/config"
 import { get_local_datetime } from "../../../../utils/time_utils"
 import { send_playback_data } from "../../../../utils/http_requests/send_playback_data"
-import { StatisticsMenu } from "../../utils/StatisticsMenu"
-import { CustomLogger } from "../../../../utils/CustomLogger"
-import { T_DATABASE } from "../../../../config/types"
+import { StatisticsMenu } from "../../../../utils/classes/StatisticsMenu"
+import { CustomLogger } from "../../../../utils/classes/CustomLogger"
+import { T_DATABASE } from "../../../../config/types/database.type"
 
 
 export class StatsAnalyzer{
@@ -40,9 +42,12 @@ export class StatsAnalyzer{
 
             const archive = this.compile_archive(this.stats_menu.get_statistics_text() as string, timestamp)
 
+
+
             // Send playback data to backend
             // NOT USING await --> not waiting for response
             /*await*/send_playback_data(data, archive)
+
             
             // Check if credits are available and remove container
             await this.are_credits_available()
@@ -51,9 +56,12 @@ export class StatsAnalyzer{
 
 
     compile_archive = (data : string, timestamp : string) => {
+
         return {
             [ARCHIVE_KEYS.DATA]: data,
+
             [ARCHIVE_KEYS.TIMESTAMP]: timestamp
+
         }
     }
 
@@ -82,10 +90,10 @@ export class StatsAnalyzer{
             document.getElementsByTagName("video")[0].pause()
 
             // Send FINISHED signal to the BackgroundScript
-            await chrome.runtime.sendMessage({
-                [MESSAGE_TEMPLATE.HEADER]: MESSAGE_HEADERS.FINISHED,
-                [MESSAGE_TEMPLATE.DATA]: true
-            })
+            const message : T_MESSAGE = {
+                header: MESSAGE_HEADERS.FINISHED
+            }
+            await chrome.runtime.sendMessage(message)
             
         }
         else if(player_space){
@@ -96,10 +104,10 @@ export class StatsAnalyzer{
             document.getElementsByTagName("video")[0].pause()
 
             // Send FINISHED signal to the BackgroundScript
-            await chrome.runtime.sendMessage({
-                [MESSAGE_TEMPLATE.HEADER]: MESSAGE_HEADERS.FINISHED,
-                [MESSAGE_TEMPLATE.DATA]: true
-            })
+            const message : T_MESSAGE = {
+                header: MESSAGE_HEADERS.FINISHED
+            }
+            await chrome.runtime.sendMessage(message)
         }
         else if(outer_container){
             // Click watch credits button
@@ -114,10 +122,10 @@ export class StatsAnalyzer{
             document.getElementsByTagName("video")[0].pause()
 
             // Send FINISHED signal to the BackgroundScript
-            await chrome.runtime.sendMessage({
-                [MESSAGE_TEMPLATE.HEADER]: MESSAGE_HEADERS.FINISHED,
-                [MESSAGE_TEMPLATE.DATA]: true
-            })
+            const message : T_MESSAGE = {
+                header: MESSAGE_HEADERS.FINISHED
+            }
+            await chrome.runtime.sendMessage(message)
         }
     }
 }
