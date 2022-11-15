@@ -1,19 +1,22 @@
 
-import {Controller} from "./modules/Controller"
+import {Controller} from "./Controller"
 import { STORAGE_DEFAULT } from "../../config/storage.config"
 import { get_local_datetime } from "../../utils/time_utils"
-import { types } from "@babel/core"
 import {T_MESSAGE, MESSAGE_HEADERS} from "../../config/messages.config"
+import { ChromeStorage } from "../../utils/classes/ChromeStorage"
+
+
+const chrome_storage = new ChromeStorage()
 
 /**
  * Detect extension reloads and perform actions.
  * This listener callback executes only when extension is installed or reloaded. 
 */
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener(async () => {
     console.log(`[BackgroundScript] | ${get_local_datetime(new Date())} | Installing...` )
 
      // Initialize local storage || WARNING --> THIS RESETS ALL chrome.storage KEYS TO DEFAULT VALUES
-     chrome.storage.local.set(STORAGE_DEFAULT)
+     await chrome_storage.initialize_default() // same as --> chrome.storage.local.set(STORAGE_DEFAULT)
 })
 
 chrome.action.onClicked.addListener(async (tab) => {

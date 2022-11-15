@@ -34737,211 +34737,6 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/config/default_experiment_config.ts":
-/*!*************************************************!*\
-  !*** ./src/config/default_experiment_config.ts ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DEFAULT_EXPERIMENT_CONFIGURATION": () => (/* binding */ DEFAULT_EXPERIMENT_CONFIGURATION)
-/* harmony export */ });
-const DEFAULT_EXPERIMENT_CONFIGURATION = {
-    "assessment_interval": 150,
-    "bitrate_interval": 150,
-    "description": "can be left as empty string",
-    "videos": [
-        {
-            "bitrate_vmaf_map": [
-                {
-                    "bitrate": 80,
-                    "vmaf": "37"
-                },
-                {
-                    "bitrate": 100,
-                    "vmaf": "43"
-                },
-                {
-                    "bitrate": 141,
-                    "vmaf": "52"
-                },
-                {
-                    "bitrate": 218,
-                    "vmaf": "63"
-                },
-                {
-                    "bitrate": 338,
-                    "vmaf": "71"
-                },
-                {
-                    "bitrate": 601,
-                    "vmaf": "79"
-                },
-                {
-                    "bitrate": 1149,
-                    "vmaf": "85"
-                },
-                {
-                    "bitrate": 2472,
-                    "vmaf": "88"
-                },
-                {
-                    "bitrate": 3439,
-                    "vmaf": "89"
-                },
-                {
-                    "bitrate": 5147,
-                    "vmaf": "90"
-                }
-            ],
-            "description": "Lorem ipsum",
-            "name": "Narcos_s01_e04",
-            "scenario": [
-                {
-                    "bitrate": 80,
-                    "vmaf": 37,
-                    "vmaf_diff": 17,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 141,
-                    "vmaf": 52,
-                    "vmaf_diff": 2,
-                    "vmaf_template": 50
-                },
-                {
-                    "bitrate": 80,
-                    "vmaf": 37,
-                    "vmaf_diff": 17,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 5147,
-                    "vmaf": 90,
-                    "vmaf_diff": 0,
-                    "vmaf_template": 90
-                },
-                {
-                    "bitrate": 100,
-                    "vmaf": 43,
-                    "vmaf_diff": 2,
-                    "vmaf_template": 45
-                },
-                {
-                    "bitrate": 141,
-                    "vmaf": 52,
-                    "vmaf_diff": 1,
-                    "vmaf_template": 51
-                }
-            ],
-            "url": "https://www.netflix.com/watch/70196252?trackId=14170286",
-            "vmaf_template_scenario": [
-                20,
-                50,
-                20,
-                90,
-                45,
-                51
-            ]
-        },
-        {
-            "bitrate_vmaf_map": [
-                {
-                    "bitrate": 86,
-                    "vmaf": "40"
-                },
-                {
-                    "bitrate": 106,
-                    "vmaf": "46"
-                },
-                {
-                    "bitrate": 146,
-                    "vmaf": "55"
-                },
-                {
-                    "bitrate": 233,
-                    "vmaf": "67"
-                },
-                {
-                    "bitrate": 369,
-                    "vmaf": "76"
-                },
-                {
-                    "bitrate": 623,
-                    "vmaf": "84"
-                },
-                {
-                    "bitrate": 976,
-                    "vmaf": "89"
-                },
-                {
-                    "bitrate": 1571,
-                    "vmaf": "92"
-                },
-                {
-                    "bitrate": 3083,
-                    "vmaf": "95"
-                }
-            ],
-            "description": "Lorem ipsum",
-            "name": "Narcos_s02_e02",
-            "scenario": [
-                {
-                    "bitrate": 86,
-                    "vmaf": 40,
-                    "vmaf_diff": 20,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 106,
-                    "vmaf": 46,
-                    "vmaf_diff": 4,
-                    "vmaf_template": 50
-                },
-                {
-                    "bitrate": 86,
-                    "vmaf": 40,
-                    "vmaf_diff": 20,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 976,
-                    "vmaf": 89,
-                    "vmaf_diff": 1,
-                    "vmaf_template": 90
-                },
-                {
-                    "bitrate": 106,
-                    "vmaf": 46,
-                    "vmaf_diff": 1,
-                    "vmaf_template": 45
-                },
-                {
-                    "bitrate": 146,
-                    "vmaf": 55,
-                    "vmaf_diff": 4,
-                    "vmaf_template": 51
-                }
-            ],
-            "url": "https://www.netflix.com/watch/80101274?trackId=14170286",
-            "vmaf_template_scenario": [
-                20,
-                50,
-                20,
-                90,
-                45,
-                51
-            ]
-        }
-    ],
-    "title": "This is my config for development purposes"
-};
-
-
-/***/ }),
-
 /***/ "./src/config/storage.config.ts":
 /*!**************************************!*\
   !*** ./src/config/storage.config.ts ***!
@@ -34954,39 +34749,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "STORAGE_DEFAULT": () => (/* binding */ STORAGE_DEFAULT),
 /* harmony export */   "STORAGE_KEYS": () => (/* binding */ STORAGE_KEYS)
 /* harmony export */ });
-/* harmony import */ var _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./default_experiment_config */ "./src/config/default_experiment_config.ts");
-
+// The rest...
 const STORAGE_KEYS = {
-    DATA_TO_SAVE: 'data_to_save',
-    ARCHIVE_TO_SAVE: 'archive_to_save',
-    ASSESSMENTS_TO_SAVE: 'assessments_to_save',
-    DATABASE_EXPERIMENT_ID: 'database_experiment_index',
-    DATABASE_VIDEO_ID: 'database_video_index',
-    CURRENT_BITRATE: 'current_bitrate',
-    DEVICE_ID: 'device_id',
-    TESTER_ID: 'tester_id',
-    PAIR_ID: 'pair_id',
-    EXPERIMENT_TYPE: 'experiment_type',
-    VIDEO_COUNT: 'video_count',
-    VIDEO_LIMIT: 'video_limit',
-    //VIDEO_URLS: 'video_urls', // TO BE DELETED
-    RUNNING: 'running',
-    //BITRATE_MODE: 'bitrate_mode',
-    EXTENSION_MODE: "extension_mode",
-    CONFIGURATION: "configuration"
+    EXPERIMENT_SETTINGS: "experiment_settings",
+    EXPERIMENT_VARIABLES: "experiment_variables"
 };
 const STORAGE_DEFAULT = {
-    [STORAGE_KEYS.DATABASE_EXPERIMENT_ID]: null,
-    [STORAGE_KEYS.DATABASE_VIDEO_ID]: null,
-    [STORAGE_KEYS.CURRENT_BITRATE]: null,
-    [STORAGE_KEYS.VIDEO_COUNT]: 0,
-    [STORAGE_KEYS.DEVICE_ID]: 106,
-    [STORAGE_KEYS.TESTER_ID]: 'dev_tester',
-    [STORAGE_KEYS.EXPERIMENT_TYPE]: 'alone',
-    [STORAGE_KEYS.VIDEO_LIMIT]: 1,
-    [STORAGE_KEYS.RUNNING]: false,
-    [STORAGE_KEYS.EXTENSION_MODE]: "experiment",
-    [STORAGE_KEYS.CONFIGURATION]: _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__.DEFAULT_EXPERIMENT_CONFIGURATION
+    experiment_settings: {
+        stats_record_interval_ms: 1000,
+        bitrate_change_interval_ms: 2.5 * 60 * 1000,
+        video_url: [
+            "https://www.netflix.com/watch/70196252?trackId=14170286",
+            "https://www.netflix.com/watch/70196253?trackId=14170286"
+        ],
+        subject_id: "default_subject_id"
+    },
+    experiment_variables: {
+        database_experiment_id: 0,
+        database_video_id: 0,
+        video_count: 0,
+        experiment_running: false
+    }
 };
 
 
@@ -37349,7 +37132,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("fffd07b2b831b171dc7b")
+/******/ 		__webpack_require__.h = () => ("daf1e21ae1c500e86ca5")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/harmony module decorator */

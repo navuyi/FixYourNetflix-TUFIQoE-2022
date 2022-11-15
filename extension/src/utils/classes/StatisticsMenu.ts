@@ -30,9 +30,11 @@ export class StatisticsMenu{
      * It can be further analyzed using regular expressions.
      * @returns {string} 
     */
-    public get_statistics_text = () : string | undefined => {
+    public get_statistics_text = () : string | null => {
         if(this.stats_element)
             return this.stats_element.value.toString()
+        else
+            return null
     }
 
     

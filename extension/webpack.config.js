@@ -44,7 +44,7 @@ var options = {
     background: path.join(__dirname, 'src', 'pages', 'Background', 'index.ts'),
 
     // What happens here is described in README.md, content scripts require extra preparation
-    mainContentScript: path.join(__dirname, 'src', 'pages', 'Content','main', 'index.ts'), // ContentScript responsible for experiment execution
+    content: path.join(__dirname, 'src', 'pages', 'Content', 'index.ts'), // ContentScript responsible for experiment execution
     //
     /*
     options: path.join(__dirname, 'src', 'pages', 'Options', 'index.jsx'),
@@ -55,7 +55,7 @@ var options = {
     cadmiumPlayercore: path.join(__dirname, 'src', 'scripts', 'cadmium-playercore.js')
   },
   chromeExtensionBoilerplate: {
-    notHotReload: ['background', 'mainContentScript', 'netflixControls', 'cadmiumPlayercore'],  // Remember to include content script in notHotReload!!!
+    notHotReload: ['background', 'content', 'netflixControls', 'cadmiumPlayercore'],  // Remember to include content script in notHotReload!!!
   },
   output: {
     filename: '[name].bundle.js',

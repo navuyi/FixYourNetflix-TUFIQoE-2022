@@ -2,210 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/config/default_experiment_config.ts":
-/*!*************************************************!*\
-  !*** ./src/config/default_experiment_config.ts ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DEFAULT_EXPERIMENT_CONFIGURATION": () => (/* binding */ DEFAULT_EXPERIMENT_CONFIGURATION)
-/* harmony export */ });
-const DEFAULT_EXPERIMENT_CONFIGURATION = {
-    "assessment_interval": 150,
-    "bitrate_interval": 150,
-    "description": "can be left as empty string",
-    "videos": [
-        {
-            "bitrate_vmaf_map": [
-                {
-                    "bitrate": 80,
-                    "vmaf": "37"
-                },
-                {
-                    "bitrate": 100,
-                    "vmaf": "43"
-                },
-                {
-                    "bitrate": 141,
-                    "vmaf": "52"
-                },
-                {
-                    "bitrate": 218,
-                    "vmaf": "63"
-                },
-                {
-                    "bitrate": 338,
-                    "vmaf": "71"
-                },
-                {
-                    "bitrate": 601,
-                    "vmaf": "79"
-                },
-                {
-                    "bitrate": 1149,
-                    "vmaf": "85"
-                },
-                {
-                    "bitrate": 2472,
-                    "vmaf": "88"
-                },
-                {
-                    "bitrate": 3439,
-                    "vmaf": "89"
-                },
-                {
-                    "bitrate": 5147,
-                    "vmaf": "90"
-                }
-            ],
-            "description": "Lorem ipsum",
-            "name": "Narcos_s01_e04",
-            "scenario": [
-                {
-                    "bitrate": 80,
-                    "vmaf": 37,
-                    "vmaf_diff": 17,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 141,
-                    "vmaf": 52,
-                    "vmaf_diff": 2,
-                    "vmaf_template": 50
-                },
-                {
-                    "bitrate": 80,
-                    "vmaf": 37,
-                    "vmaf_diff": 17,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 5147,
-                    "vmaf": 90,
-                    "vmaf_diff": 0,
-                    "vmaf_template": 90
-                },
-                {
-                    "bitrate": 100,
-                    "vmaf": 43,
-                    "vmaf_diff": 2,
-                    "vmaf_template": 45
-                },
-                {
-                    "bitrate": 141,
-                    "vmaf": 52,
-                    "vmaf_diff": 1,
-                    "vmaf_template": 51
-                }
-            ],
-            "url": "https://www.netflix.com/watch/70196252?trackId=14170286",
-            "vmaf_template_scenario": [
-                20,
-                50,
-                20,
-                90,
-                45,
-                51
-            ]
-        },
-        {
-            "bitrate_vmaf_map": [
-                {
-                    "bitrate": 86,
-                    "vmaf": "40"
-                },
-                {
-                    "bitrate": 106,
-                    "vmaf": "46"
-                },
-                {
-                    "bitrate": 146,
-                    "vmaf": "55"
-                },
-                {
-                    "bitrate": 233,
-                    "vmaf": "67"
-                },
-                {
-                    "bitrate": 369,
-                    "vmaf": "76"
-                },
-                {
-                    "bitrate": 623,
-                    "vmaf": "84"
-                },
-                {
-                    "bitrate": 976,
-                    "vmaf": "89"
-                },
-                {
-                    "bitrate": 1571,
-                    "vmaf": "92"
-                },
-                {
-                    "bitrate": 3083,
-                    "vmaf": "95"
-                }
-            ],
-            "description": "Lorem ipsum",
-            "name": "Narcos_s02_e02",
-            "scenario": [
-                {
-                    "bitrate": 86,
-                    "vmaf": 40,
-                    "vmaf_diff": 20,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 106,
-                    "vmaf": 46,
-                    "vmaf_diff": 4,
-                    "vmaf_template": 50
-                },
-                {
-                    "bitrate": 86,
-                    "vmaf": 40,
-                    "vmaf_diff": 20,
-                    "vmaf_template": 20
-                },
-                {
-                    "bitrate": 976,
-                    "vmaf": 89,
-                    "vmaf_diff": 1,
-                    "vmaf_template": 90
-                },
-                {
-                    "bitrate": 106,
-                    "vmaf": 46,
-                    "vmaf_diff": 1,
-                    "vmaf_template": 45
-                },
-                {
-                    "bitrate": 146,
-                    "vmaf": 55,
-                    "vmaf_diff": 4,
-                    "vmaf_template": 51
-                }
-            ],
-            "url": "https://www.netflix.com/watch/80101274?trackId=14170286",
-            "vmaf_template_scenario": [
-                20,
-                50,
-                20,
-                90,
-                45,
-                51
-            ]
-        }
-    ],
-    "title": "This is my config for development purposes"
-};
-
-
-/***/ }),
-
 /***/ "./src/config/messages.config.ts":
 /*!***************************************!*\
   !*** ./src/config/messages.config.ts ***!
@@ -239,136 +35,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "STORAGE_DEFAULT": () => (/* binding */ STORAGE_DEFAULT),
 /* harmony export */   "STORAGE_KEYS": () => (/* binding */ STORAGE_KEYS)
 /* harmony export */ });
-/* harmony import */ var _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./default_experiment_config */ "./src/config/default_experiment_config.ts");
-
+// The rest...
 const STORAGE_KEYS = {
-    DATA_TO_SAVE: 'data_to_save',
-    ARCHIVE_TO_SAVE: 'archive_to_save',
-    ASSESSMENTS_TO_SAVE: 'assessments_to_save',
-    DATABASE_EXPERIMENT_ID: 'database_experiment_index',
-    DATABASE_VIDEO_ID: 'database_video_index',
-    CURRENT_BITRATE: 'current_bitrate',
-    DEVICE_ID: 'device_id',
-    TESTER_ID: 'tester_id',
-    PAIR_ID: 'pair_id',
-    EXPERIMENT_TYPE: 'experiment_type',
-    VIDEO_COUNT: 'video_count',
-    VIDEO_LIMIT: 'video_limit',
-    //VIDEO_URLS: 'video_urls', // TO BE DELETED
-    RUNNING: 'running',
-    //BITRATE_MODE: 'bitrate_mode',
-    EXTENSION_MODE: "extension_mode",
-    CONFIGURATION: "configuration"
+    EXPERIMENT_SETTINGS: "experiment_settings",
+    EXPERIMENT_VARIABLES: "experiment_variables"
 };
 const STORAGE_DEFAULT = {
-    [STORAGE_KEYS.DATABASE_EXPERIMENT_ID]: null,
-    [STORAGE_KEYS.DATABASE_VIDEO_ID]: null,
-    [STORAGE_KEYS.CURRENT_BITRATE]: null,
-    [STORAGE_KEYS.VIDEO_COUNT]: 0,
-    [STORAGE_KEYS.DEVICE_ID]: 106,
-    [STORAGE_KEYS.TESTER_ID]: 'dev_tester',
-    [STORAGE_KEYS.EXPERIMENT_TYPE]: 'alone',
-    [STORAGE_KEYS.VIDEO_LIMIT]: 1,
-    [STORAGE_KEYS.RUNNING]: false,
-    [STORAGE_KEYS.EXTENSION_MODE]: "experiment",
-    [STORAGE_KEYS.CONFIGURATION]: _default_experiment_config__WEBPACK_IMPORTED_MODULE_0__.DEFAULT_EXPERIMENT_CONFIGURATION
-};
-
-
-/***/ }),
-
-/***/ "./src/pages/Background/index.ts":
-/*!***************************************!*\
-  !*** ./src/pages/Background/index.ts ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_Controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Controller */ "./src/pages/Background/modules/Controller.ts");
-/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
-/* harmony import */ var _utils_time_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/time_utils */ "./src/utils/time_utils.ts");
-/* harmony import */ var _config_messages_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config/messages.config */ "./src/config/messages.config.ts");
-
-
-
-
-/**
- * Detect extension reloads and perform actions.
- * This listener callback executes only when extension is installed or reloaded.
-*/
-chrome.runtime.onInstalled.addListener(() => {
-    console.log(`[BackgroundScript] | ${(0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_2__.get_local_datetime)(new Date())} | Installing...`);
-    // Initialize local storage || WARNING --> THIS RESETS ALL chrome.storage KEYS TO DEFAULT VALUES
-    chrome.storage.local.set(_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_DEFAULT);
-});
-chrome.action.onClicked.addListener(async (tab) => {
-    if (tab && tab.id) {
-        await chrome.tabs.update(tab.id, {
-            url: "setup.html"
-        });
-    }
-});
-/** Message listeners
- * DO NOT USE await inside onMessage listener callback's body.
- * REMEMBER to return true at the end of the onMessage listener callback's body.
- *
- * Returning true at the end tells the other side of connection to wait for response
- * that will asynchronously, that is why sendResponse is mandatory.
- * Using await inside callback's body would result in errors.
-*/
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    // do not use async/await within listener callback
-    /*no await!!!*/ receive_finished_signal(message, sender, sendResponse);
-    /*no await!!!*/ receive_redirect_signal(message, sender, sendResponse);
-    return true; // return true is essential to indicate that response will be sent asynchronously
-});
-// Initialize Controller instance
-const controller = new _modules_Controller__WEBPACK_IMPORTED_MODULE_0__.Controller();
-controller.init();
-/**
- * Function checks if received message is signal indicating end of video
- * Redirects the tab that the message came from to the custom web page
- * REMEMBER to use sendResponse !!!
-*/
-const receive_finished_signal = async (message, sender, sendResponse) => {
-    if (message.header === _config_messages_config__WEBPACK_IMPORTED_MODULE_3__.MESSAGE_HEADERS.FINISHED) {
-        // Redirect to custom webpage
-        if (sender.tab) {
-            const tabId = sender.tab.id;
-            await chrome.tabs.update(tabId, {
-                url: "break.html"
-            });
-            sendResponse({ msg: "Finish signal received" }); // Essential sendResponse
-        }
-    }
-};
-const receive_redirect_signal = async (message, sender, sendResponse) => {
-    if (message.header === _config_messages_config__WEBPACK_IMPORTED_MODULE_3__.MESSAGE_HEADERS.REDIRECT) {
-        if (sender.tab) {
-            const tabId = sender.tab.id;
-            await chrome.tabs.update(tabId, {
-                url: message.data.url
-            });
-            sendResponse({ msg: "Redirect signal received" });
-        }
+    experiment_settings: {
+        stats_record_interval_ms: 1000,
+        bitrate_change_interval_ms: 2.5 * 60 * 1000,
+        video_url: [
+            "https://www.netflix.com/watch/70196252?trackId=14170286",
+            "https://www.netflix.com/watch/70196253?trackId=14170286"
+        ],
+        subject_id: "default_subject_id"
+    },
+    experiment_variables: {
+        database_experiment_id: 0,
+        database_video_id: 0,
+        video_count: 0,
+        experiment_running: false
     }
 };
 
 
 /***/ }),
 
-/***/ "./src/pages/Background/modules/Controller.ts":
-/*!****************************************************!*\
-  !*** ./src/pages/Background/modules/Controller.ts ***!
-  \****************************************************/
+/***/ "./src/pages/Background/Controller.ts":
+/*!********************************************!*\
+  !*** ./src/pages/Background/Controller.ts ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Controller": () => (/* binding */ Controller)
 /* harmony export */ });
-/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../config/storage.config */ "./src/config/storage.config.ts");
-/* harmony import */ var _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/classes/CustomLogger */ "./src/utils/classes/CustomLogger.ts");
+/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
+/* harmony import */ var _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/classes/ChromeStorage */ "./src/utils/classes/ChromeStorage.ts");
+/* harmony import */ var _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/classes/CustomLogger */ "./src/utils/classes/CustomLogger.ts");
+
 
 
 class Controller {
@@ -385,12 +91,10 @@ class Controller {
          *  It means that n-th video in row has the count of n for the enterity of playback. The index is n-1
         */
         this.increaseVideoCount = async () => {
-            const count = (await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.VIDEO_COUNT]))[_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.VIDEO_COUNT];
-            const new_count = count + 1;
-            this.logger.log(`Increasing video count to ${new_count}`);
-            await chrome.storage.local.set({
-                [_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.VIDEO_COUNT]: new_count
-            });
+            const experiment_variables = await this.chrome_storage.get_experiment_variables();
+            experiment_variables.video_count += 1;
+            this.logger.log(`Increasing video count to ${experiment_variables.video_count}`);
+            await this.chrome_storage.set_single("experiment_variables", experiment_variables);
         };
         this.listenForVideoStart = () => {
             // Code below seems to be the right solution //
@@ -421,16 +125,18 @@ class Controller {
                 }
             });
         };
-        this.logger = new _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[Controller]");
+        this.logger = new _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_2__.CustomLogger("[Controller]");
+        this.chrome_storage = new _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_1__.ChromeStorage();
     }
     async injectScript(tabId) {
-        const running = (await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.RUNNING]))[_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.RUNNING];
-        if (running === false) {
+        const settings = (await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.EXPERIMENT_VARIABLES]))[_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.EXPERIMENT_VARIABLES];
+        //const running = (await chrome.storage.local.get([STORAGE_KEYS.RUNNING]))[STORAGE_KEYS.RUNNING]
+        if (settings.experiment_running === false) {
             this.logger.log("Extension is not running.");
             return;
         }
         await this.increaseVideoCount();
-        let content_script = "mainContentScript.bundle.js";
+        let content_script = "content.bundle.js";
         await chrome.scripting.executeScript({
             target: {
                 tabId: tabId
@@ -438,6 +144,134 @@ class Controller {
             files: [content_script] // ContentScript filename has to match names in webpack.config.js
         });
         this.logger.log("ContentScript has been injected");
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/pages/Background/index.ts":
+/*!***************************************!*\
+  !*** ./src/pages/Background/index.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Controller */ "./src/pages/Background/Controller.ts");
+/* harmony import */ var _utils_time_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/time_utils */ "./src/utils/time_utils.ts");
+/* harmony import */ var _config_messages_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../config/messages.config */ "./src/config/messages.config.ts");
+/* harmony import */ var _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/classes/ChromeStorage */ "./src/utils/classes/ChromeStorage.ts");
+
+
+
+
+const chrome_storage = new _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_3__.ChromeStorage();
+/**
+ * Detect extension reloads and perform actions.
+ * This listener callback executes only when extension is installed or reloaded.
+*/
+chrome.runtime.onInstalled.addListener(async () => {
+    console.log(`[BackgroundScript] | ${(0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_1__.get_local_datetime)(new Date())} | Installing...`);
+    // Initialize local storage || WARNING --> THIS RESETS ALL chrome.storage KEYS TO DEFAULT VALUES
+    await chrome_storage.initialize_default(); // same as --> chrome.storage.local.set(STORAGE_DEFAULT)
+});
+chrome.action.onClicked.addListener(async (tab) => {
+    if (tab && tab.id) {
+        await chrome.tabs.update(tab.id, {
+            url: "setup.html"
+        });
+    }
+});
+/** Message listeners
+ * DO NOT USE await inside onMessage listener callback's body.
+ * REMEMBER to return true at the end of the onMessage listener callback's body.
+ *
+ * Returning true at the end tells the other side of connection to wait for response
+ * that will asynchronously, that is why sendResponse is mandatory.
+ * Using await inside callback's body would result in errors.
+*/
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    // do not use async/await within listener callback
+    /*no await!!!*/ receive_finished_signal(message, sender, sendResponse);
+    /*no await!!!*/ receive_redirect_signal(message, sender, sendResponse);
+    return true; // return true is essential to indicate that response will be sent asynchronously
+});
+// Initialize Controller instance
+const controller = new _Controller__WEBPACK_IMPORTED_MODULE_0__.Controller();
+controller.init();
+/**
+ * Function checks if received message is signal indicating end of video
+ * Redirects the tab that the message came from to the custom web page
+ * REMEMBER to use sendResponse !!!
+*/
+const receive_finished_signal = async (message, sender, sendResponse) => {
+    if (message.header === _config_messages_config__WEBPACK_IMPORTED_MODULE_2__.MESSAGE_HEADERS.FINISHED) {
+        // Redirect to custom webpage
+        if (sender.tab) {
+            const tabId = sender.tab.id;
+            await chrome.tabs.update(tabId, {
+                url: "break.html"
+            });
+            sendResponse({ msg: "Finish signal received" }); // Essential sendResponse
+        }
+    }
+};
+const receive_redirect_signal = async (message, sender, sendResponse) => {
+    if (message.header === _config_messages_config__WEBPACK_IMPORTED_MODULE_2__.MESSAGE_HEADERS.REDIRECT) {
+        if (sender.tab) {
+            const tabId = sender.tab.id;
+            await chrome.tabs.update(tabId, {
+                url: message.data.url
+            });
+            sendResponse({ msg: "Redirect signal received" });
+        }
+    }
+};
+
+
+/***/ }),
+
+/***/ "./src/utils/classes/ChromeStorage.ts":
+/*!********************************************!*\
+  !*** ./src/utils/classes/ChromeStorage.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ChromeStorage": () => (/* binding */ ChromeStorage)
+/* harmony export */ });
+/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
+/* harmony import */ var _CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CustomLogger */ "./src/utils/classes/CustomLogger.ts");
+
+
+class ChromeStorage {
+    constructor() {
+        this.initialize_default = async () => {
+            this.logger.log("Initializing default storage");
+            await chrome.storage.local.set(_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_DEFAULT);
+        };
+        this.set_single = async (key, data) => {
+            await chrome.storage.local.set({
+                [key]: data
+            });
+        };
+        this.get_single = async (key) => {
+            const res = await chrome.storage.local.get([key]);
+            return res[key];
+        };
+        this.get_multiple = async (...keys) => {
+            return await chrome.storage.local.get([...keys]);
+        };
+        this.get_experiment_variables = async () => {
+            const experiment_variables = await this.get_single("experiment_variables");
+            return experiment_variables;
+        };
+        this.get_experiment_settings = async () => {
+            const experiment_settings = await this.get_single("experiment_settings");
+            return experiment_settings;
+        };
+        this.logger = new _CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[ChromeStorage]");
     }
 }
 
@@ -591,7 +425,7 @@ const get_local_datetime_and_timezone = (object) => {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("fffd07b2b831b171dc7b")
+/******/ 		__webpack_require__.h = () => ("daf1e21ae1c500e86ca5")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

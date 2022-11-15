@@ -1,5 +1,3 @@
-import { STATS_INVISIBLE } from "../../config/config"
-import { STATS_NONCLICKABLE } from "../../config/config"
 import { simulate_nerd_stats_hotkey } from "../keyboard_hotkeys/simulate_nerd_stats_hotkey"
 
 
@@ -18,14 +16,10 @@ export const get_statistics_element = () => {
             if(element && outer_element){
                 // Clear retry interval
                 clearInterval(timer)
-                // Make outer container invisible and nonclickable based on config
-                if(STATS_INVISIBLE){
-                    outer_element.style.visibility = "hidden"
-                }
-                if(STATS_NONCLICKABLE){
-                    outer_element.style.pointerEvents = "none"
-                }
-
+                // Make outer container invisible and nonclickable
+                outer_element.style.visibility = "hidden"
+                outer_element.style.pointerEvents = "none"
+                
                 // Return element containing data
                 resolve(element)
             }

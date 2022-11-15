@@ -1,50 +1,49 @@
-import { DEFAULT_EXPERIMENT_CONFIGURATION } from "./default_experiment_config";
 
+// Define storage types
+export type T_EXPERIMENT_SETTINGS = {
+  stats_record_interval_ms: number,
+  bitrate_change_interval_ms: number,
+  video_url: Array<string>,
+  subject_id: string
+}
+
+export type T_EXPERIMENT_VARIABLES = {
+  database_experiment_id: number,
+  database_video_id: number,
+  video_count: number,
+  experiment_running: boolean
+}
+
+export type T_STORAGE = {
+  experiment_settings : T_EXPERIMENT_SETTINGS,
+  experiment_variables : T_EXPERIMENT_VARIABLES
+}
+
+// The rest...
 export const STORAGE_KEYS = {
-    DATA_TO_SAVE: 'data_to_save',
-    ARCHIVE_TO_SAVE: 'archive_to_save',
-    ASSESSMENTS_TO_SAVE: 'assessments_to_save',
-  
-    DATABASE_EXPERIMENT_ID: 'database_experiment_index',
-    DATABASE_VIDEO_ID: 'database_video_index',
-  
-    CURRENT_BITRATE: 'current_bitrate',
-  
-    DEVICE_ID: 'device_id',
-    TESTER_ID: 'tester_id',
-    PAIR_ID: 'pair_id',
-  
-    EXPERIMENT_TYPE: 'experiment_type',
-    VIDEO_COUNT: 'video_count',
-    VIDEO_LIMIT: 'video_limit',
-  
-    //VIDEO_URLS: 'video_urls', // TO BE DELETED
-  
-    RUNNING: 'running',
-    //BITRATE_MODE: 'bitrate_mode',
-  
-    EXTENSION_MODE: "extension_mode",
-    CONFIGURATION: "configuration"
-  };
+  EXPERIMENT_SETTINGS: "experiment_settings",
+  EXPERIMENT_VARIABLES: "experiment_variables"
+}
 
-export const STORAGE_DEFAULT = {
-    [STORAGE_KEYS.DATABASE_EXPERIMENT_ID]: null,
-    [STORAGE_KEYS.DATABASE_VIDEO_ID]: null,
-  
-    [STORAGE_KEYS.CURRENT_BITRATE]: null,
-  
-    [STORAGE_KEYS.VIDEO_COUNT]: 0,
-  
-    [STORAGE_KEYS.DEVICE_ID]: 106, // 106 or 107 is correct, 106 set by default,
-    [STORAGE_KEYS.TESTER_ID]: 'dev_tester', // tester's ID
-  
-    [STORAGE_KEYS.EXPERIMENT_TYPE]: 'alone', // alone and together are correct values, alone by default
-    [STORAGE_KEYS.VIDEO_LIMIT]: 1, // Most likely it will be set to 1 or 2
-  
-    [STORAGE_KEYS.RUNNING]: false,
-    [STORAGE_KEYS.EXTENSION_MODE]: "experiment", // <-- experiment or mapping 
-    [STORAGE_KEYS.CONFIGURATION]: DEFAULT_EXPERIMENT_CONFIGURATION
+export const STORAGE_DEFAULT : T_STORAGE= {
+  experiment_settings: {
+    stats_record_interval_ms: 1000,
+    bitrate_change_interval_ms: 2.5 * 60 * 1000,
+    video_url: [
+      "https://www.netflix.com/watch/70196252?trackId=14170286",
+      "https://www.netflix.com/watch/70196253?trackId=14170286"
+    ],
+    subject_id: "default_subject_id"
+  },
+  experiment_variables: {
+    database_experiment_id: 0,
+    database_video_id: 0,
+    video_count: 0,
+    experiment_running: false
+  }
 };
+
+
 
 
   
