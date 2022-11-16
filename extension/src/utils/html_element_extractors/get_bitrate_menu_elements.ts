@@ -37,7 +37,7 @@ export const invoke_bitrate_menu_and_get_html_elements = async () : Promise<T_BI
  * Helper method used to extract HTML elemnets from DOM tree 
  * @returns{object} Object of key:values where values are HTML elements, possible to unpack
 */
-const extract_html_elements = () : T_BITRATE_MENU_ELEMENTS => {
+export const extract_html_elements = () : T_BITRATE_MENU_ELEMENTS => {
     // Get outter menu container
     const container = [...document.querySelectorAll("div")].filter(item => item.innerText.match("Video Bitrate"))[1]
     const override_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Override"))[0]

@@ -31,7 +31,6 @@ export class BitrateMenu{
         simulate_bitrate_menu_hotkey() // Close bitrate menu after initialization is finished
     }
 
-
     /**
      *  Invokes bitrate_menu and reassigns HTML elements  
      *  Reassigning elements is important because bitrate menu is removed from DOM tree
@@ -77,6 +76,8 @@ export class BitrateMenu{
     */
     async set_bitrate(bitrate : number){
         if(this.select && this.override_button){
+            console.log(this.select)
+            console.log(this.override_button)
             this.logger.log(`Setting bitrate to: ${bitrate}`)
             this.select.value = bitrate.toString()
             this.logger.log(`SELECTED BITRATE VALUE: ${this.select.value}`)

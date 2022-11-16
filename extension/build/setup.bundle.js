@@ -31407,6 +31407,67 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/config/messages.config.ts":
+/*!***************************************!*\
+  !*** ./src/config/messages.config.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MESSAGE_HEADERS": () => (/* binding */ MESSAGE_HEADERS)
+/* harmony export */ });
+const MESSAGE_HEADERS = {
+    START_ANALYZING: 'start_analyzing',
+    NERD_STATISTICS: 'nerdstats',
+    ASSESSMENT: 'assessment',
+    FINISHED: 'finished',
+    CREDITS: 'credits',
+    REDIRECT: 'redirect'
+};
+
+
+/***/ }),
+
+/***/ "./src/config/storage.config.ts":
+/*!**************************************!*\
+  !*** ./src/config/storage.config.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "STORAGE_DEFAULT": () => (/* binding */ STORAGE_DEFAULT),
+/* harmony export */   "STORAGE_KEYS": () => (/* binding */ STORAGE_KEYS)
+/* harmony export */ });
+// The rest...
+const STORAGE_KEYS = {
+    EXPERIMENT_SETTINGS: "experiment_settings",
+    EXPERIMENT_VARIABLES: "experiment_variables"
+};
+const STORAGE_DEFAULT = {
+    experiment_settings: {
+        stats_record_interval_ms: 1000,
+        bitrate_change_interval_ms: 2.5 * 60 * 1000,
+        video_url: [
+            "https://www.netflix.com/watch/70196252?trackId=14170286",
+            "https://www.netflix.com/watch/70196253?trackId=14170286"
+        ],
+        subject_id: "default_subject_id"
+    },
+    experiment_variables: {
+        database_experiment_id: 0,
+        database_video_id: 0,
+        video_count: 0,
+        experiment_running: false
+    }
+};
+
+
+/***/ }),
+
 /***/ "./src/pages/Setup/Setup.tsx":
 /*!***********************************!*\
   !*** ./src/pages/Setup/Setup.tsx ***!
@@ -31419,10 +31480,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/pages/Setup/style.scss");
+/* harmony import */ var _config_messages_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/messages.config */ "./src/config/messages.config.ts");
+/* harmony import */ var _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/classes/ChromeStorage */ "./src/utils/classes/ChromeStorage.ts");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./src/pages/Setup/style.scss");
+
+
 
 
 const Setup = () => {
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        const init = async () => {
+            const settings = await _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_2__.ChromeStorage.get_experiment_settings();
+            const exp_variables = await _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_2__.ChromeStorage.get_experiment_variables();
+            exp_variables.experiment_running = true;
+            await _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_2__.ChromeStorage.set_single("experiment_variables", exp_variables);
+            const message = {
+                header: _config_messages_config__WEBPACK_IMPORTED_MODULE_1__.MESSAGE_HEADERS.REDIRECT,
+                data: {
+                    url: settings.video_url[0]
+                }
+            };
+            chrome.runtime.sendMessage(message);
+        };
+        init();
+    }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "App" }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Setup);
@@ -31445,6 +31526,130 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)(react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Setup__WEBPACK_IMPORTED_MODULE_2__["default"], null), window.document.querySelector('#app-container'));
+
+
+/***/ }),
+
+/***/ "./src/utils/classes/ChromeStorage.ts":
+/*!********************************************!*\
+  !*** ./src/utils/classes/ChromeStorage.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ChromeStorage": () => (/* binding */ ChromeStorage)
+/* harmony export */ });
+/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
+/* harmony import */ var _CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CustomLogger */ "./src/utils/classes/CustomLogger.ts");
+var _a;
+
+
+class ChromeStorage {
+}
+_a = ChromeStorage;
+ChromeStorage.logger = new _CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("ChromeStorage");
+ChromeStorage.initialize_default = async () => {
+    ChromeStorage.logger.log("Initializing default storage");
+    await chrome.storage.local.set(_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_DEFAULT);
+};
+ChromeStorage.set_single = async (key, data) => {
+    await chrome.storage.local.set({
+        [key]: data
+    });
+};
+ChromeStorage.get_single = async (key) => {
+    const res = await chrome.storage.local.get([key]);
+    return res[key];
+};
+ChromeStorage.get_multiple = async (...keys) => {
+    return await chrome.storage.local.get([...keys]);
+};
+ChromeStorage.get_experiment_variables = async () => {
+    const experiment_variables = await ChromeStorage.get_single("experiment_variables");
+    return experiment_variables;
+};
+ChromeStorage.get_experiment_settings = async () => {
+    const experiment_settings = await ChromeStorage.get_single("experiment_settings");
+    return experiment_settings;
+};
+
+
+/***/ }),
+
+/***/ "./src/utils/classes/CustomLogger.ts":
+/*!*******************************************!*\
+  !*** ./src/utils/classes/CustomLogger.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CustomLogger": () => (/* binding */ CustomLogger)
+/* harmony export */ });
+/* harmony import */ var _time_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../time_utils */ "./src/utils/time_utils.ts");
+
+class CustomLogger {
+    constructor(prefix) {
+        this.log = (content) => {
+            const prefix_date = `${this.prefix} | ${(0,_time_utils__WEBPACK_IMPORTED_MODULE_0__.get_local_datetime)(new Date())} |`;
+            this.original_logger(prefix_date, content);
+        };
+        this.prefix = prefix;
+        this.original_logger = console.log;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/utils/time_utils.ts":
+/*!*********************************!*\
+  !*** ./src/utils/time_utils.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "get_local_datetime": () => (/* binding */ get_local_datetime),
+/* harmony export */   "get_local_datetime_and_timezone": () => (/* binding */ get_local_datetime_and_timezone)
+/* harmony export */ });
+const get_local_datetime = (object) => {
+    const year = object.getFullYear();
+    const month = (object.getMonth() + 1).toString().padStart(2, "0");
+    const day = object.getDate().toString().padStart(2, "0");
+    const hours = object.getHours().toString().padStart(2, "0");
+    const minutes = object.getMinutes().toString().padStart(2, "0");
+    const seconds = object.getSeconds().toString().padStart(2, "0");
+    const milliseconds = object.getMilliseconds().toString().padStart(3, "0");
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}`; // <-- Local datetime in extended ISO format ''YYYY-MM-DDTHH:MM:SS:XXX''
+};
+const get_local_datetime_and_timezone = (object) => {
+    // Get the datetime
+    const year = object.getFullYear();
+    const month = (object.getMonth() + 1).toString().padStart(2, "0");
+    const day = object.getDate().toString().padStart(2, "0");
+    const hours = object.getHours().toString().padStart(2, "0");
+    const minutes = object.getMinutes().toString().padStart(2, "0");
+    const seconds = object.getSeconds().toString().padStart(2, "0");
+    const milliseconds = object.getMilliseconds().toString().padStart(3, "0");
+    const datetime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}`;
+    // Get timezone offset in +/- HH:MM format
+    const timezone_offset_min = object.getTimezoneOffset();
+    const offset_hrs = Math.abs(timezone_offset_min / 60);
+    const offset_min = Math.abs(timezone_offset_min % 60);
+    if (timezone_offset_min <= 0) {
+        const timezone_standard = "+" + offset_hrs.toString().padStart(2, "0") + ":" + offset_min.toString().padStart(2, "0");
+        return datetime + timezone_standard;
+    }
+    else {
+        const timezone_standard = "-" + offset_hrs.toString().padStart(2, "0") + ":" + offset_min.toString().padStart(2, "0");
+        return datetime + timezone_standard;
+    }
+};
 
 
 /***/ }),
@@ -33754,7 +33959,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("daf1e21ae1c500e86ca5")
+/******/ 		__webpack_require__.h = () => ("a96b92a2b9837bd2b8be")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

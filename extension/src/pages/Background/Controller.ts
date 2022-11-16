@@ -5,11 +5,9 @@ import { CustomLogger } from "../../utils/classes/CustomLogger"
 export class Controller{
     private NETFLIX_WATCH_URL : string = "https://www.netflix.com/watch"
     private logger : CustomLogger
-    private chrome_storage: ChromeStorage
 
     constructor() {
        this.logger = new CustomLogger("[Controller]")
-       this.chrome_storage = new ChromeStorage()
     }
 
     public init = async () : Promise<void>  => {
@@ -18,22 +16,18 @@ export class Controller{
     }
 
     async injectScript(tabId : number){
-        const settings = (await chrome.storage.local.get([STORAGE_KEYS.EXPERIMENT_VARIABLES]))[STORAGE_KEYS.EXPERIMENT_VARIABLES] as T_EXPERIMENT_VARIABLES
-        //const running = (await chrome.storage.local.get([STORAGE_KEYS.RUNNING]))[STORAGE_KEYS.RUNNING]
-        if(settings.experiment_running === false){
+        const experiment_variables = await ChromeStorage.get_experiment_variables() 
+        if(experiment_variables.experiment_running === false){
             this.logger.log("Extension is not running.")
             return
         }
         
         await this.increaseVideoCount()
-
-        let content_script = "content.bundle.js"
-        
         await chrome.scripting.executeScript({
            target: {
                 tabId: tabId
            },
-            files: [content_script as string]  // ContentScript filename has to match names in webpack.config.js
+            files: ["content.bundle.js"]  // ContentScript filename has to match names in webpack.config.js
         })
         this.logger.log("ContentScript has been injected")
     }
@@ -45,10 +39,10 @@ export class Controller{
      *  It means that n-th video in row has the count of n for the enterity of playback. The index is n-1  
     */
     private increaseVideoCount = async () : Promise<void> =>{
-        const experiment_variables = await this.chrome_storage.get_experiment_variables()
+        const experiment_variables = await ChromeStorage.get_experiment_variables()
         experiment_variables.video_count += 1
         this.logger.log(`Increasing video count to ${experiment_variables.video_count}`)
-        await this.chrome_storage.set_single("experiment_variables", experiment_variables)
+        await ChromeStorage.set_single("experiment_variables", experiment_variables)
     }
 
     private listenForVideoStart = () : void => {

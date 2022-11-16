@@ -71,10 +71,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Controller": () => (/* binding */ Controller)
 /* harmony export */ });
-/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
-/* harmony import */ var _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/classes/ChromeStorage */ "./src/utils/classes/ChromeStorage.ts");
-/* harmony import */ var _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/classes/CustomLogger */ "./src/utils/classes/CustomLogger.ts");
-
+/* harmony import */ var _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/classes/ChromeStorage */ "./src/utils/classes/ChromeStorage.ts");
+/* harmony import */ var _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/classes/CustomLogger */ "./src/utils/classes/CustomLogger.ts");
 
 
 class Controller {
@@ -91,10 +89,10 @@ class Controller {
          *  It means that n-th video in row has the count of n for the enterity of playback. The index is n-1
         */
         this.increaseVideoCount = async () => {
-            const experiment_variables = await this.chrome_storage.get_experiment_variables();
+            const experiment_variables = await _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_0__.ChromeStorage.get_experiment_variables();
             experiment_variables.video_count += 1;
             this.logger.log(`Increasing video count to ${experiment_variables.video_count}`);
-            await this.chrome_storage.set_single("experiment_variables", experiment_variables);
+            await _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_0__.ChromeStorage.set_single("experiment_variables", experiment_variables);
         };
         this.listenForVideoStart = () => {
             // Code below seems to be the right solution //
@@ -125,23 +123,20 @@ class Controller {
                 }
             });
         };
-        this.logger = new _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_2__.CustomLogger("[Controller]");
-        this.chrome_storage = new _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_1__.ChromeStorage();
+        this.logger = new _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[Controller]");
     }
     async injectScript(tabId) {
-        const settings = (await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.EXPERIMENT_VARIABLES]))[_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEYS.EXPERIMENT_VARIABLES];
-        //const running = (await chrome.storage.local.get([STORAGE_KEYS.RUNNING]))[STORAGE_KEYS.RUNNING]
-        if (settings.experiment_running === false) {
+        const experiment_variables = await _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_0__.ChromeStorage.get_experiment_variables();
+        if (experiment_variables.experiment_running === false) {
             this.logger.log("Extension is not running.");
             return;
         }
         await this.increaseVideoCount();
-        let content_script = "content.bundle.js";
         await chrome.scripting.executeScript({
             target: {
                 tabId: tabId
             },
-            files: [content_script] // ContentScript filename has to match names in webpack.config.js
+            files: ["content.bundle.js"] // ContentScript filename has to match names in webpack.config.js
         });
         this.logger.log("ContentScript has been injected");
     }
@@ -165,7 +160,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const chrome_storage = new _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_3__.ChromeStorage();
 /**
  * Detect extension reloads and perform actions.
  * This listener callback executes only when extension is installed or reloaded.
@@ -173,7 +167,7 @@ const chrome_storage = new _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE
 chrome.runtime.onInstalled.addListener(async () => {
     console.log(`[BackgroundScript] | ${(0,_utils_time_utils__WEBPACK_IMPORTED_MODULE_1__.get_local_datetime)(new Date())} | Installing...`);
     // Initialize local storage || WARNING --> THIS RESETS ALL chrome.storage KEYS TO DEFAULT VALUES
-    await chrome_storage.initialize_default(); // same as --> chrome.storage.local.set(STORAGE_DEFAULT)
+    await _utils_classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_3__.ChromeStorage.initialize_default(); // same as --> chrome.storage.local.set(STORAGE_DEFAULT)
 });
 chrome.action.onClicked.addListener(async (tab) => {
     if (tab && tab.id) {
@@ -243,37 +237,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
 /* harmony import */ var _CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CustomLogger */ "./src/utils/classes/CustomLogger.ts");
+var _a;
 
 
 class ChromeStorage {
-    constructor() {
-        this.initialize_default = async () => {
-            this.logger.log("Initializing default storage");
-            await chrome.storage.local.set(_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_DEFAULT);
-        };
-        this.set_single = async (key, data) => {
-            await chrome.storage.local.set({
-                [key]: data
-            });
-        };
-        this.get_single = async (key) => {
-            const res = await chrome.storage.local.get([key]);
-            return res[key];
-        };
-        this.get_multiple = async (...keys) => {
-            return await chrome.storage.local.get([...keys]);
-        };
-        this.get_experiment_variables = async () => {
-            const experiment_variables = await this.get_single("experiment_variables");
-            return experiment_variables;
-        };
-        this.get_experiment_settings = async () => {
-            const experiment_settings = await this.get_single("experiment_settings");
-            return experiment_settings;
-        };
-        this.logger = new _CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("[ChromeStorage]");
-    }
 }
+_a = ChromeStorage;
+ChromeStorage.logger = new _CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("ChromeStorage");
+ChromeStorage.initialize_default = async () => {
+    ChromeStorage.logger.log("Initializing default storage");
+    await chrome.storage.local.set(_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_DEFAULT);
+};
+ChromeStorage.set_single = async (key, data) => {
+    await chrome.storage.local.set({
+        [key]: data
+    });
+};
+ChromeStorage.get_single = async (key) => {
+    const res = await chrome.storage.local.get([key]);
+    return res[key];
+};
+ChromeStorage.get_multiple = async (...keys) => {
+    return await chrome.storage.local.get([...keys]);
+};
+ChromeStorage.get_experiment_variables = async () => {
+    const experiment_variables = await ChromeStorage.get_single("experiment_variables");
+    return experiment_variables;
+};
+ChromeStorage.get_experiment_settings = async () => {
+    const experiment_settings = await ChromeStorage.get_single("experiment_settings");
+    return experiment_settings;
+};
 
 
 /***/ }),
@@ -425,7 +419,7 @@ const get_local_datetime_and_timezone = (object) => {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("daf1e21ae1c500e86ca5")
+/******/ 		__webpack_require__.h = () => ("a96b92a2b9837bd2b8be")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

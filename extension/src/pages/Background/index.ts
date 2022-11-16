@@ -6,8 +6,6 @@ import {T_MESSAGE, MESSAGE_HEADERS} from "../../config/messages.config"
 import { ChromeStorage } from "../../utils/classes/ChromeStorage"
 
 
-const chrome_storage = new ChromeStorage()
-
 /**
  * Detect extension reloads and perform actions.
  * This listener callback executes only when extension is installed or reloaded. 
@@ -16,7 +14,7 @@ chrome.runtime.onInstalled.addListener(async () => {
     console.log(`[BackgroundScript] | ${get_local_datetime(new Date())} | Installing...` )
 
      // Initialize local storage || WARNING --> THIS RESETS ALL chrome.storage KEYS TO DEFAULT VALUES
-     await chrome_storage.initialize_default() // same as --> chrome.storage.local.set(STORAGE_DEFAULT)
+     await ChromeStorage.initialize_default() // same as --> chrome.storage.local.set(STORAGE_DEFAULT)
 })
 
 chrome.action.onClicked.addListener(async (tab) => {

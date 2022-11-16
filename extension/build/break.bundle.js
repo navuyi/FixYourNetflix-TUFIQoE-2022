@@ -33912,6 +33912,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config */ "./src/utils/http_requests/config.js");
 /* harmony import */ var _time_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../time_utils */ "./src/utils/time_utils.ts");
+/* harmony import */ var _classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../classes/ChromeStorage */ "./src/utils/classes/ChromeStorage.ts");
 /* module decorator */ module = __webpack_require__.hmd(module);
 (function () {
   var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
@@ -33926,19 +33927,18 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
 
 
 
+
 const create_video = async data => {
   try {
     const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(_config__WEBPACK_IMPORTED_MODULE_2__.backend_urls.video, data);
-    console.log(response.data);
-    console.log(response.status);
 
     if (response.status === 201) {
       console.log("Video created");
-      const video_id = response.data.video_id;
-      await chrome.storage.local.set({
-        [_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]: video_id
-      });
-      console.log(await chrome.storage.local.get([_config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_EXPERIMENT_ID, _config_storage_config__WEBPACK_IMPORTED_MODULE_1__.STORAGE_KEYS.DATABASE_VIDEO_ID]));
+      const video_id = response.data.video_id; // Update chrome storage
+
+      const experiment_variables = await _classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_4__.ChromeStorage.get_experiment_variables();
+      experiment_variables.database_video_id = video_id;
+      await _classes_ChromeStorage__WEBPACK_IMPORTED_MODULE_4__.ChromeStorage.set_single("experiment_variables", experiment_variables);
     }
   } catch (err) {
     console.log(err);
@@ -34771,6 +34771,81 @@ const STORAGE_DEFAULT = {
         experiment_running: false
     }
 };
+
+
+/***/ }),
+
+/***/ "./src/utils/classes/ChromeStorage.ts":
+/*!********************************************!*\
+  !*** ./src/utils/classes/ChromeStorage.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ChromeStorage": () => (/* binding */ ChromeStorage)
+/* harmony export */ });
+/* harmony import */ var _config_storage_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/storage.config */ "./src/config/storage.config.ts");
+/* harmony import */ var _CustomLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CustomLogger */ "./src/utils/classes/CustomLogger.ts");
+var _a;
+
+
+class ChromeStorage {
+}
+_a = ChromeStorage;
+ChromeStorage.logger = new _CustomLogger__WEBPACK_IMPORTED_MODULE_1__.CustomLogger("ChromeStorage");
+ChromeStorage.initialize_default = async () => {
+    ChromeStorage.logger.log("Initializing default storage");
+    await chrome.storage.local.set(_config_storage_config__WEBPACK_IMPORTED_MODULE_0__.STORAGE_DEFAULT);
+};
+ChromeStorage.set_single = async (key, data) => {
+    await chrome.storage.local.set({
+        [key]: data
+    });
+};
+ChromeStorage.get_single = async (key) => {
+    const res = await chrome.storage.local.get([key]);
+    return res[key];
+};
+ChromeStorage.get_multiple = async (...keys) => {
+    return await chrome.storage.local.get([...keys]);
+};
+ChromeStorage.get_experiment_variables = async () => {
+    const experiment_variables = await ChromeStorage.get_single("experiment_variables");
+    return experiment_variables;
+};
+ChromeStorage.get_experiment_settings = async () => {
+    const experiment_settings = await ChromeStorage.get_single("experiment_settings");
+    return experiment_settings;
+};
+
+
+/***/ }),
+
+/***/ "./src/utils/classes/CustomLogger.ts":
+/*!*******************************************!*\
+  !*** ./src/utils/classes/CustomLogger.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CustomLogger": () => (/* binding */ CustomLogger)
+/* harmony export */ });
+/* harmony import */ var _time_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../time_utils */ "./src/utils/time_utils.ts");
+
+class CustomLogger {
+    constructor(prefix) {
+        this.log = (content) => {
+            const prefix_date = `${this.prefix} | ${(0,_time_utils__WEBPACK_IMPORTED_MODULE_0__.get_local_datetime)(new Date())} |`;
+            this.original_logger(prefix_date, content);
+        };
+        this.prefix = prefix;
+        this.original_logger = console.log;
+    }
+}
 
 
 /***/ }),
@@ -37132,7 +37207,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("daf1e21ae1c500e86ca5")
+/******/ 		__webpack_require__.h = () => ("a96b92a2b9837bd2b8be")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/harmony module decorator */

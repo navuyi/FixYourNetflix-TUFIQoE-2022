@@ -13,11 +13,9 @@ export class StatsAnalyzer{
     private interval : ReturnType<typeof setInterval> | undefined
     private stats_menu : StatisticsMenu | undefined
     private logger : CustomLogger
-    private chrome_storage : ChromeStorage
 
     constructor(){
         this.logger = new CustomLogger("[StatsAnalyzer]")
-        this.chrome_storage = new ChromeStorage()
     }
 
     public init = async () : Promise<void> => {
@@ -32,7 +30,7 @@ export class StatsAnalyzer{
     }
 
     private start_recording = async () : Promise<void> => {
-        const settings = await this.chrome_storage.get_experiment_settings()
+        const settings = await ChromeStorage.get_experiment_settings()
         
         this.interval = setInterval(async () => {
             if(this.stats_menu == null){
