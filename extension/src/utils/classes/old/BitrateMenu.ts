@@ -1,8 +1,8 @@
 
-import { T_BITRATE_MENU_ELEMENTS } from "../../config/types/bitrate_menu.type"
-import { CustomLogger } from "./CustomLogger"
-import { invoke_bitrate_menu_and_get_html_elements } from "../html_element_extractors/get_bitrate_menu_elements"
-import { simulate_bitrate_menu_hotkey } from "../keyboard_hotkeys/simulate_bitrate_menu_hotkeys"
+import { T_BITRATE_MENU_ELEMENTS } from "../../../config/types/bitrate_menu.type"
+import { CustomLogger } from "../CustomLogger"
+import { invoke_bitrate_menu_and_get_html_elements } from "../../html_element_extractors/get_bitrate_menu_elements"
+import { simulate_bitrate_menu_hotkey } from "../../keyboard_hotkeys/simulate_bitrate_menu_hotkeys"
 
 export class BitrateMenu{
     private bitrate_menu_elements : T_BITRATE_MENU_ELEMENTS | undefined

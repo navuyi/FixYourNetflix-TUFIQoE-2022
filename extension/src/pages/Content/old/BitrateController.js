@@ -1,4 +1,4 @@
-import {BitrateMenu} from "../../../utils/classes/BitrateMenu";
+import {BitrateMenu} from "../../../utils/classes/old/BitrateMenu";
 import {CustomLogger} from "../../../utils/classes/CustomLogger";
 import {STORAGE_KEYS} from "../../../../config/config";
 import {get_local_datetime} from "../../../utils/time_utils";

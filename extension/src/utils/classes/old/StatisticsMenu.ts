@@ -1,6 +1,6 @@
-import { get_statistics_element } from "../html_element_extractors/get_statistics_element"
-import { CustomLogger } from "./CustomLogger"
-import { T_DATABASE } from "../../config/types/database.type"
+import { get_statistics_element } from "../../html_element_extractors/get_statistics_element"
+import { CustomLogger } from "../CustomLogger"
+import { T_DATABASE } from "../../../config/types/database.type"
 
 export class StatisticsMenu{
     private stats_element : HTMLTextAreaElement | undefined

@@ -1,12 +1,12 @@
-import { MESSAGE_HEADERS } from "../../config/messages.config"
-import { T_MESSAGE } from "../../config/messages.config"
-import { get_local_datetime } from "../../utils/time_utils"
-import { send_playback_data } from "../../utils/http_requests/send_playback_data"
-import { StatisticsMenu } from "../../utils/classes/StatisticsMenu"
-import { CustomLogger } from "../../utils/classes/CustomLogger"
-import { T_DATABASE } from "../../config/types/database.type"
-import { T_ARCHIVE } from "../../config/types/archive.type"
-import { ChromeStorage } from "../../utils/classes/ChromeStorage"
+import { MESSAGE_HEADERS } from "../../../config/messages.config"
+import { T_MESSAGE } from "../../../config/messages.config"
+import { get_local_datetime } from "../../../utils/time_utils"
+import { send_playback_data } from "../../../utils/http_requests/send_playback_data"
+import { StatisticsMenu } from "../../../utils/classes/old/StatisticsMenu"
+import { CustomLogger } from "../../../utils/classes/CustomLogger"
+import { T_DATABASE } from "../../../config/types/database.type"
+import { T_ARCHIVE } from "../../../config/types/archive.type"
+import { ChromeStorage } from "../../../utils/classes/ChromeStorage"
 
 
 export class StatsAnalyzer{

@@ -7,7 +7,6 @@ class BufferResetter{
         this.inject_code()
     }
 
-
     async reset(){
         let interval = undefined
         const delay = 333
