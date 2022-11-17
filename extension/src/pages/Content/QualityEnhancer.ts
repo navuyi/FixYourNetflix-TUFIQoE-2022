@@ -18,7 +18,7 @@ export class QualityEnhancer{
     }
 
     private reset_video_quality = async () : Promise<void> => {
-        const bitrates = await NetflixBitrateMenu.get_available_bitrates()
-        await NetflixBitrateMenu.set_bitrate(bitrates[bitrates.length - 1])
+        const bitrates = NetflixBitrateMenu.get_available_bitrates()
+        NetflixBitrateMenu.set_bitrate(bitrates[bitrates.length - 1])
     }
 }
