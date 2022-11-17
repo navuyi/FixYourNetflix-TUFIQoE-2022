@@ -11,7 +11,7 @@ export class NetflixBitrateMenu{
      * Method blocks execution untill menu is invoked
      * @returns {void}
     */
-    public static invoke = async () : Promise<void> => {
+    private static invoke = async () : Promise<void> => {
         let interval : ReturnType<typeof setInterval>
         let attempt = 1
         return new Promise(resolve => {
@@ -28,6 +28,9 @@ export class NetflixBitrateMenu{
        })
     }
 
+    /**
+     *  Method simulates keyboard keys click in order to invoke bitrate menu programatically 
+    */
     public static dispatch_invoker_event = () : void => {
         NetflixBitrateMenu.logger.log("Dispatching keyboard event")
         document.dispatchEvent(
@@ -46,6 +49,10 @@ export class NetflixBitrateMenu{
         )
     }
 
+    /**
+     * Method checks if bitrate menu is already invoked
+     * @returns {boolean}
+     */
     public static is_invoked = () : boolean => {
         const container = [...document.querySelectorAll("div")].filter(item => item.innerText.match("Video Bitrate"))[1]
         const override_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Override"))[0]
@@ -60,17 +67,21 @@ export class NetflixBitrateMenu{
         }
     }
 
-    public static get_html_elements = () : T_BITRATE_MENU_ELEMENTS | undefined => {
-        const container = [...document.querySelectorAll("div")].filter(item => item.innerText.match("Video Bitrate"))[1]
-        const override_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Override"))[0]
-        const reset_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Reset"))[0]
-    
+    /**
+     * Blocking method. 
+     * Waits for the bitrate menu to be invoked and then extracts end returns essential html elements
+     * @returns {Promise<T_BITRATE_MENU_ELEMENTS>}
+    */
+    public static get_html_elements = async () : Promise<T_BITRATE_MENU_ELEMENTS> => {
         if(NetflixBitrateMenu.is_invoked() === false){
-            NetflixBitrateMenu.logger.log("BitrateMenu has to be invoked first! Elements not available.")
-            return
+            await NetflixBitrateMenu.invoke()
         }
 
         // Get BitrateMenu container content
+        const container = [...document.querySelectorAll("div")].filter(item => item.innerText.match("Video Bitrate"))[1]
+        const override_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Override"))[0]
+        const reset_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Reset"))[0]
+
         const bitrate_menu_div = container.childNodes[1]
         const select = bitrate_menu_div.childNodes[1] as HTMLSelectElement
         const options = Array.from(bitrate_menu_div.childNodes[1].childNodes) as Array<HTMLOptionElement>
@@ -89,13 +100,23 @@ export class NetflixBitrateMenu{
         }
     }
 
-    public static get_available_bitrates = () : Array<number> => {
-        const {bitrate_values} = NetflixBitrateMenu.get_html_elements() as T_BITRATE_MENU_ELEMENTS
+    /**
+     * Blocking method.
+     * Waits for bitrate menu to be invoked and returns available bitrates.
+     * @returns {Array<number>}
+    */
+    public static get_available_bitrates = async () : Promise<Array<number>> => {
+        const {bitrate_values} = await NetflixBitrateMenu.get_html_elements()
         return bitrate_values
     }
 
+    /**
+     * Blocking method.
+     * Sets new bitrate in bitrate menu
+     * @param value 
+    */
     public static set_bitrate = async (value : number) : Promise<void> => {
-        const {select, override_button} = NetflixBitrateMenu.get_html_elements() as T_BITRATE_MENU_ELEMENTS
+        const {select, override_button} = await NetflixBitrateMenu.get_html_elements()
         select.value = value.toString()
         override_button.click()
     }
