@@ -115,3 +115,6 @@ extension/build/*
 ./backend/venv/*
 backend/venv
 backend/venv/*
+
+.backend/database/database.db
+.backend/database/database-backup.db
