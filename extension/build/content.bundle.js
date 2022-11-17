@@ -27,9 +27,8 @@ class QualityEnhancer {
             };
         };
         this.reset_video_quality = async () => {
-            await _utils_classes_NetflixBitrateMenu__WEBPACK_IMPORTED_MODULE_1__.NetflixBitrateMenu.invoke();
-            const bitrates = _utils_classes_NetflixBitrateMenu__WEBPACK_IMPORTED_MODULE_1__.NetflixBitrateMenu.get_available_bitrates();
-            _utils_classes_NetflixBitrateMenu__WEBPACK_IMPORTED_MODULE_1__.NetflixBitrateMenu.set_bitrate(bitrates[bitrates.length - 1]);
+            const bitrates = await _utils_classes_NetflixBitrateMenu__WEBPACK_IMPORTED_MODULE_1__.NetflixBitrateMenu.get_available_bitrates();
+            await _utils_classes_NetflixBitrateMenu__WEBPACK_IMPORTED_MODULE_1__.NetflixBitrateMenu.set_bitrate(bitrates[bitrates.length - 1]);
         };
         this.logger = new _utils_classes_CustomLogger__WEBPACK_IMPORTED_MODULE_0__.CustomLogger("[QualityEnhancer]");
     }
@@ -124,6 +123,9 @@ NetflixBitrateMenu.invoke = async () => {
         }, 500);
     });
 };
+/**
+ *  Method simulates keyboard keys click in order to invoke bitrate menu programatically
+*/
 NetflixBitrateMenu.dispatch_invoker_event = () => {
     NetflixBitrateMenu.logger.log("Dispatching keyboard event");
     document.dispatchEvent(new KeyboardEvent("keydown", {
@@ -139,6 +141,10 @@ NetflixBitrateMenu.dispatch_invoker_event = () => {
         keyCode: 83
     }));
 };
+/**
+ * Method checks if bitrate menu is already invoked
+ * @returns {boolean}
+ */
 NetflixBitrateMenu.is_invoked = () => {
     const container = [...document.querySelectorAll("div")].filter(item => item.innerText.match("Video Bitrate"))[1];
     const override_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Override"))[0];
@@ -152,15 +158,19 @@ NetflixBitrateMenu.is_invoked = () => {
         return true;
     }
 };
-NetflixBitrateMenu.get_html_elements = () => {
+/**
+ * Blocking method.
+ * Waits for the bitrate menu to be invoked and then extracts end returns essential html elements
+ * @returns {Promise<T_BITRATE_MENU_ELEMENTS>}
+*/
+NetflixBitrateMenu.get_html_elements = async () => {
+    if (NetflixBitrateMenu.is_invoked() === false) {
+        await NetflixBitrateMenu.invoke();
+    }
+    // Get BitrateMenu container content
     const container = [...document.querySelectorAll("div")].filter(item => item.innerText.match("Video Bitrate"))[1];
     const override_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Override"))[0];
     const reset_button = [...document.querySelectorAll("button")].filter(button => button.innerText.match("Reset"))[0];
-    if (NetflixBitrateMenu.is_invoked() === false) {
-        NetflixBitrateMenu.logger.log("BitrateMenu has to be invoked first! Elements not available.");
-        return;
-    }
-    // Get BitrateMenu container content
     const bitrate_menu_div = container.childNodes[1];
     const select = bitrate_menu_div.childNodes[1];
     const options = Array.from(bitrate_menu_div.childNodes[1].childNodes);
@@ -177,12 +187,22 @@ NetflixBitrateMenu.get_html_elements = () => {
         bitrate_values: bitrate_values
     };
 };
-NetflixBitrateMenu.get_available_bitrates = () => {
-    const { bitrate_values } = NetflixBitrateMenu.get_html_elements();
+/**
+ * Blocking method.
+ * Waits for bitrate menu to be invoked and returns available bitrates.
+ * @returns {Array<number>}
+*/
+NetflixBitrateMenu.get_available_bitrates = async () => {
+    const { bitrate_values } = await NetflixBitrateMenu.get_html_elements();
     return bitrate_values;
 };
+/**
+ * Blocking method.
+ * Sets new bitrate in bitrate menu
+ * @param value
+*/
 NetflixBitrateMenu.set_bitrate = async (value) => {
-    const { select, override_button } = NetflixBitrateMenu.get_html_elements();
+    const { select, override_button } = await NetflixBitrateMenu.get_html_elements();
     select.value = value.toString();
     override_button.click();
 };
@@ -311,7 +331,7 @@ const get_local_datetime_and_timezone = (object) => {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("a96b92a2b9837bd2b8be")
+/******/ 		__webpack_require__.h = () => ("0b78b8201d8802c80330")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

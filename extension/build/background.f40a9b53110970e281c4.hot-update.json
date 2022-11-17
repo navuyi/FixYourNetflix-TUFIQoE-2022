@@ -1,1 +1,0 @@
-{"c":["background"],"r":[],"m":["./src/pages/Content/CustomPlayer.ts","./src/pages/Content/StatsAnalyzer.ts","./src/utils/classes/StatisticsMenu.ts","./src/utils/html_element_extractors/get_statistics_element.ts","./src/utils/http_requests/send_playback_data.js","./src/utils/keyboard_hotkeys/simulate_nerd_stats_hotkey.js","./src/utils/wait_for_video_to_load.ts"]}
