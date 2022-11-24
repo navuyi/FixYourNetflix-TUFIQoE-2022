@@ -10,10 +10,7 @@ const create_seek_element = () => {
     element.id = netflix_api_elements.seek.id;
     element.onclick = (e) => {
         const new_time = Number(e.currentTarget.getAttribute(netflix_api_elements.seek.attribute)) * 1000
-    
-        const videoPlayer = window.netflix.appContext.state.playerApp.getAPI().videoPlayer;
-        const player = videoPlayer.getVideoPlayerBySessionId(videoPlayer.getAllPlayerSessionIds()[0]);
-    
+        const player = get_netflix_player()
         player.seek(new_time);
     }
     (document.body).appendChild(element);
@@ -24,16 +21,50 @@ const create_current_time_element = () => {
     element.id = netflix_api_elements.current_time.id
 
     element.onclick = (e) => {
-        const videoPlayer = window.netflix.appContext.state.playerApp.getAPI().videoPlayer;
-        const player = videoPlayer.getVideoPlayerBySessionId(videoPlayer.getAllPlayerSessionIds()[0]);
-    
+        const player = get_netflix_player()
         const current_time = Number(player.getCurrentTime()) / 1000
         e.currentTarget.setAttribute(netflix_api_elements.current_time.attribute, current_time.toString())
     }
     (document.body).appendChild(element);
 }
 
+const create_duration_element = () => {
+    const element = document.createElement("div")
+    element.id = netflix_api_elements.duration.id
+
+    element.onclick = (e) => {
+        const player = get_netflix_player()
+        const duration = Number(player.getDuration()) / 1000
+        e.currentTarget.setAttribute(netflix_api_elements.duration.attribute, duration.toString())
+    }
+}
+
+const get_netflix_player = () => {
+    const videoPlayer = window.netflix.appContext.state.playerApp.getAPI().videoPlayer;
+    const player = videoPlayer.getVideoPlayerBySessionId(videoPlayer.getAllPlayerSessionIds()[0]);
+
+    return player
+}
+
 
 create_seek_element()
 create_current_time_element()
+create_duration_element()
+
+
+
+
+// very messy workaround for accessing chrome storage outside of background / content scripts
+//const use6Channels = false;
+//const setMaxBitrate = false;
+//const useVP9 = false;
+
+/*
+const mainScript = document.createElement('script');
+mainScript.type = 'application/javascript';
+mainScript.text = 'var use6Channels = ' + use6Channels + ';' + '\n' 
+                + 'var setMaxBitrate = ' + setMaxBitrate + ';' + '\n'
+                + 'var useVP9 = ' + useVP9 + ';';
+document.documentElement.appendChild(mainScript);
+*/
 

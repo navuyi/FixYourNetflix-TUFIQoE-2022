@@ -51,7 +51,6 @@ export abstract class NetflixDebugMenu{
         }
     }
 
-
     public static get_html_element = async () : Promise<HTMLTextAreaElement> => {
         if(NetflixDebugMenu.is_invoked() === false){
             await NetflixDebugMenu.invoke()

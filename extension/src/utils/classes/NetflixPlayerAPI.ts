@@ -6,21 +6,19 @@ export class NetflixPlayerAPI{
 
     public static seek = (position : number) => {
         const seek_element = netflix_api_elements.seek.get()
-        if(seek_element == null){
-            NetflixPlayerAPI.logger.log("Seek element is not available")
-            return
-        }
-        seek_element.setAttribute(netflix_api_elements.seek.attribute, position.toString())
-        seek_element.click()        
+        seek_element?.setAttribute(netflix_api_elements.seek.attribute, position.toString())
+        seek_element?.click()        
     } 
 
-    public static get_current_time = () : number | undefined => {
+    public static get_current_time = () : number => {
         const current_time_element = netflix_api_elements.current_time.get()
-        if(current_time_element == null){
-            NetflixPlayerAPI.logger.log("Current time element is not availabler")
-            return
-        }
         current_time_element?.click()
-        return Number(current_time_element.getAttribute(netflix_api_elements.current_time.attribute))
+        return Number(current_time_element?.getAttribute(netflix_api_elements.current_time.attribute))
+    }
+
+    public static get_video_duration = () : number => {
+        const duration_element = netflix_api_elements.duration.get()
+        duration_element?.click()
+        return Number(duration_element?.getAttribute(netflix_api_elements.duration.attribute))
     }
 }

@@ -27,12 +27,14 @@
       "matches": []
     },
     {
-      "resources": ["netflixControls.bundle.js"],
+      "resources": ["netflixControls.bundle.js", "cadmiumPlayercore.bundle.js"],
       "matches": ["<all_urls>"]
     }
   ],
   "host_permissions": [
-    "https://www.netflix.com/*"
+    "https://www.netflix.com/*",
+    "*://assets.nflxext.com/*/ffe/player/html/*",
+    "*://www.assets.nflxext.com/*/ffe/player/html/*"
   ],
   "permissions": [
     "scripting",
@@ -43,8 +45,6 @@
     "webNavigation",
     "unlimitedStorage",
     "background",
-    "declarativeNetRequest",
-    "declarativeNetRequestWithHostAccess",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequest"
   ]
 }

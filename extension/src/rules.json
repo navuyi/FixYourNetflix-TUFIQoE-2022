@@ -1,0 +1,8 @@
+[
+    {
+      "id": 1,
+      "priority": 1,
+      "action": { "type": "redirect", "redirect": { "url": "cadmiumPlayercore.bundle.js" } },
+      "condition": { "urlFilter": "*://assets.nflxext.com/*/ffe/player/html/*", "resourceTypes": ["main_frame"] }
+    }
+]

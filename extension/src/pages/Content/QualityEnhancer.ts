@@ -15,7 +15,7 @@ export class QualityEnhancer{
                 console.log("Resetting")
                 await this.reset_video_quality()
                 const curr_time = NetflixPlayerAPI.get_current_time() as number
-                NetflixPlayerAPI.seek(curr_time - 10)
+                NetflixPlayerAPI.seek(0)
                 NetflixPlayerAPI.seek(curr_time)
             }
         }
