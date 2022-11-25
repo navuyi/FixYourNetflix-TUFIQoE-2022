@@ -1,12 +1,12 @@
 import { T_DATABASE } from "../config/types/database.type"
 
- /**
-     * Utility method --> extracts useful data from nerds stats (long) string
-     * @param {string} regex 
-     * @param {number} group 
-     * @param {string} data 
-     * @returns {object|null}
-     */
+/**
+ * Utility method --> extracts useful data from nerds stats (long) string
+ * @param {string} regex 
+ * @param {number} group 
+ * @param {string} data 
+ * @returns {object|null}
+*/
 const get_value = (regex:string, group:number, data:string) => {
     try{
         let value = data.match(regex) ?? null

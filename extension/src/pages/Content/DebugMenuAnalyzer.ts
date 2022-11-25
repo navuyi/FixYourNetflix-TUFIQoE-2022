@@ -3,7 +3,6 @@ import { CustomLogger } from "../../utils/classes/CustomLogger"
 import { NetflixDebugMenu } from "../../utils/classes/NetflixDebugMenu"
 import { extract_debug_menu_data } from "../../utils/debug_menu_analysis"
 import { get_local_datetime } from "../../utils/time_utils"
-import { wait_for_video_to_load } from "../../utils/wait_for_video_to_load"
 
 
 export class DebugMenuAnalyzer{
@@ -25,10 +24,10 @@ export class DebugMenuAnalyzer{
     private start_debug_menu_recording = async () : Promise<void>=> {
         const interval_value = await (await ChromeStorage.get_experiment_settings()).stats_record_interval_ms
         this.interval = setInterval(() => {
-            const timestamp = get_local_datetime(new Date())
             // Check if debug menu is not null
             if(!this.debug_menu) return;
 
+            const timestamp = get_local_datetime(new Date())
             const data = extract_debug_menu_data(this.debug_menu.value, timestamp)
             const archive = {
                 data: this.debug_menu.value,

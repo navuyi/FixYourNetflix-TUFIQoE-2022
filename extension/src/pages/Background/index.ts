@@ -16,24 +16,7 @@ chrome.runtime.onInstalled.addListener(async () => {
     // Initialize local storage || WARNING --> THIS RESETS ALL chrome.storage KEYS TO DEFAULT VALUES
     await ChromeStorage.initialize_default() // same as --> chrome.storage.local.set(STORAGE_DEFAULT)
 
-    console.log(chrome.runtime.getURL("cadmiumPlayercore.bundle.js"))
-    const redirect_url = chrome.runtime.getURL("cadmiumPlayercore.bundle.js")
-    const d = ` {
-        id: 1,
-        priority: 1,
-        //@ts-ignore
-        action: { type: "redirect", redirect: {extensionPath: "/cadmiumPlayercore.bundle.js"} },
-        //@ts-ignore
-        condition: { urlFilter: "*://assets.nflxext.com/*/ffe/player/html/*", resourceTypes: ['script'] }
-    },
-    {
-        id: 2,
-        priority: 1,
-        //@ts-ignore
-        action: { type: "redirect", redirect: {extensionPath: "/cadmiumPlayercore.bundle.js"} },
-        //@ts-ignore
-        condition: { urlFilter: "*://www.assets.nflxext.com/*/ffe/player/html/*", resourceTypes: ['script'] },
-    }`
+    // Handle cadmiumPlayercore request blocking and injecting modified version
     chrome.declarativeNetRequest.updateDynamicRules({
         addRules: [
             {
@@ -55,7 +38,7 @@ chrome.runtime.onInstalled.addListener(async () => {
         ],
         removeRuleIds: [1,2,3,4]   
     }, () => {
-        console.log("ASDASDASDD")
+        
     })
 })
 

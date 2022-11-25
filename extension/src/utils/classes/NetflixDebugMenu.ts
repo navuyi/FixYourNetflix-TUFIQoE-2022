@@ -4,6 +4,10 @@ import { CustomLogger } from "./CustomLogger";
 export abstract class NetflixDebugMenu{
     private static logger : CustomLogger = new CustomLogger("[NetflixDebugMenu]")
 
+    /**
+     * Blocking method
+     * @returns 
+     */
     private static invoke = () : Promise<void> => {
         let interval : ReturnType<typeof setInterval>
         let attempt = 1
@@ -38,6 +42,10 @@ export abstract class NetflixDebugMenu{
         )
     }
 
+    /**
+     * Non-blocking method. Returns true if DebugMenu is invoked or false if it is not.
+     * @returns verdict
+    */
     public static is_invoked = () => {
         const element = document.getElementsByTagName("textarea")[0]
         const outer_element = document.getElementsByClassName("player-info")[0] as HTMLElement  // This is the element that contains X (exit) button
@@ -51,6 +59,12 @@ export abstract class NetflixDebugMenu{
         }
     }
 
+    /**
+     * Blocking method. Returns HTMLTextAreaElement of Netflix Debug Menu consisting 
+     * information on video player state.
+     * If debug menu is not invoked, method calls invoking method and waits for the element to be returned
+     * @returns {element<HTMLTextAreaElement>}
+    */
     public static get_html_element = async () : Promise<HTMLTextAreaElement> => {
         if(NetflixDebugMenu.is_invoked() === false){
             await NetflixDebugMenu.invoke()
