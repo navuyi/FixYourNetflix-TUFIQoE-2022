@@ -3,6 +3,7 @@
 export type T_EXPERIMENT_SETTINGS = {
   stats_record_interval_ms: number,
   bitrate_change_interval_ms: number,
+  bitrate_change_jitter_ms: number,
   video_url: Array<string>,
   subject_id: string
 }
@@ -28,7 +29,8 @@ export const STORAGE_KEYS = {
 export const STORAGE_DEFAULT : T_STORAGE= {
   experiment_settings: {
     stats_record_interval_ms: 1000,
-    bitrate_change_interval_ms: 2.5 * 60 * 1000,
+    bitrate_change_interval_ms: 0.5 * 60 * 1000,
+    bitrate_change_jitter_ms: 5 * 1000,
     video_url: [
       "https://www.netflix.com/watch/70196252?trackId=14170286",
       "https://www.netflix.com/watch/70196253?trackId=14170286"

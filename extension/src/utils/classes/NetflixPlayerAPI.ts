@@ -21,4 +21,51 @@ export class NetflixPlayerAPI{
         duration_element?.click()
         return Number(duration_element?.getAttribute(netflix_api_elements.duration.attribute))
     }
+
+
+
+
+
+    public static pause_video = () : void => {
+        const video = NetflixPlayerAPI.get_html_video_element()
+        if(video != null){
+            video.pause()
+        }
+    }
+
+    public static resume_video = async () : Promise<void> => {
+        const video = NetflixPlayerAPI.get_html_video_element()
+        if(video != null){
+            await video.play()
+        }
+    }
+
+    public static hide_video_player = () : void => {
+        const video = NetflixPlayerAPI.get_html_video_element()
+        if(video != null){
+            video.style.visibility = "hidden"
+            video.style.pointerEvents = "none"
+        }
+    }
+
+    public static reveal_video_player = () : void => {
+        const video = NetflixPlayerAPI.get_html_video_element()
+        if(video != null){
+            video.style.visibility = "visible"
+            video.style.pointerEvents = "auto"
+        }
+    }
+
+    public static set_video_muted = (muted : boolean) : void => {
+        const video = NetflixPlayerAPI.get_html_video_element()
+        if(video != null){
+            video.muted = muted
+        }
+    }
+
+
+    public static get_html_video_element = () : HTMLVideoElement | null => {
+        const video = document.getElementsByTagName("video")[0]
+        return video != null ? video : null
+    }
 }

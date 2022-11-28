@@ -16,7 +16,6 @@ export class DebugMenuAnalyzer{
 
     public init = async () : Promise<void> => {
         this.debug_menu = await NetflixDebugMenu.get_html_element()
-
         await this.start_debug_menu_recording()
     }
 
@@ -33,8 +32,8 @@ export class DebugMenuAnalyzer{
                 data: this.debug_menu.value,
                 timestamp: timestamp
             }
-            this.logger.log(data)
-            this.logger.log(archive)
+            //this.logger.log(data)
+            //this.logger.log(archive)
 
             //TODO Send extracted data to backend
 

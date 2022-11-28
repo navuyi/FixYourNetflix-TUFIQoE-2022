@@ -55,6 +55,8 @@ export abstract class NetflixDebugMenu{
             return false
         }else{
             NetflixDebugMenu.logger.log("Invoked")
+            outer_element.style.pointerEvents = "none" // <-- makes element unclickable
+            element.style.pointerEvents = "none" // <-- makes element unclickable
             return true
         }
     }

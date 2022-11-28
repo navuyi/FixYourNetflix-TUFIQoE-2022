@@ -18,11 +18,11 @@ const init = async () : Promise<void> => {
     //await customPlayer.init()
 
     //TODO: Third create QualityDecreaser instance
-    //const qualityDecreaser = new QualityDecreaser()
-    //await qualityDecreaser.init()
+    const qualityDecreaser = new QualityDecreaser()
+    await qualityDecreaser.init()
 
     //TODO Fourth create QualityEnhancer instance
-    const qualityEnhancer = new QualityEnhancer()
+    const qualityEnhancer = new QualityEnhancer(qualityDecreaser)
     await qualityEnhancer.init()
 }
 
