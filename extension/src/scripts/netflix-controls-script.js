@@ -22,7 +22,7 @@ const create_current_time_element = () => {
 
     element.onclick = (e) => {
         const player = get_netflix_player()
-        const current_time = Number(player.getCurrentTime()) / 1000
+        const current_time = Math.round(Number(player.getCurrentTime())) / 1000
         e.currentTarget.setAttribute(netflix_api_elements.current_time.attribute, current_time.toString())
     }
     (document.body).appendChild(element);
@@ -34,9 +34,10 @@ const create_duration_element = () => {
 
     element.onclick = (e) => {
         const player = get_netflix_player()
-        const duration = Number(player.getDuration()) / 1000
+        const duration = Math.round(Number(player.getDuration())) / 1000
         e.currentTarget.setAttribute(netflix_api_elements.duration.attribute, duration.toString())
     }
+    (document.body).appendChild(element)
 }
 
 const get_netflix_player = () => {
