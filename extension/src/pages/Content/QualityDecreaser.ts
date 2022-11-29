@@ -13,7 +13,7 @@ export class QualityDecreaser {
 
 
     constructor(){
-        this.logger = new CustomLogger("[QualityScenarioManager]")
+        this.logger = new CustomLogger("[QualityScenarioManager]", "red")
         this.bitrate_index = 0
     }
 
@@ -32,11 +32,12 @@ export class QualityDecreaser {
         await this.start_bitrate_changes()
     }
 
-    public init_bitrate_index = async () => {
+    public init_bitrate_index = async (after_quality_reset:boolean = false) => {
         const available_bitrates = await NetflixBitrateMenu.get_available_bitrates()
-        this.bitrate_index = available_bitrates.length-1
-        // NOTE: TODO: WARNING: ATTENTION: DELETE THIS LATER
-        this.bitrate_index = 0 // <<<<---- DELETE THIS LATER - ONLY FOR TESTING PURPOSES
+        this.bitrate_index = after_quality_reset === true ? available_bitrates.length-2 : available_bitrates.length-1
+        NetflixBitrateMenu.dispatch_invoker_event()
+        //NOTE: TODO: WARNING: ATTENTION: DELETE THIS LATER
+        //this.bitrate_index = 0 // <<<<---- DELETE THIS LATER - ONLY FOR TESTING PURPOSES
     }
 
     private reset_to_beginning = async () : Promise<void> => {
@@ -48,7 +49,7 @@ export class QualityDecreaser {
     
     public start_bitrate_changes = async () : Promise<void> => {
         const tmt = this.calculate_timeout()
-        this.logger.log(`Scheduling bitrate change in ${tmt}`)
+        this.logger.log(`Scheduling next bitrate change in ${tmt} ms`)
 
         this.timeout = setTimeout(async () => {
             this.logger.log("Executing bitrate change...")
@@ -66,9 +67,10 @@ export class QualityDecreaser {
         }
     }
     
-    private set_new_bitrate = async () : Promise<void> => {
+    public set_new_bitrate = async () : Promise<void> => {
         const bitrates = await NetflixBitrateMenu.get_available_bitrates()
         const bitrate_to_set = bitrates[this.bitrate_index]
+        this.logger.log(`Setting bitrate to ${bitrate_to_set} kbps`)
 
         await NetflixBitrateMenu.set_bitrate(bitrate_to_set)
         this.decrement_bitrate_index()

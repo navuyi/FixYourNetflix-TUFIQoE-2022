@@ -1,5 +1,4 @@
 import { CustomLogger } from "./CustomLogger"
-import { extract_html_elements } from "../html_element_extractors/get_bitrate_menu_elements"
 import { T_BITRATE_MENU_ELEMENTS } from "../../config/types/bitrate_menu.type"
 
 export class NetflixBitrateMenu{

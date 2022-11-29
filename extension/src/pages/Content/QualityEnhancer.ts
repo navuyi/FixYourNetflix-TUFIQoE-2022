@@ -2,7 +2,7 @@ import { CustomLogger } from "../../utils/classes/CustomLogger";
 import { NetflixBitrateMenu } from "../../utils/classes/NetflixBitrateMenu";
 import { NetflixDebugMenu } from "../../utils/classes/NetflixDebugMenu";
 import { NetflixPlayerAPI } from "../../utils/classes/NetflixPlayerAPI";
-import { extract_buffering_bitrate_video } from "../../utils/debug_menu_analysis";
+import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract_playing_bitrate_video } from "../../utils/debug_menu_analysis";
 import QualityDecreaser from "./QualityDecreaser";
 
 export class QualityEnhancer{
@@ -10,7 +10,7 @@ export class QualityEnhancer{
     private qualityDecreaser : QualityDecreaser
 
     constructor(qualityDecreaser : QualityDecreaser){
-        this.logger = new CustomLogger("[QualityEnhancer]")
+        this.logger = new CustomLogger("[QualityEnhancer]", "steelblue")
         this.qualityDecreaser = qualityDecreaser
     }
 
@@ -23,66 +23,78 @@ export class QualityEnhancer{
     }
 
     private reset_video_quality = async () : Promise<void> => {
-        this.logger.log("Resetting video quality...")
+        this.logger.log("Proceeding to reset video quality...")
 
         // Stop quality decreasing process
         this.qualityDecreaser.stop_bitrate_changes()
         
-        // Pause video
-        // NetflixPlayerAPI.pause_video() <-- can not pause here because it stops video from buffering
-        const reset_start = await NetflixPlayerAPI.get_current_time() // <-- Getting timestamp because the playback continues in background (muted and hidden)
-        const start = new Date()
-        NetflixPlayerAPI.hide_video_player()
+        // Hide resetting process from subject
         NetflixPlayerAPI.set_video_muted(true)
-        // Display some info on video quality being enhanced 
-
+        NetflixPlayerAPI.pause_video()
+        const video_pause_time = await NetflixPlayerAPI.get_current_time()
+        
         // Set highest bitrate available
         const available_bitrates = await NetflixBitrateMenu.get_available_bitrates()
         const highest_bitrate_available = available_bitrates[available_bitrates.length - 1]
         await NetflixBitrateMenu.set_bitrate(highest_bitrate_available)
 
-        // Wait for expected bitrate to buffer
-        await this.wait_for_expected_bitrate(highest_bitrate_available)
-
         // Reset buffer
-        await this.reset_buffer(reset_start)
+        await this.reset_buffer(highest_bitrate_available, video_pause_time)
         
         // Resume video
-        NetflixPlayerAPI.reveal_video_player()
+        await NetflixPlayerAPI.resume_video()
         NetflixPlayerAPI.set_video_muted(false)
-
-        const reset_end = new Date()
-        this.logger.log(`This reset took: ${reset_end.getTime() - start.getTime()}`)
-
-        // Resume quality decreasing process
-        await this.qualityDecreaser.init_bitrate_index()
-        await this.qualityDecreaser.start_bitrate_changes()
-
+    
+        // Resume quality decreasing process - resuming 5 seconds after resuming playback - giving some time for the highest quality to buffer
+        setTimeout(async () => {
+            await this.qualityDecreaser.init_bitrate_index(true)
+            await this.qualityDecreaser.set_new_bitrate()
+            await this.qualityDecreaser.start_bitrate_changes()
+        }, 2000)
     }
 
-    private reset_buffer = async (reset_start : number) : Promise<void> => {
+
+    private reset_buffer = async (expected_bitrate : number, video_pause_time : number) : Promise<void> => {
         const video_duration = await NetflixPlayerAPI.get_video_duration()
-        const current_timestamp = await NetflixPlayerAPI.get_current_time()
-        this.logger.log(video_duration)
-        this.logger.log(current_timestamp)
-
-        await NetflixPlayerAPI.seek(Math.round(video_duration/2)) // seek to half of the video length
-        await NetflixPlayerAPI.seek(Math.round(video_duration/4)) // seek to half of the video length
-        await NetflixPlayerAPI.seek(reset_start-5) // seek to quarter of the video length
-    }
-
-    private wait_for_expected_bitrate = async (expected_bitrate : number) : Promise<void> => {
-        let retry_interval : ReturnType<typeof setInterval>
-        const element = await NetflixDebugMenu.get_html_element()
+        const current_position = await NetflixPlayerAPI.get_current_time()
+        let attempt = 1
 
         return new Promise(resolve => {
-            retry_interval = setInterval(() => {
-                const current_bitrate = Number(extract_buffering_bitrate_video(element.value))
-                if(current_bitrate === expected_bitrate){
-                    clearInterval(retry_interval)
+            const interval = setInterval(async () => {
+                this.logger.log(`Buffer resetting - attempt number: ${attempt}`)
+                const delay = 300
+                
+                await new Promise<void>(resolve => {
+                    setTimeout(() => {
+                        NetflixPlayerAPI.seek(0)
+                        resolve()
+                    }, delay)
+                })
+                await new Promise<void>(resolve => {
+                    setTimeout(() => {
+                        NetflixPlayerAPI.seek(video_duration/2)
+                        resolve()
+                    }, delay)
+                })
+                await new Promise<void>(resolve => {
+                    setTimeout(() => {
+                        NetflixPlayerAPI.seek(video_duration/4)
+                        resolve()
+                    }, delay)
+                })
+                
+                const element = await NetflixDebugMenu.get_html_element()
+                const buffering_bitrate = Number(extract_buffering_bitrate_video(element.value))
+
+                if(buffering_bitrate === expected_bitrate){
+                    clearInterval(interval)
+                    this.logger.log("Resetting successfull")
+                    NetflixPlayerAPI.seek(video_pause_time)
                     resolve()
                 }
-            }, 100)
+                attempt += 1
+            }, 1000)
         })
     }
 }
+
