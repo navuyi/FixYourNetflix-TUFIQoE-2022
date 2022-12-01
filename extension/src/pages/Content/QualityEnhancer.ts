@@ -2,16 +2,20 @@ import { CustomLogger } from "../../utils/classes/CustomLogger";
 import { NetflixBitrateMenu } from "../../utils/classes/NetflixBitrateMenu";
 import { NetflixDebugMenu } from "../../utils/classes/NetflixDebugMenu";
 import { NetflixPlayerAPI } from "../../utils/classes/NetflixPlayerAPI";
-import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract_playing_bitrate_video } from "../../utils/debug_menu_analysis";
+import { VideoCurtain } from "../../utils/classes/VideoCurtain";
+import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract_playing_bitrate_video, extract_rendering_state } from "../../utils/debug_menu_analysis";
 import QualityDecreaser from "./QualityDecreaser";
+import { wait_for_rendering_state_playing } from "../../utils/wait_for_rendering_state_playing";
 
 export class QualityEnhancer{
     private logger : CustomLogger
     private qualityDecreaser : QualityDecreaser
+    private videoCurtain : VideoCurtain
 
     constructor(qualityDecreaser : QualityDecreaser){
         this.logger = new CustomLogger("[QualityEnhancer]", "steelblue")
         this.qualityDecreaser = qualityDecreaser
+        this.videoCurtain = new VideoCurtain("quality-enhancer-curtain", "Video quality is being enhanced. Please wait.")
     }
 
     public init = async () : Promise<void> => {
@@ -29,9 +33,8 @@ export class QualityEnhancer{
         this.qualityDecreaser.stop_bitrate_changes()
         
         // Hide resetting process from subject
-        NetflixPlayerAPI.set_video_muted(true)
-        NetflixPlayerAPI.pause_video()
         const video_pause_time = await NetflixPlayerAPI.get_current_time()
+        this.hide_video_player()
         
         // Set highest bitrate available
         const available_bitrates = await NetflixBitrateMenu.get_available_bitrates()
@@ -42,10 +45,12 @@ export class QualityEnhancer{
         await this.reset_buffer(highest_bitrate_available, video_pause_time)
         
         // Resume video
-        await NetflixPlayerAPI.resume_video()
-        NetflixPlayerAPI.set_video_muted(false)
-    
+        await wait_for_rendering_state_playing()
+        await this.reveal_video_player()
+        
+
         // Resume quality decreasing process - resuming 5 seconds after resuming playback - giving some time for the highest quality to buffer
+        //TODO - DISCUSS THIS 
         setTimeout(async () => {
             await this.qualityDecreaser.init_bitrate_index(true)
             await this.qualityDecreaser.set_new_bitrate()
@@ -53,10 +58,20 @@ export class QualityEnhancer{
         }, 2000)
     }
 
+    private hide_video_player = () : void => {
+        NetflixPlayerAPI.set_video_muted(true)
+        NetflixPlayerAPI.pause_video()
+        this.videoCurtain.reveal()
+    }
+
+    private reveal_video_player = async () : Promise<void> => {
+        NetflixPlayerAPI.set_video_muted(false)
+        await NetflixPlayerAPI.resume_video()
+        this.videoCurtain.remove()
+    }
 
     private reset_buffer = async (expected_bitrate : number, video_pause_time : number) : Promise<void> => {
         const video_duration = await NetflixPlayerAPI.get_video_duration()
-        const current_position = await NetflixPlayerAPI.get_current_time()
         let attempt = 1
 
         return new Promise(resolve => {
@@ -89,7 +104,7 @@ export class QualityEnhancer{
                 if(buffering_bitrate === expected_bitrate){
                     clearInterval(interval)
                     this.logger.log("Resetting successfull")
-                    NetflixPlayerAPI.seek(video_pause_time)
+                    NetflixPlayerAPI.seek(video_pause_time - 2)
                     resolve()
                 }
                 attempt += 1

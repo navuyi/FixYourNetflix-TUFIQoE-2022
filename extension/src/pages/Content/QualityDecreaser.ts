@@ -11,7 +11,6 @@ export class QualityDecreaser {
     private bitrate_change_interval : number | undefined
     private bitrate_change_jitter : number | undefined
 
-
     constructor(){
         this.logger = new CustomLogger("[QualityScenarioManager]", "red")
         this.bitrate_index = 0
@@ -28,7 +27,6 @@ export class QualityDecreaser {
         await this.set_new_bitrate() // Setting first bitrate - highest value
         await this.reset_to_beginning()  // Resetting playback - rewinding to the beginning
     
-
         await this.start_bitrate_changes()
     }
 
@@ -37,14 +35,14 @@ export class QualityDecreaser {
         this.bitrate_index = after_quality_reset === true ? available_bitrates.length-2 : available_bitrates.length-1
         NetflixBitrateMenu.dispatch_invoker_event()
         //NOTE: TODO: WARNING: ATTENTION: DELETE THIS LATER
-        //this.bitrate_index = 0 // <<<<---- DELETE THIS LATER - ONLY FOR TESTING PURPOSES
+        this.bitrate_index = 0 // <<<<---- DELETE THIS LATER - ONLY FOR TESTING PURPOSES
     }
 
     private reset_to_beginning = async () : Promise<void> => {
         const video_duration = await NetflixPlayerAPI.get_video_duration()
         await NetflixPlayerAPI.seek(Math.round(video_duration/2)) // seek to quarter of the video length
         await NetflixPlayerAPI.seek(Math.round(video_duration/4)) // seek to half of the video length
-        await NetflixPlayerAPI.seek(0)                // seek to the beginning of the video
+        await NetflixPlayerAPI.seek(0)                            // seek to the beginning of the video
     }
     
     public start_bitrate_changes = async () : Promise<void> => {
