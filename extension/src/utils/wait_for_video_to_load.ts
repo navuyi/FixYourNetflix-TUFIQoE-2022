@@ -23,6 +23,6 @@ export const wait_for_video_to_load = async () : Promise<void>=> {
             } catch (err) {
                 console.log(err)
             }
-        }, 50)
+        }, 10)
     })
 }

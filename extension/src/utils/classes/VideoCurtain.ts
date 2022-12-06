@@ -17,7 +17,6 @@ export class VideoCurtain{
         panel.style.width = "100vw"
         panel.style.height = "100vh"
         panel.style.backgroundColor = "#222222"
-        panel.style.zIndex = "10000"
         panel.style.position = "absolute"
         panel.style.left = "0px"; panel.style.top = "0px";
 
@@ -28,6 +27,8 @@ export class VideoCurtain{
         panel.style.color = "white"
         panel.style.fontSize = "24px"
 
+        panel.style.zIndex = "11000"
+        panel.style.pointerEvents = "none"
         return panel
     }
 
@@ -37,7 +38,7 @@ export class VideoCurtain{
         const video_canvas = document.querySelectorAll("[data-uia='video-canvas']")[0] as HTMLElement
         video_canvas.style.willChange = "unset"
 
-        this.element.style.display = "flex"
+        
         this.element.innerText = this.inner_text
         video_div.appendChild(this.element)
     }

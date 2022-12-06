@@ -23,10 +23,11 @@ export class CustomPlayer{
     public init = async () : Promise<void> => {
         await wait_for_video_to_load()
 
-        await this.create_shutter()
+        this.create_shutter()
 
-        const video_canvas = document.querySelectorAll("[data-uia='video-canvas']")[0]
-        video_canvas.addEventListener("mousemove", () => {
+        const video_canvas = document.querySelectorAll("[data-uia='video-canvas']")[0] as HTMLElement
+
+        video_canvas.onmousemove = () => {
             let controls_container = document.getElementsByClassName("watch-video--bottom-controls-container")[0]
 
             this.elements_to_remove.forEach(element_data_uia => {
@@ -38,7 +39,7 @@ export class CustomPlayer{
                 const element = this.get_element(controls_container, element_data_uia)
                 if(element) this.modify_element(element)
             })
-        })
+        }
     }
 
     private modify_element(element : Element){
@@ -56,8 +57,9 @@ export class CustomPlayer{
         return container.querySelectorAll(selector)[0] 
     }
 
-    async create_shutter(){
-        const video_canvas = document.querySelectorAll("[data-uia='video-canvas']")[0]
+    private create_shutter(){
+        const video_canvas = document.querySelectorAll("[data-uia='video-canvas']")[0] as HTMLElement
+        video_canvas.style.willChange = "unset" // <-- this is essential - in YourNetflixOurLab it was done in AssessmentManager
 
         const shutter = document.createElement("div")
         shutter.id = "transparent_panel"

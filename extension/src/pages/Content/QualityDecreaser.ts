@@ -22,20 +22,26 @@ export class QualityDecreaser {
         this.bitrate_change_jitter = await (await ChromeStorage.get_experiment_settings()).bitrate_change_jitter_ms
         
         await wait_for_video_to_load()
+        NetflixPlayerAPI.hide_video_player()
         await this.init_bitrate_index()
 
         await this.set_new_bitrate() // Setting first bitrate - highest value
         await this.reset_to_beginning()  // Resetting playback - rewinding to the beginning
-    
-        await this.start_bitrate_changes()
+        NetflixPlayerAPI.reveal_video_player()
+
+        // Some time after starting video with highest possible quality set next bitrate to buffer and schedule rest
+        // Proper solution would be to wait for buffer to fill up to certain capacity
+        setTimeout(async () => {
+            await this.set_new_bitrate()
+            await this.start_bitrate_changes()
+        }, 10e3)
     }
 
     public init_bitrate_index = async (after_quality_reset:boolean = false) => {
         const available_bitrates = await NetflixBitrateMenu.get_available_bitrates()
         this.bitrate_index = after_quality_reset === true ? available_bitrates.length-2 : available_bitrates.length-1
         NetflixBitrateMenu.dispatch_invoker_event()
-        //NOTE: TODO: WARNING: ATTENTION: DELETE THIS LATER
-        this.bitrate_index = 0 // <<<<---- DELETE THIS LATER - ONLY FOR TESTING PURPOSES
+        //this.bitrate_index = 0 // <-- SET BAD QUALITY IMMEDIATELY - DO NOT USE IN PRODUCTION
     }
 
     private reset_to_beginning = async () : Promise<void> => {

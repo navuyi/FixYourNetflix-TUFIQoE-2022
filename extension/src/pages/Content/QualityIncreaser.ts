@@ -7,15 +7,15 @@ import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract
 import QualityDecreaser from "./QualityDecreaser";
 import { wait_for_rendering_state_playing } from "../../utils/wait_for_rendering_state_playing";
 
-export class QualityEnhancer{
+export class QualityIncreaser{
     private logger : CustomLogger
     private qualityDecreaser : QualityDecreaser
     private videoCurtain : VideoCurtain
 
     constructor(qualityDecreaser : QualityDecreaser){
-        this.logger = new CustomLogger("[QualityEnhancer]", "steelblue")
+        this.logger = new CustomLogger("[QualityIncreaser]", "steelblue")
         this.qualityDecreaser = qualityDecreaser
-        this.videoCurtain = new VideoCurtain("quality-enhancer-curtain", "Video quality is being enhanced. Please wait.")
+        this.videoCurtain = new VideoCurtain("quality-increaser-curtain", "Video quality is being increased. Please wait.")
     }
 
     public init = async () : Promise<void> => {
@@ -49,13 +49,13 @@ export class QualityEnhancer{
         await this.reveal_video_player()
         
 
-        // Resume quality decreasing process - resuming 5 seconds after resuming playback - giving some time for the highest quality to buffer
-        //TODO - DISCUSS THIS 
+        // Resume quality decreasing process - resuming 2-5 seconds after resuming playback - giving some time for the highest quality to buffer
+        // Discussed as irrelevant for now
         setTimeout(async () => {
             await this.qualityDecreaser.init_bitrate_index(true)
             await this.qualityDecreaser.set_new_bitrate()
             await this.qualityDecreaser.start_bitrate_changes()
-        }, 2000)
+        }, 5000)
     }
 
     private hide_video_player = () : void => {
