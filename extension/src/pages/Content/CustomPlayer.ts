@@ -15,7 +15,7 @@ export class CustomPlayer{
         "control-volume-high",
         "control-audio-subtitle"
     ]
-
+    
     constructor() {
         this.logger = new CustomLogger("[CustomPlayer]")
     }
