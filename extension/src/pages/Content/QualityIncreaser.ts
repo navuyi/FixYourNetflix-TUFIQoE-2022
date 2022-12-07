@@ -6,6 +6,7 @@ import { VideoCurtain } from "../../utils/classes/VideoCurtain";
 import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract_playing_bitrate_video, extract_rendering_state } from "../../utils/debug_menu_analysis";
 import QualityDecreaser from "./QualityDecreaser";
 import { wait_for_rendering_state_playing } from "../../utils/wait_for_rendering_state_playing";
+import { wait_for_expected_bitrate_buffering } from "../../utils/wait_for_expected_bitrate_buffering";
 
 export class QualityIncreaser{
     private logger : CustomLogger
@@ -42,7 +43,8 @@ export class QualityIncreaser{
         await NetflixBitrateMenu.set_bitrate(highest_bitrate_available)
 
         // Reset buffer
-        await this.reset_buffer(highest_bitrate_available, video_pause_time)
+        await this.buffer_seek_reset(video_pause_time)
+        await wait_for_expected_bitrate_buffering(highest_bitrate_available)
         
         // Resume video
         await wait_for_rendering_state_playing()
@@ -70,46 +72,33 @@ export class QualityIncreaser{
         this.videoCurtain.remove()
     }
 
-    private reset_buffer = async (expected_bitrate : number, video_pause_time : number) : Promise<void> => {
+
+    private buffer_seek_reset = async (video_pause_time : number) : Promise<void> => {
         const video_duration = await NetflixPlayerAPI.get_video_duration()
-        let attempt = 1
+        const delay = 250 //ms
 
-        return new Promise(resolve => {
-            const interval = setInterval(async () => {
-                this.logger.log(`Buffer resetting - attempt number: ${attempt}`)
-                const delay = 300
-                
-                await new Promise<void>(resolve => {
-                    setTimeout(() => {
-                        NetflixPlayerAPI.seek(0)
-                        resolve()
-                    }, delay)
-                })
-                await new Promise<void>(resolve => {
-                    setTimeout(() => {
-                        NetflixPlayerAPI.seek(video_duration/2)
-                        resolve()
-                    }, delay)
-                })
-                await new Promise<void>(resolve => {
-                    setTimeout(() => {
-                        NetflixPlayerAPI.seek(video_duration/4)
-                        resolve()
-                    }, delay)
-                })
-                
-                const element = await NetflixDebugMenu.get_html_element()
-                const buffering_bitrate = Number(extract_buffering_bitrate_video(element.value))
+        // Seek to beginning of video immediately
+        NetflixPlayerAPI.seek(0)
 
-                if(buffering_bitrate === expected_bitrate){
-                    clearInterval(interval)
-                    this.logger.log("Resetting successfull")
-                    NetflixPlayerAPI.seek(video_pause_time - 2)
-                    resolve()
-                }
-                attempt += 1
-            }, 1000)
+        // Seek to the other positions after certain delay
+        await new Promise<void>(resolve => {
+            setTimeout(() => {
+                NetflixPlayerAPI.seek(video_duration/2)
+                resolve()
+            }, delay)
         })
+        await new Promise<void>(resolve => {
+            setTimeout(() => {
+                NetflixPlayerAPI.seek(video_duration/4)
+                resolve()
+            }, delay)
+        })  
+        await new Promise<void>(resolve => {
+            setTimeout(() => {
+                NetflixPlayerAPI.seek(video_pause_time - 2)
+                resolve()
+            }, delay)
+        })  
     }
 }
 

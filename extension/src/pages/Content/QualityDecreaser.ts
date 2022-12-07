@@ -41,7 +41,7 @@ export class QualityDecreaser {
         const available_bitrates = await NetflixBitrateMenu.get_available_bitrates()
         this.bitrate_index = after_quality_reset === true ? available_bitrates.length-2 : available_bitrates.length-1
         NetflixBitrateMenu.dispatch_invoker_event()
-        //this.bitrate_index = 0 // <-- SET BAD QUALITY IMMEDIATELY - DO NOT USE IN PRODUCTION
+        this.bitrate_index = 0 // <-- SET BAD QUALITY IMMEDIATELY - DO NOT USE IN PRODUCTION
     }
 
     private reset_to_beginning = async () : Promise<void> => {
