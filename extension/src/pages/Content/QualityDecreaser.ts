@@ -47,8 +47,8 @@ export class QualityDecreaser {
 
     private reset_to_beginning = async () : Promise<void> => {
         const video_duration = await NetflixPlayerAPI.get_video_duration()
-        await NetflixPlayerAPI.seek(Math.round(video_duration/2)) // seek to quarter of the video length
-        await NetflixPlayerAPI.seek(Math.round(video_duration/4)) // seek to half of the video length
+        await NetflixPlayerAPI.seek(Math.round(video_duration/2)) 
+        await NetflixPlayerAPI.seek(Math.round(video_duration/4)) 
         await NetflixPlayerAPI.seek(0)                            // seek to the beginning of the video
     }
     

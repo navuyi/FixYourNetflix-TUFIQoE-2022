@@ -104,8 +104,9 @@ export class QualityIncreaser{
             }, delay)
         })  
         await new Promise<void>(resolve => {
-            setTimeout(() => {
-                NetflixPlayerAPI.seek(video_pause_time - 2)
+            setTimeout(async () => {
+                const {quality_increase_rewind} = await ChromeStorage.get_experiment_settings()
+                NetflixPlayerAPI.seek(video_pause_time - Math.round(quality_increase_rewind/1000))
                 resolve()
             }, delay)
         })  
