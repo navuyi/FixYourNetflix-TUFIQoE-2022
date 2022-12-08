@@ -49,6 +49,7 @@ export class Controller{
         // Code below seems to be the right solution //
 
         // onHistoryStateUpdated detects navigation within Netlifx player (next video button)
+        // on other types of navigation within Netflix webpage
         /*
         chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
             this.logger.log(`ON HISTORY STATE UPDATED`)
@@ -63,6 +64,7 @@ export class Controller{
             }
         });
         */
+        
         // onCompleted detects navigation using chrome.tabs.update
         chrome.webNavigation.onCompleted.addListener(details => {
             if(details.frameId === 0 && details.url.includes(this.NETFLIX_WATCH_URL)) {

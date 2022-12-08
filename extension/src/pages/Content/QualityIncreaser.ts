@@ -7,22 +7,30 @@ import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract
 import QualityDecreaser from "./QualityDecreaser";
 import { wait_for_rendering_state_playing } from "../../utils/wait_for_rendering_state_playing";
 import { wait_for_expected_bitrate_buffering } from "../../utils/wait_for_expected_bitrate_buffering";
+import { ChromeStorage } from "../../utils/classes/ChromeStorage";
 
 export class QualityIncreaser{
     private logger : CustomLogger
     private qualityDecreaser : QualityDecreaser
     private videoCurtain : VideoCurtain
+    private cooldown_active : boolean
 
     constructor(qualityDecreaser : QualityDecreaser){
         this.logger = new CustomLogger("[QualityIncreaser]", "steelblue")
         this.qualityDecreaser = qualityDecreaser
         this.videoCurtain = new VideoCurtain("quality-increaser-curtain", "Video quality is being increased. Please wait.")
+        this.cooldown_active = false
     }
 
     public init = async () : Promise<void> => {
         window.document.onkeydown = async (e) => {
-            if(e.key === "G"){
-               await this.reset_video_quality()
+            if(e.key === "G" && this.cooldown_active === false){
+                this.cooldown_active = true
+                const {quality_increase_cooldown} = await ChromeStorage.get_experiment_settings()
+                setTimeout(() => {
+                    this.cooldown_active = false
+                }, quality_increase_cooldown)
+                await this.reset_video_quality()
             }
         }
     }
@@ -34,7 +42,7 @@ export class QualityIncreaser{
         this.qualityDecreaser.stop_bitrate_changes()
         
         // Hide resetting process from subject
-        const video_pause_time = await NetflixPlayerAPI.get_current_time()
+        const request_time = await NetflixPlayerAPI.get_current_time()
         this.hide_video_player()
         
         // Set highest bitrate available
@@ -43,7 +51,7 @@ export class QualityIncreaser{
         await NetflixBitrateMenu.set_bitrate(highest_bitrate_available)
 
         // Reset buffer
-        await this.buffer_seek_reset(video_pause_time)
+        await this.buffer_seek_reset(request_time)
         await wait_for_expected_bitrate_buffering(highest_bitrate_available)
         
         // Resume video
@@ -61,14 +69,16 @@ export class QualityIncreaser{
     }
 
     private hide_video_player = () : void => {
+        this.logger.log("Hiding video player")
         NetflixPlayerAPI.set_video_muted(true)
-        NetflixPlayerAPI.pause_video()
+        //NetflixPlayerAPI.pause_video()
         this.videoCurtain.reveal()
     }
 
     private reveal_video_player = async () : Promise<void> => {
+        this.logger.log("Revealing video player")
         NetflixPlayerAPI.set_video_muted(false)
-        await NetflixPlayerAPI.resume_video()
+        //await NetflixPlayerAPI.resume_video()
         this.videoCurtain.remove()
     }
 
