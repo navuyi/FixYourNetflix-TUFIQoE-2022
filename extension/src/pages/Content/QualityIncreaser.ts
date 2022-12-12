@@ -1,9 +1,7 @@
 import { CustomLogger } from "../../utils/custom/CustomLogger";
 import { NetflixBitrateMenu } from "../../utils/netflix/NetflixBitrateMenu";
-import { NetflixDebugMenu } from "../../utils/netflix/NetflixDebugMenu";
 import { NetflixPlayerAPI } from "../../utils/netflix/NetflixPlayerAPI";
 import { VideoCurtain } from "../../utils/custom/VideoCurtain";
-import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract_playing_bitrate_video, extract_rendering_state } from "../../utils/debug_menu_analysis";
 import QualityDecreaser from "./QualityDecreaser";
 import { wait_for_rendering_state_playing } from "../../utils/waiters/wait_for_rendering_state_playing";
 import { wait_for_expected_bitrate_buffering } from "../../utils/waiters/wait_for_expected_bitrate_buffering";

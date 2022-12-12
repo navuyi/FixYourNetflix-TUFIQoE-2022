@@ -75,11 +75,16 @@ var options = {
           },
           {
             loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[local]--[hash:base64:10]--[path]"
+              }
+            }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
+              sourceMap: true
             },
           },
         ],

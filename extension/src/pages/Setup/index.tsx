@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import App from './App';
 
-import Setup from './Setup';
 
-
-render(<Setup />, window.document.querySelector('#app-container'));
+render(<App />, window.document.querySelector('#app-container'));
