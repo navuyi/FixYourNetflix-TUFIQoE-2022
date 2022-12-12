@@ -1,6 +1,6 @@
 import { STORAGE_KEYS, T_EXPERIMENT_SETTINGS, T_EXPERIMENT_VARIABLES } from "../../config/storage.config"
-import { ChromeStorage } from "../../utils/classes/ChromeStorage"
-import { CustomLogger } from "../../utils/classes/CustomLogger"
+import { ChromeStorage } from "../../utils/custom/ChromeStorage"
+import { CustomLogger } from "../../utils/custom/CustomLogger"
 
 export class Controller{
     private NETFLIX_WATCH_URL : string = "https://www.netflix.com/watch"

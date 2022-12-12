@@ -1,6 +1,6 @@
-import { ChromeStorage } from "../../utils/classes/ChromeStorage"
-import { CustomLogger } from "../../utils/classes/CustomLogger"
-import { NetflixDebugMenu } from "../../utils/classes/NetflixDebugMenu"
+import { ChromeStorage } from "../../utils/custom/ChromeStorage"
+import { CustomLogger } from "../../utils/custom/CustomLogger"
+import { NetflixDebugMenu } from "../../utils/netflix/NetflixDebugMenu"
 import { extract_debug_menu_data } from "../../utils/debug_menu_analysis"
 import { get_local_datetime } from "../../utils/time_utils"
 
@@ -40,3 +40,68 @@ export class DebugMenuAnalyzer{
         }, interval_value)
     }
 }
+
+
+/**
+     * This method checks if certain HTML elements are available in DOM tree.
+     * Their availability indicates that serie's video is about to end and credits are present.
+     * If elements are detected video playback ends and subject is redirected to custom extension's web page
+    
+async are_credits_available(){ 
+    const outer_container = document.getElementsByClassName("nfa-pos-abs nfa-bot-6-em nfa-right-5-em nfa-d-flex")[0]
+
+    // data-uia = "watch-credits-seamless-button"   // Leave this for reference purpose
+    // data-uia="next-episode-seamless-button"      // Leave this for reference purpose
+    
+    // Checking PlayerSpace class element in case of last episode of the last season
+    const player_space = document.getElementsByClassName("PlayerSpace")[0]
+
+    // This element is displayed when last video of last season is played or a standalone movie
+    const back_to_browse = document.getElementsByClassName("BackToBrowse")[0]
+
+    if(back_to_browse){
+        clearInterval(this.interval)
+
+        // Pause the video
+        document.getElementsByTagName("video")[0].pause()
+
+        // Send FINISHED signal to the BackgroundScript
+        const message : T_MESSAGE = {
+            header: MESSAGE_HEADERS.FINISHED
+        }
+        await chrome.runtime.sendMessage(message)
+        
+    }
+    else if(player_space){
+        // Stop analyzing
+        clearInterval(this.interval)
+
+        // Pause the video
+        document.getElementsByTagName("video")[0].pause()
+
+        // Send FINISHED signal to the BackgroundScript
+        const message : T_MESSAGE = {
+            header: MESSAGE_HEADERS.FINISHED
+        }
+        await chrome.runtime.sendMessage(message)
+    }
+    else if(outer_container){
+        // Click watch credits button
+        const credits_button = document.querySelectorAll('[data-uia="watch-credits-seamless-button"]')[0] as HTMLButtonElement
+        credits_button.click()
+        outer_container.remove() // remove container
+
+        // Stop analyzing
+        clearInterval(this.interval)
+
+        // Pause the video
+        document.getElementsByTagName("video")[0].pause()
+
+        // Send FINISHED signal to the BackgroundScript
+        const message : T_MESSAGE = {
+            header: MESSAGE_HEADERS.FINISHED
+        }
+        await chrome.runtime.sendMessage(message)
+    }
+}
+*/

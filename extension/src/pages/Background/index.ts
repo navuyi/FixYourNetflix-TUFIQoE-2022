@@ -3,7 +3,7 @@ import {Controller} from "./Controller"
 import { STORAGE_DEFAULT } from "../../config/storage.config"
 import { get_local_datetime } from "../../utils/time_utils"
 import {T_MESSAGE, MESSAGE_HEADERS} from "../../config/messages.config"
-import { ChromeStorage } from "../../utils/classes/ChromeStorage"
+import { ChromeStorage } from "../../utils/custom/ChromeStorage"
 
 
 /**

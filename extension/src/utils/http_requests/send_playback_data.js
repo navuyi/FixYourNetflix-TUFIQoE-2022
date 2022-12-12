@@ -1,6 +1,6 @@
 import axios from "axios"
 import { STORAGE_KEYS } from "../../config/storage.config"
-import { ChromeStorage } from "../classes/ChromeStorage"
+import { ChromeStorage } from "../custom/ChromeStorage"
 import {backend_urls} from "./config"
 
 

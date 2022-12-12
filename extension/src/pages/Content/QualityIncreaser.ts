@@ -1,13 +1,13 @@
-import { CustomLogger } from "../../utils/classes/CustomLogger";
-import { NetflixBitrateMenu } from "../../utils/classes/NetflixBitrateMenu";
-import { NetflixDebugMenu } from "../../utils/classes/NetflixDebugMenu";
-import { NetflixPlayerAPI } from "../../utils/classes/NetflixPlayerAPI";
-import { VideoCurtain } from "../../utils/classes/VideoCurtain";
+import { CustomLogger } from "../../utils/custom/CustomLogger";
+import { NetflixBitrateMenu } from "../../utils/netflix/NetflixBitrateMenu";
+import { NetflixDebugMenu } from "../../utils/netflix/NetflixDebugMenu";
+import { NetflixPlayerAPI } from "../../utils/netflix/NetflixPlayerAPI";
+import { VideoCurtain } from "../../utils/custom/VideoCurtain";
 import { extract_buffering_bitrate_video, extract_playing_bitrate_audio, extract_playing_bitrate_video, extract_rendering_state } from "../../utils/debug_menu_analysis";
 import QualityDecreaser from "./QualityDecreaser";
-import { wait_for_rendering_state_playing } from "../../utils/wait_for_rendering_state_playing";
-import { wait_for_expected_bitrate_buffering } from "../../utils/wait_for_expected_bitrate_buffering";
-import { ChromeStorage } from "../../utils/classes/ChromeStorage";
+import { wait_for_rendering_state_playing } from "../../utils/waiters/wait_for_rendering_state_playing";
+import { wait_for_expected_bitrate_buffering } from "../../utils/waiters/wait_for_expected_bitrate_buffering";
+import { ChromeStorage } from "../../utils/custom/ChromeStorage";
 
 export class QualityIncreaser{
     private logger : CustomLogger
@@ -25,16 +25,16 @@ export class QualityIncreaser{
     public init = async () : Promise<void> => {
         window.document.onkeydown = async (e) => {
             if(e.key === "G" && this.cooldown_active === false){
-                this.cooldown_active = true
-                const {quality_increase_cooldown} = await ChromeStorage.get_experiment_settings()
-                setTimeout(() => {
-                    this.cooldown_active = false
-                }, quality_increase_cooldown)
+                this.cooldown_active = true // enable quality increase cooldown
                 await this.reset_video_quality()
+                this.cooldown_active = false // disable cooldown after process has finished
             }
         }
     }
 
+    /**
+     * Resets video quality to highest possible value
+    */
     private reset_video_quality = async () : Promise<void> => {
         this.logger.log("Proceeding to reset video quality...")
 
@@ -60,7 +60,7 @@ export class QualityIncreaser{
         
 
         // Resume quality decreasing process - resuming 2-5 seconds after resuming playback - giving some time for the highest quality to buffer
-        // Discussed as irrelevant for now
+        // Marked as irrelevant for now
         setTimeout(async () => {
             await this.qualityDecreaser.init_bitrate_index(true)
             await this.qualityDecreaser.set_new_bitrate()
@@ -68,6 +68,9 @@ export class QualityIncreaser{
         }, 5000)
     }
 
+    /**
+     * Blocks video playback from subject
+    */
     private hide_video_player = () : void => {
         this.logger.log("Hiding video player")
         NetflixPlayerAPI.set_video_muted(true)
@@ -75,6 +78,9 @@ export class QualityIncreaser{
         this.videoCurtain.reveal()
     }
 
+    /**
+     * Reveals video playback to the subject
+    */
     private reveal_video_player = async () : Promise<void> => {
         this.logger.log("Revealing video player")
         NetflixPlayerAPI.set_video_muted(false)
@@ -83,6 +89,11 @@ export class QualityIncreaser{
     }
 
 
+    /**
+     * Method uses NetflixPlayerAPI in order to reset video buffer by seeking video.
+     * Playback resumes at the time passed as parameter
+     * @param video_pause_time 
+    */
     private buffer_seek_reset = async (video_pause_time : number) : Promise<void> => {
         const video_duration = await NetflixPlayerAPI.get_video_duration()
         const delay = 250 //ms

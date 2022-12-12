@@ -1,8 +1,8 @@
 import {CustomPlayer} from "./CustomPlayer"
 import { QualityIncreaser} from "./QualityIncreaser"
 import { DebugMenuAnalyzer } from "./DebugMenuAnalyzer"
-import { NetflixBitrateMenu } from "../../utils/classes/NetflixBitrateMenu"
-import { NetflixDebugMenu } from "../../utils/classes/NetflixDebugMenu"
+import { NetflixBitrateMenu } from "../../utils/netflix/NetflixBitrateMenu"
+import { NetflixDebugMenu } from "../../utils/netflix/NetflixDebugMenu"
 import QualityDecreaser from "./QualityDecreaser"
 
 

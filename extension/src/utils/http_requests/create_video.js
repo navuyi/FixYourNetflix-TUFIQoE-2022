@@ -2,7 +2,7 @@ import axios from "axios"
 import { STORAGE_KEYS } from "../../config/storage.config"
 import {  backend_urls } from "./config"
 import { get_local_datetime } from "../time_utils"
-import { ChromeStorage } from "../classes/ChromeStorage"
+import { ChromeStorage } from "../custom/ChromeStorage"
 
 export const create_video = async (data) => {
     try{

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { MESSAGE_HEADERS, T_MESSAGE } from '../../config/messages.config';
-import { ChromeStorage } from '../../utils/classes/ChromeStorage';
+import { ChromeStorage } from '../../utils/custom/ChromeStorage';
 import "./style.scss"
 
 

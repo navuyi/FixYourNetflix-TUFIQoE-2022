@@ -1,4 +1,4 @@
-import { CustomLogger } from "./CustomLogger";
+import { CustomLogger } from "../custom/CustomLogger";
 
 
 export abstract class NetflixDebugMenu{

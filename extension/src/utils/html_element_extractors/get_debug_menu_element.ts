@@ -1,7 +1,6 @@
 import { simulate_nerd_stats_hotkey } from "../keyboard_hotkeys/simulate_nerd_stats_hotkey"
 
-
-export const get_statistics_element = () => {
+export const get_debug_menu_element = () => {
 
     return new Promise((resolve) => {
         let element : HTMLTextAreaElement

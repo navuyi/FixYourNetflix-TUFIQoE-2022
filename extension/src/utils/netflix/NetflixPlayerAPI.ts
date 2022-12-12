@@ -1,4 +1,4 @@
-import { CustomLogger } from "./CustomLogger"
+import { CustomLogger } from "../custom/CustomLogger"
 import { netflix_api_elements } from "../../config/netflix_player_api"
 
 export class NetflixPlayerAPI{

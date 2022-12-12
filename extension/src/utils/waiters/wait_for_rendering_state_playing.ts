@@ -1,5 +1,5 @@
-import { NetflixDebugMenu } from "./classes/NetflixDebugMenu"
-import { extract_rendering_state } from "./debug_menu_analysis"
+import { NetflixDebugMenu } from "../netflix/NetflixDebugMenu"
+import { extract_rendering_state } from "../debug_menu_analysis"
 
 
 /**
