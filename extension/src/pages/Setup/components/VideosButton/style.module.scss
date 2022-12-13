@@ -1,0 +1,24 @@
+@import "../../../../config/style.config.scss";
+
+.button{
+    width: 50%;
+    font-size: $font-size-small;
+    padding: 1.2em 1em;
+    margin: 1em 0;
+
+    outline: none;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+
+    background-color: $netflix-gray;
+    color: $netflix-white;
+}
+.button:hover{
+    background-color: $netflix-dark-red;
+}
+.button:active{
+    background-color: $netflix-dark-red;
+    filter: brightness(0.9);
+}
