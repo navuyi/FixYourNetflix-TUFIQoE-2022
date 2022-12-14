@@ -4,7 +4,7 @@ Chrome extension and Python/flask REST API for [ecologically valid](https://en.w
 
 Similiar to the [YourNetflixOurLab](https://github.com/navuyi/YourNetflixOurLab-TUFIQoE-2022.git). Migrated to Typescript. Includes modifications of Netflix's Cadmium Playercore script:
 - changing buffer size
-- enabling bitrate menu allowing manipulations of displayed video (and audio) quality.
+- enabling bitrate menu allowing manipulations of video (and audio) quality.
 
 ## Technology stack
 Frontend (Chrome extension)
