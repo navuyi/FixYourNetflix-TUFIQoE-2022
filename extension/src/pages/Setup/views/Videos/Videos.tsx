@@ -50,7 +50,7 @@ const Videos = () => {
                             return (
                                 <div className={style.url_item} key={index}>
                                     <span className={style.url_number}>{index+1}</span>
-                                    <input  className={style.url_input} value={url} />
+                                    <input className={style.url_input} value={url} />
                                 </div>
                             )
                         })

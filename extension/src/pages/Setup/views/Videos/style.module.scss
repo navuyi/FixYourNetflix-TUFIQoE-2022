@@ -45,6 +45,8 @@
     font-size: $font-size-small;
     padding: 5px 10px;
     text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .url_wrapper{
@@ -88,6 +90,9 @@
 
     box-sizing: border-box;
     border: 2px solid rgba(1,1,1,0);
+}
+.url_input:hover{
+    border: 2px solid $netflix-dark-red;
 }
 .url_input:focus{
     border: 2px solid $netflix-dark-red;

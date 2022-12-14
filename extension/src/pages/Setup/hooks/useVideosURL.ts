@@ -29,6 +29,10 @@ export const useVideosURL = () => {
         }
     }
 
+    const handle_video_url_change = (e:ChangeEvent<HTMLInputElement>) => {
+        
+    }
+
     const validate_videos = async () : Promise<boolean> => {
         const {video_url} = await ChromeStorage.get_experiment_settings()
         // Check for empty string
@@ -36,11 +40,11 @@ export const useVideosURL = () => {
             if(remove_whitespaces(url) === ""){
                 return false
             }
+            if(url.includes("https://www.netflix.com/watch/") === false){
+                return false
+            }
         }
-        // Check if are proper netflix video url
-        // has to include 'watch' in url
-
-
+       
         // Finally return true
         return true
     }
