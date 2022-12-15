@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from "react";
-import style from "./style.module.scss"
 import { useEffect } from "react";
-import { useVideosURL } from "../../hooks/useVideosURL";
+import { useVideosURL } from "../hooks/useVideosURL";
 import { useNavigate } from "react-router";
+import MainMenuButton from "./MainMenuButton/MainMenuButton";
 
 type T_PROPS = {
     
@@ -25,9 +25,10 @@ const VideosButton = (props:T_PROPS) => {
     }, [])
 
     return(
-        <>
-            <button onClick={handle_redirect} className={style.button}>{`Videos [${videos.length}]`}</button>
-        </>
+       <MainMenuButton 
+        text={`Videos [${videos.length}]`}
+        handle_click={handle_redirect}
+       />
     )
 }
 

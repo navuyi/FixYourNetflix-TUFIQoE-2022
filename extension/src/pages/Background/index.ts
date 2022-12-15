@@ -51,6 +51,7 @@ chrome.action.onClicked.addListener(async (tab) => {
 })
 
 
+
 /** Message listeners
  * DO NOT USE await inside onMessage listener callback's body.
  * REMEMBER to return true at the end of the onMessage listener callback's body.

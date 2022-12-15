@@ -2,16 +2,18 @@ import React, { useLayoutEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useVideosURL } from "../../hooks/useVideosURL";
 import style from "./style.module.scss"
-
+import VideoURLInput from "../../components/VideoURLInput/VideoURLInput";
+import axios from "axios";
 
 const Videos = () => {
-    const {videos, init_videos, handle_video_number_change, validate_videos} = useVideosURL()
+    const {videos, init_videos, handle_video_number_change, validate_videos, handle_video_url_change} = useVideosURL()
     const navigate = useNavigate()
 
     const handle_return = async () => {
-        const valid = await validate_videos()
-        if(valid === false){
-            window.alert("Provided URLs are not valid!")
+        const verdict = await validate_videos()
+        console.log(verdict)
+        if(verdict.valid === false){
+            window.alert(verdict.message)
         }
         else{
             navigate("/", {replace: true})
@@ -22,7 +24,7 @@ const Videos = () => {
         const init = async () => {
             await init_videos()
         }
-
+       
         init()
     }, [])
 
@@ -48,10 +50,12 @@ const Videos = () => {
                     {
                         videos.map((url, index) => {
                             return (
-                                <div className={style.url_item} key={index}>
-                                    <span className={style.url_number}>{index+1}</span>
-                                    <input className={style.url_input} value={url} />
-                                </div>
+                               <VideoURLInput
+                                    key={index}
+                                    url={url}
+                                    index={index}
+                                    handle_change={handle_video_url_change}
+                               />
                             )
                         })
                     }

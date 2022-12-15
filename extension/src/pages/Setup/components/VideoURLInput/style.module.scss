@@ -1,0 +1,40 @@
+@import "../../../../config/style.config.scss";
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    width: 100%;
+    margin: 1em 0;
+}
+.index{
+    width: 10%;
+    background-color: $netflix-dark-red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size-small;
+
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.input{
+    font-size: $font-size-small;
+    width: 90%;
+    padding: 8px 10px;
+
+    outline: none;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    box-sizing: border-box;
+    border: 2px solid rgba(1,1,1,0);
+}
+.input:hover{
+    border: 2px solid $netflix-dark-red;
+}
+.input:focus{
+    border: 2px solid $netflix-dark-red;
+}

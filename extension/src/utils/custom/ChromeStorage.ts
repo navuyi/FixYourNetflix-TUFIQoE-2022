@@ -29,8 +29,16 @@ export abstract class ChromeStorage{
         return experiment_variables
     }
 
+    public static set_experiment_variables = async (variables : T_EXPERIMENT_VARIABLES) : Promise<void> => {
+        await chrome.storage.local.set({experiment_variables: variables})
+    }
+    
     public static get_experiment_settings = async () : Promise<T_EXPERIMENT_SETTINGS> => {
         const experiment_settings = await ChromeStorage.get_single("experiment_settings")
         return experiment_settings
+    }
+
+    public static set_experiment_settings = async (settings : T_EXPERIMENT_SETTINGS) : Promise<void> => {
+        await chrome.storage.local.set({experiment_settings: settings})
     }
 }

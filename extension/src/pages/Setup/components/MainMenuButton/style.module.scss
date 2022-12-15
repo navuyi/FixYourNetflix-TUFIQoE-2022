@@ -1,6 +1,6 @@
 @import "../../../../config/style.config.scss";
 
-.button{
+.main_menu_button{
     width: 50%;
     font-size: $font-size-small;
     padding: 1.2em 1em;
@@ -8,17 +8,21 @@
 
     outline: none;
     border:none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     user-select: none;
 
     background-color: $netflix-gray;
     color: $netflix-white;
 }
-.button:hover{
+.main_menu_button:hover{
     background-color: $netflix-dark-red;
 }
-.button:active{
+.main_menu_button:active{
     background-color: $netflix-dark-red;
     filter: brightness(0.9);
+}
+
+.main_menu_button[primary]{
+    background-color: black;
 }
