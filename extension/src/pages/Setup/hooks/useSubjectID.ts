@@ -1,8 +1,10 @@
 import { ChangeEvent, useState } from "react"
 import { ChromeStorage } from "../../../utils/custom/ChromeStorage"
 import { remove_whitespaces } from "../../../utils/string_utils"
-
 import { T_VALIDATION_RESPONSE } from "../../../config/types/messages"
+
+export type T_VALIDATE_SUBJECT_ID = () => Promise<T_VALIDATION_RESPONSE>
+
 
 export const useSubjectID = () => {
     const [subjectID, setSubjectID] = useState("")
