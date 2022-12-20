@@ -6,7 +6,6 @@ def test_video_post(client):
     data = {
         "started": "2022-05-30T12:09:54",
         "experiment_id": 2,
-        "video_index": 0,
         "url": "https://www.youtube.com/watch?v=gkvs2MA1cBo"
     }
 

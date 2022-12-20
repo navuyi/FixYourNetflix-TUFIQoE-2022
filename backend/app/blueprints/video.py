@@ -17,13 +17,12 @@ def set_video():
     insert = dict(
         started=data["started"],
         experiment_id=data["experiment_id"],
-        video_index=data["video_index"],
         url=data["url"]
     )
 
     # Create experiment
-    cursor().execute(f"""INSERT INTO video (started, experiment_id, video_index, url) 
-    VALUES (:started, :experiment_id, :video_index, :url)""", insert)
+    cursor().execute(f"""INSERT INTO video (started, experiment_id, url) 
+    VALUES (:started, :experiment_id, :url)""", insert)
 
     video_id = lastrowid()
 
