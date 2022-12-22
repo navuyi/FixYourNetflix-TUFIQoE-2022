@@ -31,12 +31,11 @@ def set_video():
 
 @bp.route("/", methods=["PATCH"])
 def update_video():
-    data = request.json
     insert = dict(
         video_id=request.json["video_id"],
-        timestamp=request.json["timestamp"]
+        ended=request.json["ended"]
     )
     cursor().execute(
-        f"UPDATE video SET ended=:timestamp WHERE video.id=:video_id", insert)
+        f"UPDATE video SET ended=:ended WHERE video.id=:video_id", insert)
 
     return jsonify(dict(msg="video updated")), 201
