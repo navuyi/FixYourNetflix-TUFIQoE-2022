@@ -6,6 +6,7 @@ import { useSubjectID } from "../../hooks/useSubjectID";
 import ExperimentStartButton from "../../components/ExperimentStartButton";
 import { Spinner } from "react-bootstrap";
 import { useExperimentStart } from "../../hooks/useExperimentStart";
+import Loader from "../../components/Loader/Loader";
 
 
 const Main = () => {
@@ -33,7 +34,7 @@ const Main = () => {
                         handle_change={handle_subject_id_change}
                     />
                     {
-                        starting ? <span>Experiment starting...</span> : 
+                        starting ? <Loader /> : 
                         <ExperimentStartButton 
                             validate_subject_id={validate_subject_id}
                             start_experiment={start_experiment}

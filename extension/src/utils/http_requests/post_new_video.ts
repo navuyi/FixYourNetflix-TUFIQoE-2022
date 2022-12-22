@@ -1,9 +1,18 @@
 import axios from "axios"
-import { STORAGE_KEYS } from "../../config/storage.config"
 import {  backend_urls } from "./config"
-import { get_local_datetime } from "../time_utils"
-import { ChromeStorage } from "../custom/ChromeStorage"
 
+
+
+export const post_new_video = async (data:object) => {
+    try{
+        const response = await axios.post(backend_urls.video, data)
+        return response.data.video_id
+    }catch(err){
+        throw(err)
+    }
+}
+
+/*
 export const create_video = async (data) => {
     try{
         const response = await axios.post(backend_urls.video, data)
@@ -21,3 +30,4 @@ export const create_video = async (data) => {
         console.log(err)
     }
 }
+*/

@@ -1,9 +1,20 @@
 import axios from "axios"
-import { STORAGE_KEYS } from "../../config/config"
 import { ChromeStorage } from "../custom/ChromeStorage"
 import { backend_urls } from "./config"
 
-export const create_experiment = async (data) => {
+
+
+export const post_new_experiment = async (data : object) : Promise<number> => {
+    try{
+        const response = await axios.post(backend_urls.experiment, data)
+        return response.data.experiment_id as number
+    }catch(err){
+        throw(err)
+    }
+}
+
+/*
+export const create_experiment = async (data : object) : Promise<number> => {
     try{
         const response = await axios.post(backend_urls.experiment, data)
         if(response.status === 201){
@@ -20,3 +31,5 @@ export const create_experiment = async (data) => {
         console.log(err)
     }
 }
+*/
+

@@ -7,7 +7,7 @@ import { STORAGE_DEFAULT } from '../../config/storage.config';
 import { STORAGE_KEYS } from '../../config/storage.config';
 import { get_local_datetime } from "../../utils/time_utils"
 import { update_video } from '../../utils/http_requests/update_video';
-import { create_video } from '../../utils/http_requests/create_video';
+import { create_video } from '../../utils/http_requests/post_new_video';
 import ContinueButton from './Components/ContinueButton';
 import { useLayoutEffect } from 'react';
 import ContinueHeader from './Components/ContinueHeader';
