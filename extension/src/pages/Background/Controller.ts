@@ -40,9 +40,9 @@ export class Controller{
     */
     private increaseVideoCount = async () : Promise<void> =>{
         const experiment_variables = await ChromeStorage.get_experiment_variables()
-        experiment_variables.video_count += 1
-        this.logger.log(`Increasing video count to ${experiment_variables.video_count}`)
-        await ChromeStorage.set_single("experiment_variables", experiment_variables)
+        experiment_variables.video_index += 1
+        this.logger.log(`Increasing video count to ${experiment_variables.video_index}`)
+        await ChromeStorage.set_experiment_variables(experiment_variables)
     }
 
     private listenForVideoStart = () : void => {

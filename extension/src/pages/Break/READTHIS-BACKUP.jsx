@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { STORAGE_DEFAULT } from '../../config/storage.config';
 import { STORAGE_KEYS } from '../../config/storage.config';
 import { get_local_datetime } from "../../utils/time_utils"
-import { update_video } from '../../utils/http_requests/update_video';
+import { update_video } from '../../utils/http_requests/patch_video_ended';
 import { create_video } from '../../utils/http_requests/post_new_video';
 import ContinueButton from './Components/ContinueButton';
 import { useLayoutEffect } from 'react';
@@ -41,7 +41,6 @@ const Break = () => {
         video_id: res[STORAGE_KEYS.DATABASE_VIDEO_ID]
       }
       await update_video(update_data)
-
 
 
       console.log(`Video count: ${video_count}     Video limit: ${video_limit}`)

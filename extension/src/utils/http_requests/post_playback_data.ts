@@ -1,16 +1,18 @@
 import axios from "axios"
 import { STORAGE_KEYS } from "../../config/storage.config"
+import { T_ARCHIVE } from "../../config/types/archive.type"
+import { T_DATABASE } from "../../config/types/database.type"
 import { ChromeStorage } from "../custom/ChromeStorage"
 import {backend_urls} from "./config"
 
 
-export const send_playback_data = async (playback_data, archive) => {
-    const experiment_variables = await ChromeStorage.get_experiment_variables()
+export const post_playback_data = async (playback_data:T_DATABASE, archive:T_ARCHIVE) : Promise<void> => {
+    const {database_video_id} = await ChromeStorage.get_experiment_variables()
 
     const data = {
         playback_data: playback_data,
         archive: archive,
-        video_id: experiment_variables.database_video_id
+        video_id: database_video_id
     }
     
     try{

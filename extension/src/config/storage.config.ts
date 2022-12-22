@@ -12,7 +12,7 @@ export type T_EXPERIMENT_SETTINGS = {
 export type T_EXPERIMENT_VARIABLES = {
   database_experiment_id: number,
   database_video_id: number,
-  video_count: number,
+  video_index: number,
   experiment_running: boolean
 }
 
@@ -42,7 +42,7 @@ export const STORAGE_DEFAULT : T_STORAGE= {
   experiment_variables: {
     database_experiment_id: 0,
     database_video_id: 0,
-    video_count: 0,
+    video_index: -1,  // set to -1, updating before starting the video
     experiment_running: false
   }
 };

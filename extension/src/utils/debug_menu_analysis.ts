@@ -22,7 +22,7 @@ const get_value = (regex:string, group:number, data:string) => {
     }
 }
 
-export const extract_debug_menu_data = (debug_menu_text : string, timestamp : string) : T_DATABASE | undefined => {
+export const extract_debug_menu_data = (debug_menu_text : string, timestamp : string) : T_DATABASE => {
     const data : T_DATABASE =  {
         position: extract_position(debug_menu_text),
         volume: extract_volume(debug_menu_text),
