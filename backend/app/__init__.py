@@ -33,7 +33,7 @@ def create_app(test_config=None):
     config = {
         "ORIGINS": [
             "*",
-            "chrome-extension://*"
+            "chrome-extension://*",
         ]
     }
     cors = CORS(app, resources={r"/*": {"origins": config["ORIGINS"]}}, supports_credentials=True)
