@@ -6,6 +6,8 @@ import QualityDecreaser from "./QualityDecreaser";
 import { wait_for_rendering_state_playing } from "../../utils/waiters/wait_for_rendering_state_playing";
 import { wait_for_expected_bitrate_buffering } from "../../utils/waiters/wait_for_expected_bitrate_buffering";
 import { ChromeStorage } from "../../utils/custom/ChromeStorage";
+import { post_custom_event, T_CUSTOM_EVENT } from "../../utils/http_requests/post_custom_event";
+import { get_local_datetime } from "../../utils/time_utils";
 
 export class QualityIncreaser{
     private logger : CustomLogger
@@ -36,6 +38,9 @@ export class QualityIncreaser{
     private reset_video_quality = async () : Promise<void> => {
         this.logger.log("Proceeding to reset video quality...")
 
+        // Mark quality increase request in database
+        this.mark_quality_increase_requested()
+
         // Stop quality decreasing process
         this.qualityDecreaser.stop_bitrate_changes()
         
@@ -56,6 +61,8 @@ export class QualityIncreaser{
         await wait_for_rendering_state_playing()
         await this.reveal_video_player()
         
+        // Mark video quality increase completed in database
+        this.mark_quality_increase_completed()
 
         // Resume quality decreasing process - resuming 2-5 seconds after resuming playback - giving some time for the highest quality to buffer
         // Marked as irrelevant for now
@@ -119,6 +126,27 @@ export class QualityIncreaser{
                 resolve()
             }, delay)
         })  
+    }
+
+
+    private mark_quality_increase_requested = async () : Promise<void> => {
+        const data : T_CUSTOM_EVENT = {
+            timestamp: get_local_datetime(new Date()),
+            video_id: (await ChromeStorage.get_experiment_variables()).database_video_id,
+            type: "VIDEO_QUALITY_INCREASE_REQUESTED",
+            payload: JSON.stringify({})
+        }
+        await post_custom_event(data)
+    }
+
+    private mark_quality_increase_completed = async () : Promise<void> => {
+        const data : T_CUSTOM_EVENT = {
+            timestamp: get_local_datetime(new Date()),
+            video_id: (await ChromeStorage.get_experiment_variables()).database_video_id,
+            type: "VIDEO_QUALITY_INCREASE_COMPLETED",
+            payload: JSON.stringify({})
+        }
+        await post_custom_event(data)
     }
 }
 

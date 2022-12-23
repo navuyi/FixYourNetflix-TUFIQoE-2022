@@ -6,4 +6,5 @@ export const backend_urls = {
     assessment: `${BASE_URL}/assessment/`,
     bitrate: `${BASE_URL}/bitrate/`,
     connection_test: `${BASE_URL}/connection_test/`,
+    event: `${BASE_URL}/event/`,
 }
