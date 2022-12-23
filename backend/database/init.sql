@@ -1,22 +1,9 @@
 /*DROP TABLES*/
-DROP TABLE IF EXISTS bitrate;
-
 DROP TABLE IF EXISTS experiment;
 DROP TABLE IF EXISTS video;
 DROP TABLE IF EXISTS playback_data;
 DROP TABLE IF EXISTS archive;
-
-CREATE TABLE IF NOT EXISTS bitrate(
-    id INTEGER NOT NULL PRIMARY KEY,
-    video_id INTEGER NOT NULL,
-    value INTEGER NOT NULL,     
-    previous INTEGER DEFAULT NULL,  
-    timestamp TEXT NOT NULL,
-
-    FOREIGN KEY(video_id) REFERENCES video(id)
-);
-
-
+DROP TABLE IF EXISTS event;
 
 
 CREATE TABLE IF NOT EXISTS experiment(
