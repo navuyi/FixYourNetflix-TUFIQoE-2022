@@ -6,4 +6,18 @@
     height: 100%;
 
     background-color: $netflix-dark;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    color: white;
+    font-size: $font-size-large;
+}
+.sub_header{
+    color: rgb(215, 215, 215);
+    font-size: $font-size-medium;
 }

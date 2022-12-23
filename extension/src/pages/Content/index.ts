@@ -15,7 +15,7 @@ const init = async () : Promise<void> => {
 
     // Second create and initialize CustomPlayer instance <-- in order to remove default player controls
     const customPlayer = new CustomPlayer()
-    //await customPlayer.init()
+    await customPlayer.init()
 
     // Third create QualityDecreaser instance
     const qualityDecreaser = new QualityDecreaser()

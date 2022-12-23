@@ -5,15 +5,16 @@ import {CustomLogger} from "../../utils/custom/CustomLogger";
 export class CustomPlayer{
     private logger : CustomLogger
     private elements_to_remove = ["control-play-pause-pause", "control-play-pause-play", "control-back10", 
-        "control-forward10", "control-speed","control-fullscreen-enter",
-        "control-fullscreen-exit","control-episodes","control-next","timeline-bar"]
+        "control-forward10", "control-speed","control-episodes","control-next","timeline-bar"]
 
     private elements_to_leave = [
         "control-volume-off",
         "control-volume-low",
         "control-volume-medium",
         "control-volume-high",
-        "control-audio-subtitle"
+        "control-audio-subtitle",
+        "control-fullscreen-enter",
+        "control-fullscreen-exit"
     ]
     
     constructor() {

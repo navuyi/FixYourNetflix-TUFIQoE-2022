@@ -4,7 +4,7 @@
     width: 50%;
     font-size: $font-size-small;
     padding: 1.2em 1em;
-    margin: 1em 0;
+    margin: 0.5em 0;
 
     outline: none;
     border:none;
@@ -16,7 +16,7 @@
     color: $netflix-white;
 }
 .main_menu_button:hover{
-    background-color: $netflix-dark-red;
+    background-color: $netflix-red;
 }
 .main_menu_button:active{
     background-color: $netflix-dark-red;

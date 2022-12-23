@@ -4,6 +4,7 @@ import Main from './views/Main/Main';
 import Videos from './views/Videos/Videos';
 
 import "./style.module.scss"
+import About from './views/About/About';
 
 
 const App = () => {
@@ -17,9 +18,13 @@ const App = () => {
             path="/"
             element={<Main />}
           />
-            <Route 
+          <Route 
             path="/videos"
             element={<Videos />}
+          />
+          <Route 
+            path="/about"
+            element={<About />}
           />
         </Routes>
       </HashRouter>

@@ -35,7 +35,7 @@ export const STORAGE_DEFAULT : T_STORAGE= {
     quality_increase_rewind: 3 * 1000,
     video_url: [
       "https://www.netflix.com/watch/80003013?trackId=14170287",
-      "https://www.netflix.com/watch/70196253?trackId=14170286"
+      "https://www.netflix.com/watch/80003013?trackId=14170287"
     ],
     subject_id: "default_subject_id"
   },

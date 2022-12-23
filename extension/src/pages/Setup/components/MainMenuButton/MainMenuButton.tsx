@@ -3,8 +3,7 @@ import style from "./style.module.scss"
 
 type T_PROPS = {
     text: string,
-    handle_click: Function,
-    attributes?: Array<string>
+    handle_click: Function
 }
 
 const MainMenuButton = (props : T_PROPS) => {

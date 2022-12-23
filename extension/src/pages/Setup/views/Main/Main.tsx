@@ -7,6 +7,7 @@ import ExperimentStartButton from "../../components/ExperimentStartButton";
 import { Spinner } from "react-bootstrap";
 import { useExperimentStart } from "../../hooks/useExperimentStart";
 import Loader from "../../components/Loader/Loader";
+import SimpleNavigationButton from "../../components/SimpleNavigationButton";
 
 
 const Main = () => {
@@ -27,6 +28,10 @@ const Main = () => {
                 <span className={style.header}>Fix Your Netflix Experiment</span>
                 <div className={style.button_wrapper}>
                     <VideoButton />
+                    <SimpleNavigationButton 
+                        text="About"
+                        navigate_to="about"
+                    />
                 </div>
                 <div className={style.start_wrapper}>
                     <SubjectIDInput 

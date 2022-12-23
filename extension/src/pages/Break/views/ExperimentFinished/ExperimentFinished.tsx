@@ -7,7 +7,8 @@ const ExperimentFinished = () => {
 
     return(
         <div className={style.experiment_finished}>
-            <span>Experiment Finished</span>
+            <span className={style.header}>Seans zakończony</span>
+            <span className={style.sub_header}>Proszę powiadomić administratora eksperymentu</span>
         </div>
     )
 }

@@ -17,12 +17,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    height: 60%;
 }
 
 .header{
     font-size: $font-size-large;
-    color:  $netflix-red;
-    font-weight: 500;
+    color: $netflix-red;
+    font-weight: 600;
     user-select: none;
 }
 
@@ -41,8 +43,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    
+    flex-grow: 1;
 
     margin-top: 5em;
 }

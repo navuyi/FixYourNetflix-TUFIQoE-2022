@@ -59,5 +59,4 @@ export const useExperimentStart = () => {
        set_starting,
        starting
     }
-
 }
