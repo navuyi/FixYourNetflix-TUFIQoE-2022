@@ -29,6 +29,18 @@ def set_experiment():
     return jsonify(dict(experiment_id=experiment_id)), 201
 
 
+@bp.route("/", methods=["PATCH"])
+def update_experiment():
+    insert = dict(
+        experiment_id=request.json["experiment_id"],
+        ended=request.json["ended"]
+    )
+    cursor().execute(
+        f"UPDATE experiment SET ended=:ended WHERE id=:experiment_id", insert)
+
+    return jsonify(dict(msg="experiment end time updated")), 201
+
+
 @bp.route("/", methods=["GET"])
 def get_experiment():
     return {"msg": "OK EXPERIMENT GET"}, 200
