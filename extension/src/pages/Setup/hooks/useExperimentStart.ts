@@ -15,6 +15,16 @@ export const useExperimentStart = () => {
         const experiment_id = await create_experiment()
         const video_id = await create_video(experiment_id)
 
+        if(experiment_id == null || video_id == null){
+            setStarting(false)
+            window.alert(`
+                Could not create new experiment or video. 
+                Terminate the browser process and start from scratch. 
+                Make sure backend server is running.
+            `)
+            return
+        }
+
         const variables = await ChromeStorage.get_experiment_variables()
         variables.database_experiment_id = experiment_id
         variables.database_video_id = video_id
@@ -35,7 +45,7 @@ export const useExperimentStart = () => {
             urls: JSON.stringify(settings.video_url)
         }
         const experiment_id = await post_new_experiment(data) 
-        return experiment_id
+        return experiment_id as number
     }
 
     const create_video = async (experiment_id : number) : Promise<number> => {
@@ -46,7 +56,7 @@ export const useExperimentStart = () => {
             url: settings.video_url[0]
         }
         const video_id = await post_new_video(data)
-        return video_id
+        return video_id as number
     }
 
     const set_starting : T_SET_STARTING = (value : boolean) => {

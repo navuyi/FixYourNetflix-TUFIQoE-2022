@@ -1,7 +1,6 @@
 import csv
 import sqlite3
 import os
-from tkinter.messagebox import NO
 
 DATABASE_PATH = "../database/database.db"
 CSV_DIR_PATH = "./csv"

@@ -34,8 +34,7 @@ export const STORAGE_DEFAULT : T_STORAGE= {
     bitrate_change_jitter_ms: 25 * 1000,     // 25 * 1000 <-- default
     quality_increase_rewind: 3 * 1000,
     video_url: [
-      "https://www.netflix.com/watch/80003013?trackId=14170287",
-      "https://www.netflix.com/watch/80003013?trackId=14170287"
+      "https://www.netflix.com/watch/70305903"
     ],
     subject_id: "default_subject_id"
   },

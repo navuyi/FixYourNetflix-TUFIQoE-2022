@@ -14,6 +14,6 @@ export const post_custom_event = async (data:T_CUSTOM_EVENT) : Promise<void> => 
     try{
         const response = await axios.post(backend_urls.event, data)
     }catch(err){
-        throw(err)
+        console.log(err)
     }
 }

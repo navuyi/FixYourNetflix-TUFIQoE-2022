@@ -7,6 +7,7 @@ import { post_playback_data } from "../../utils/http_requests/post_playback_data
 import { MESSAGE_HEADERS, T_MESSAGE } from "../../config/messages.config"
 import { NetflixPlayerAPI } from "../../utils/netflix/NetflixPlayerAPI"
 import { patch_video_ended} from "../../utils/http_requests/patch_video_ended"
+import { patch_experiment_ended } from "../../utils/http_requests/patch_experiment_ended"
 
 
 export class DebugMenuAnalyzer{
@@ -78,9 +79,9 @@ export class DebugMenuAnalyzer{
                 await ChromeStorage.set_experiment_variables(variables)
             }
             else{
-                //
+                // Experiment finished
+                await patch_experiment_ended()
             }
-
 
             // Send FINISHED signal to the BackgroundScript
             const message : T_MESSAGE = {

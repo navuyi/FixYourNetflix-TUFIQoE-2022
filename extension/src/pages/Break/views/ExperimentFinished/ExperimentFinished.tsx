@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./style.module.scss"
 
 
 const ExperimentFinished = () => {
 
+    useEffect(() => {
+        
+    }, [])
 
     return(
         <div className={style.experiment_finished}>

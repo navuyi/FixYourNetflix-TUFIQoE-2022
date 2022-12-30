@@ -1,16 +1,26 @@
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 import { ChromeStorage } from "../custom/ChromeStorage"
 import { backend_urls } from "./config"
 
 
 
-export const post_new_experiment = async (data : object) : Promise<number> => {
+export const post_new_experiment = async (data : object) : Promise<number|undefined> => {
     try{
         const response = await axios.post(backend_urls.experiment, data)
         return response.data.experiment_id as number
-    }catch(err){
-        throw(err)
+    }catch(err : any){
+        if (err.response) {
+            // The client was given an error response (5xx, 4xx)
+        } else if (err.request) {
+            // The client never received a response, and the request was never left
+        } else {
+            // Anything else
+        }
     }
+    
+    
+
+    return 1
 }
 
 /*

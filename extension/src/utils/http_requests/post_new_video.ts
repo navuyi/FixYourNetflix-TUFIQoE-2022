@@ -3,12 +3,12 @@ import {  backend_urls } from "./config"
 
 
 
-export const post_new_video = async (data:object) => {
+export const post_new_video = async (data:object) : Promise<number | undefined> => {
     try{
         const response = await axios.post(backend_urls.video, data)
         return response.data.video_id
     }catch(err){
-        throw(err)
+        
     }
 }
 
