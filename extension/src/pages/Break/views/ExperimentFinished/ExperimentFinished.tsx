@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
+import { ChromeStorage } from "../../../../utils/custom/ChromeStorage";
 import style from "./style.module.scss"
 
 
 const ExperimentFinished = () => {
 
     useEffect(() => {
-        
+        ChromeStorage.initialize_default()
     }, [])
 
     return(
