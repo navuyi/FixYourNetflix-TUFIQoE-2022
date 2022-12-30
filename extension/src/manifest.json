@@ -34,7 +34,8 @@
   "host_permissions": [
     "https://www.netflix.com/*",
     "*://assets.nflxext.com/*/ffe/player/html/*",
-    "*://www.assets.nflxext.com/*/ffe/player/html/*"
+    "*://www.assets.nflxext.com/*/ffe/player/html/*",
+    "http://127.0.0.1/*"
   ],
   "permissions": [
     "scripting",
