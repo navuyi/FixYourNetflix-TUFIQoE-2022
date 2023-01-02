@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ChromeStorage } from "../../../utils/custom/ChromeStorage";
 import { post_new_experiment } from "../../../utils/http_requests/post_new_experiment";
 import { post_new_video } from "../../../utils/http_requests/post_new_video";
+import { remove_whitespaces } from "../../../utils/string_utils";
 import { get_local_datetime } from "../../../utils/time_utils";
 
 export type T_START_EXPERIMENT = () => Promise<void>
@@ -12,6 +13,15 @@ export const useExperimentStart = () => {
     const [starting, setStarting] = useState(false)
 
     const start_experiment : T_START_EXPERIMENT = async () => {
+        setStarting(true)
+        const res = await validate_settings()
+
+        if(res.valid === false){
+            window.alert(res.msg)
+            setStarting(false)
+            return
+        }
+
         const experiment_id = await create_experiment()
         const video_id = await create_video(experiment_id)
 
@@ -41,6 +51,8 @@ export const useExperimentStart = () => {
             started: get_local_datetime(new Date()),
             video_limit: settings.video_url.length,
             subject_id: settings.subject_id,
+            subject_age: settings.subject_age,
+            subject_sex: settings.subject_age,
             settings: JSON.stringify(settings),
             urls: JSON.stringify(settings.video_url)
         }
@@ -63,6 +75,22 @@ export const useExperimentStart = () => {
         setStarting(value)
     }
 
+    const validate_settings = async () : Promise<{valid:boolean, msg:string}> => {
+        const {subject_age, subject_id, subject_sex} = await ChromeStorage.get_experiment_settings()
+
+        // Validate subject ID
+        if(remove_whitespaces(subject_id) === "") return {valid: false, msg: "Subject ID cannot be empty"};
+
+        // Validate subject age
+        if(subject_age <= 0) return {valid: false, msg: "Subject age must be a positive number"};
+        if(remove_whitespaces(subject_age.toString()) === "") return {valid:false, msg: "Subject age cannot be empty"}
+
+        // Validate subject sex
+        if(remove_whitespaces(subject_sex) === "") return {valid: false, msg: "Subject sex cannot be empty"}
+
+
+        return {valid: true, msg: "s"}
+    }
 
     return {
        start_experiment,
