@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS experiment(
             
     video_limit INTEGER NOT NULL,
     subject_id TEXT NOT NULL,
+    subject_age INTEGER NOT NULL,
+    subject_sex TEXT NOT NULL,
     settings TEXT NOT NULL,
     urls TEXT NOT NULL        
 );

@@ -17,8 +17,8 @@ def test_video_post(client):
 
 def test_video_update(client):
     data = dict(
-        timestamp="2022-06-09T17:05:47.277",
-        video_id=1
+        ended="2022-06-09T17:05:47.277",
+        video_id=1,
     )
     res = client.patch("/video/", data=json.dumps(data), headers=headers)
     print(json.loads(res.data))
