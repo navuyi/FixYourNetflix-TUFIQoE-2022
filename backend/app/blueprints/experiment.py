@@ -17,15 +17,14 @@ def set_experiment():
     insert = dict(
         started=data["started"],
         video_limit=data["video_limit"],
-        subject_id=data["subject_id"],
         subject_age=data["subject_age"],
         subject_sex=data["subject_sex"],
         settings=data["settings"],
         urls=data["urls"]
     )
     # Create experiment
-    cursor().execute(f"""INSERT INTO experiment (started, video_limit, subject_id, subject_age, subject_sex, settings, urls) 
-    VALUES (:started, :video_limit, :subject_id, :subject_age, :subject_sex, :settings, :urls)""", insert)
+    cursor().execute(f"""INSERT INTO experiment (started, video_limit, subject_age, subject_sex, settings, urls) 
+    VALUES (:started, :video_limit, :subject_age, :subject_sex, :settings, :urls)""", insert)
 
     experiment_id = lastrowid()
     return jsonify(dict(experiment_id=experiment_id)), 201
@@ -43,6 +42,9 @@ def update_experiment():
     return jsonify(dict(msg="experiment end time updated")), 201
 
 
-@bp.route("/", methods=["GET"])
-def get_experiment():
-    return {"msg": "OK EXPERIMENT GET"}, 200
+@bp.route("/next_id", methods=["GET"])
+def get_next_experiment_id():
+    cursor().execute(f"SELECT IFNULL(MAX((id)+1), 1) as next_id FROM experiment")
+    next_id = cursor().fetchone()
+
+    return jsonify(next_id), 200

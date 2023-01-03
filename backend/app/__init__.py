@@ -37,7 +37,7 @@ def create_app(test_config=None):
         ]
     }
     cors = CORS(app, resources={r"/*": {"origins": config["ORIGINS"]}}, supports_credentials=True)
-    #cors = CORS(app)
+    cors = CORS(app)
 
     # Import database methods
     from . db import db_init_app, db_before_request, cursor, db_get
