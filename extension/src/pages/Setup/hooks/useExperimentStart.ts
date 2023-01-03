@@ -29,8 +29,7 @@ export const useExperimentStart = () => {
             setStarting(false)
             window.alert(`
                 Could not create new experiment or video. 
-                Terminate the browser process and start from scratch. 
-                Make sure backend server is running.
+                Seems that backend server is not running. Enable it and refresh the page.
             `)
             return
         }
@@ -50,7 +49,6 @@ export const useExperimentStart = () => {
         const data = {
             started: get_local_datetime(new Date()),
             video_limit: settings.video_url.length,
-            subject_id: settings.subject_id,
             subject_age: settings.subject_age,
             subject_sex: settings.subject_age,
             settings: JSON.stringify(settings),
@@ -76,10 +74,11 @@ export const useExperimentStart = () => {
     }
 
     const validate_settings = async () : Promise<{valid:boolean, msg:string}> => {
-        const {subject_age, subject_id, subject_sex} = await ChromeStorage.get_experiment_settings()
+        const {subject_age, subject_sex} = await ChromeStorage.get_experiment_settings()
+        const {database_experiment_id} = await ChromeStorage.get_experiment_variables()
 
-        // Validate subject ID
-        if(remove_whitespaces(subject_id) === "") return {valid: false, msg: "Subject ID cannot be empty"};
+        // Validate experiment ID
+        if(remove_whitespaces(database_experiment_id.toString()) === "") return {valid: false, msg: "Experiment ID cannot be empty"};
 
         // Validate subject age
         if(subject_age <= 0) return {valid: false, msg: "Subject age must be a positive number"};

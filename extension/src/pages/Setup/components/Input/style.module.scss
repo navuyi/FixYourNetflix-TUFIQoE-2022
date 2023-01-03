@@ -32,3 +32,9 @@ $border-thickness: 2px;
 .input:focus{
     border: $border-thickness solid $netflix-red;
 }
+
+.input[disabled]{
+    background-color: rgb(144, 144, 144);
+    color: black;
+    cursor: not-allowed;
+}

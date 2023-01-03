@@ -6,7 +6,6 @@ export type T_EXPERIMENT_SETTINGS = {
   bitrate_change_jitter_ms: number,
   quality_increase_rewind: number,
   video_url: Array<string>,
-  subject_id: string,
   subject_age: number,
   subject_sex: string
 }
@@ -38,9 +37,8 @@ export const STORAGE_DEFAULT : T_STORAGE= {
     video_url: [
       "https://www.netflix.com/watch/70305903"
     ],
-    subject_id: "default_subject_id",
     subject_age: 18,
-    subject_sex: "" // empty string, male or female
+    subject_sex: "male" // empty string, male or female
   },
   experiment_variables: {
     database_experiment_id: 0,

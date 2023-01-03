@@ -3,10 +3,11 @@ import style from "./style.module.scss"
 
 type T_PROPS = {
     placeholder: string,
-    handle_change: Function,
+    handle_change?: Function,
     label: string,
     type: string,
     value: number|string,
+    disabled?:boolean
 }
 
 const Input = (props:T_PROPS) => {
@@ -16,11 +17,12 @@ const Input = (props:T_PROPS) => {
             <div className={style.input_container}>
                 <span className={style.label}>{props.label}</span>
                 <input 
+                    disabled={props.disabled ?? false}
                     className={style.input} 
                     type={props.type} 
                     placeholder={props.placeholder} 
                     value={props.value}
-                    onChange={(e) => props.handle_change(e)}
+                    onChange={(e) => props.handle_change ? props.handle_change(e) : null}
                 />
             </div>
         </>
