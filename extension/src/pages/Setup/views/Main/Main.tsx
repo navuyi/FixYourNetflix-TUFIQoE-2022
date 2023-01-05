@@ -8,8 +8,8 @@ import Loader from "../../components/Loader/Loader";
 import SimpleNavigationButton from "../../components/SimpleNavigationButton";
 import SubjectAgeInput from "../../components/SubjectAgeInput";
 import SubjectIDInput from "../../components/SubjectIDInput";
-import SubjectSexSelect from "../../components/SubjectSexSelect";
 import { useSetupInit } from "../../hooks/useSetupInit";
+import MenuSelect from "../../components/MenuSelect";
 
 
 const Main = () => {
@@ -33,7 +33,21 @@ const Main = () => {
                 </div>
                 <div className={style.start_wrapper}>
                     <SubjectAgeInput />
-                    <SubjectSexSelect />
+                    <MenuSelect 
+                        label="Subject sex"
+                        id="subject_sex"
+                        options={[{label: "Male", value:"male"},{label: "Female", value:"female"},{label: "Prefer not to disclose", value:"undisclosed"}, {label: "", value:""}]}
+                    />
+                    <MenuSelect 
+                        label="Netflix familiarity"
+                        id="subject_netflix_familiarity"
+                        options={[{label: "Yes", value:"familiar"},{label: "No", value:"unfamiliar"}, {label: "", value:""}]}
+                    />
+                    <MenuSelect 
+                        label="Content chooser"
+                        id="content_chooser"
+                        options={[{label: "Subject", value:"subject"},{label: "Admin", value:"admin"}, {label: "", value:""}]}
+                    />
                     <SubjectIDInput value={nextExpID}/> 
                     {
                         starting ? <Loader /> : 

@@ -76,8 +76,8 @@ export const useExperimentStart = () => {
         setStarting(value)
     }
 
-    const validate_settings = async () : Promise<{valid:boolean, msg:string}> => {
-        const {subject_age, subject_sex} = await ChromeStorage.get_experiment_settings()
+    const validate_settings = async () : Promise<{valid:boolean, msg?:string}> => {
+        const {subject_age, subject_sex, content_chooser, subject_netflix_familiarity} = await ChromeStorage.get_experiment_settings()
         const {database_experiment_id} = await ChromeStorage.get_experiment_variables()
 
         // Validate experiment ID
@@ -90,8 +90,13 @@ export const useExperimentStart = () => {
         // Validate subject sex
         if(remove_whitespaces(subject_sex) === "") return {valid: false, msg: "Subject sex cannot be empty"}
 
+        // Validate subject familiarity
+        if(remove_whitespaces(subject_netflix_familiarity) === "") return {valid: false, msg: "Subject familiarity cannot be empty"}
 
-        return {valid: true, msg: "s"}
+        // Validate content chooser
+        if(remove_whitespaces(content_chooser) === "") return {valid: false, msg: "Content chooser cannot be empty"}
+
+        return {valid: true}
     }
 
     return {

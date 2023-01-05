@@ -7,7 +7,9 @@ export type T_EXPERIMENT_SETTINGS = {
   quality_increase_rewind: number,
   video_url: Array<string>,
   subject_age: number,
-  subject_sex: string
+  subject_sex: string,
+  subject_netflix_familiarity: string,
+  content_chooser: string
 }
 
 export type T_EXPERIMENT_VARIABLES = {
@@ -37,8 +39,10 @@ export const STORAGE_DEFAULT : T_STORAGE= {
     video_url: [
       "https://www.netflix.com/watch/70305903"
     ],
-    subject_age: 18,
-    subject_sex: "male" // empty string, male or female
+    subject_age: 0,
+    subject_sex: "", // empty string, male or female
+    subject_netflix_familiarity: "",
+    content_chooser: ""
   },
   experiment_variables: {
     database_experiment_id: -1,
