@@ -26,9 +26,16 @@ export const useResumeExperiment = (timeout:number) => {
             experiment_id: variables.database_experiment_id,
             started: get_local_datetime(new Date())
         }
-        await post_new_video(data)
+        const video_id = await post_new_video(data)
+        await update_chrome_storage(video_id as number)
 
         window.location.href = settings.video_url[variables.video_index]
+    }
+
+    const update_chrome_storage = async (video_id:number) : Promise<void> => {
+        const variables = await ChromeStorage.get_experiment_variables()
+        variables.database_video_id = video_id
+        await ChromeStorage.set_experiment_variables(variables)
     }
 
     return {

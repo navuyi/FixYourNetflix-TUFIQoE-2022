@@ -22,7 +22,7 @@ export class Controller{
             return
         }
         
-        await this.increaseVideoCount()
+        //await this.increaseVideoCount() // <-- incrementing video count in view
         await chrome.scripting.executeScript({
            target: {
                 tabId: tabId

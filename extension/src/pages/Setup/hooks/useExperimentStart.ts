@@ -46,7 +46,10 @@ export const useExperimentStart = () => {
     
     const create_experiment = async () : Promise<number> => {
         const settings = await ChromeStorage.get_experiment_settings()
+        const variables = await ChromeStorage.get_experiment_variables()
+
         const data = {
+            id: variables.database_experiment_id,
             started: get_local_datetime(new Date()),
             video_limit: settings.video_url.length,
             subject_age: settings.subject_age,
@@ -54,8 +57,8 @@ export const useExperimentStart = () => {
             settings: JSON.stringify(settings),
             urls: JSON.stringify(settings.video_url)
         }
-        const experiment_id = await post_new_experiment(data) 
-        return experiment_id as number
+        await post_new_experiment(data) 
+        return variables.database_experiment_id
     }
 
     const create_video = async (experiment_id : number) : Promise<number> => {

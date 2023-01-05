@@ -7,7 +7,6 @@ import { backend_urls } from "./config"
 export const post_new_experiment = async (data : object) : Promise<number|undefined> => {
     try{
         const response = await axios.post(backend_urls.experiment, data)
-        return response.data.experiment_id as number
     }catch(err : any){
         if (err.response) {
             // The client was given an error response (5xx, 4xx)

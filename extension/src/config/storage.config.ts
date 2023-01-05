@@ -41,9 +41,9 @@ export const STORAGE_DEFAULT : T_STORAGE= {
     subject_sex: "male" // empty string, male or female
   },
   experiment_variables: {
-    database_experiment_id: 0,
-    database_video_id: 0,
-    video_index: -1,  // set to -1, updating before starting the video
+    database_experiment_id: -1,
+    database_video_id: -1,
+    video_index: 0, 
     experiment_running: false
   }
 };

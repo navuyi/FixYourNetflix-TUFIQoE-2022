@@ -7,7 +7,7 @@ from app.db import lastrowid
 
 bp = Blueprint("experiment", __name__, url_prefix="/experiment")
 
-# Configure test path
+
 
 
 @bp.route('/', methods=["POST"])
@@ -15,6 +15,7 @@ def set_experiment():
     data = request.json
 
     insert = dict(
+        id=data["id"],
         started=data["started"],
         video_limit=data["video_limit"],
         subject_age=data["subject_age"],
@@ -23,11 +24,11 @@ def set_experiment():
         urls=data["urls"]
     )
     # Create experiment
-    cursor().execute(f"""INSERT INTO experiment (started, video_limit, subject_age, subject_sex, settings, urls) 
-    VALUES (:started, :video_limit, :subject_age, :subject_sex, :settings, :urls)""", insert)
+    cursor().execute(f"""INSERT INTO experiment (id, started, video_limit, subject_age, subject_sex, settings, urls) 
+    VALUES (:id, :started, :video_limit, :subject_age, :subject_sex, :settings, :urls)""", insert)
 
-    experiment_id = lastrowid()
-    return jsonify(dict(experiment_id=experiment_id)), 201
+    #experiment_id = lastrowid()
+    return jsonify(dict(msg="Experiment created")), 201
 
 
 @bp.route("/", methods=["PATCH"])
