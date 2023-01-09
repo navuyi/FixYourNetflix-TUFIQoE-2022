@@ -56,10 +56,11 @@ const Main = () => {
                     <SubjectIDInput value={nextExpID}/> 
                     {
                         starting ? <Loader /> : 
+                        connected ? 
                         <ExperimentStartButton 
                             start_experiment={start_experiment}
                             set_starting={set_starting}
-                        />
+                        /> : <span className={style.info}>No server connection.</span>
                     }
                 </div>
             </div>

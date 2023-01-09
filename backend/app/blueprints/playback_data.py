@@ -1,12 +1,10 @@
 from flask import Blueprint, request, jsonify
 from app.db import cursor
 import json
-
 from app.db import lastrowid
 
-bp = Blueprint("playback_data", __name__, url_prefix="/playback_data")
 
-# Configure test path
+bp = Blueprint("playback_data", __name__, url_prefix="/playback_data")
 
 
 @bp.route('/', methods=["POST"])

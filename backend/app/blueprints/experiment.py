@@ -1,4 +1,3 @@
-from xml.dom.expatbuilder import parseString
 from flask import Blueprint, request, jsonify
 from app.db import cursor
 import json

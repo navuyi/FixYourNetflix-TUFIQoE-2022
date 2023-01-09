@@ -48,3 +48,12 @@
 
     margin-top: 5em;
 }
+
+.info{
+    font-size: $font-size-medium;
+    color: rgb(234, 234, 234);
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+}

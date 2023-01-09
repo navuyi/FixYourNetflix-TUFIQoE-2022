@@ -7,6 +7,7 @@ import re
 import time
 import string
 import datetime
+from flask import Response
 
 
 def create_app(test_config=None):
@@ -28,15 +29,20 @@ def create_app(test_config=None):
     except OSError as e:
         print(e)
 
+    
 
     ### CORS Config ###
     config = {
         "ORIGINS": [
             "*",
             "chrome-extension://*",
-        ]
+            "*://www.netflix.com/*",
+            "*://netflix.com",
+            "https://www.netflix.com"
+        ],
+        "CORS_SUPPORTS_CREDENTIALS": True
     }
-    cors = CORS(app, resources={r"/*": {"origins": config["ORIGINS"]}}, supports_credentials=True)
+    cors = CORS(app, resources={r"/*": {"origins": config["ORIGINS"]}})
     cors = CORS(app)
 
     # Import database methods
