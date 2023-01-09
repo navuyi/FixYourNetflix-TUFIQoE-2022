@@ -54,6 +54,9 @@ export const useExperimentStart = () => {
             video_limit: settings.video_url.length,
             subject_age: settings.subject_age,
             subject_sex: settings.subject_age,
+            subject_netflix_familiarity: settings.subject_netflix_familiarity,
+            subject_selected_content: settings.subject_selected_content,
+            content_continuation: settings.content_continuation,
             settings: JSON.stringify(settings),
             urls: JSON.stringify(settings.video_url)
         }
@@ -77,11 +80,12 @@ export const useExperimentStart = () => {
     }
 
     const validate_settings = async () : Promise<{valid:boolean, msg?:string}> => {
-        const {subject_age, subject_sex, content_chooser, subject_netflix_familiarity} = await ChromeStorage.get_experiment_settings()
+        const {subject_age, subject_sex, content_continuation ,subject_selected_content, subject_netflix_familiarity} = await ChromeStorage.get_experiment_settings()
         const {database_experiment_id} = await ChromeStorage.get_experiment_variables()
 
         // Validate experiment ID
         if(remove_whitespaces(database_experiment_id.toString()) === "") return {valid: false, msg: "Experiment ID cannot be empty"};
+        if(database_experiment_id < 0) return {valid: false, msg: "Experiment ID cannot be negative value"};
 
         // Validate subject age
         if(subject_age <= 0) return {valid: false, msg: "Subject age must be a positive number"};
@@ -90,11 +94,14 @@ export const useExperimentStart = () => {
         // Validate subject sex
         if(remove_whitespaces(subject_sex) === "") return {valid: false, msg: "Subject sex cannot be empty"}
 
-        // Validate subject familiarity
-        if(remove_whitespaces(subject_netflix_familiarity) === "") return {valid: false, msg: "Subject familiarity cannot be empty"}
+        // Validate subject familiarity with netflix
+        if(remove_whitespaces(subject_netflix_familiarity?.toString()) === "") return {valid: false, msg: "Subject familiarity cannot be empty"}
 
         // Validate content chooser
-        if(remove_whitespaces(content_chooser) === "") return {valid: false, msg: "Content chooser cannot be empty"}
+        if(remove_whitespaces(subject_selected_content?.toString()) === "") return {valid: false, msg: "Content chooser cannot be empty"}
+
+        // Validate content continuation
+        if(remove_whitespaces(content_continuation?.toString()) === "") return {valid: false, msg: "Content continuation cannot be empty"}
 
         return {valid: true}
     }

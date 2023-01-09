@@ -21,7 +21,6 @@ export const useMenuSelect = (key:string) => {
         //@ts-ignore
         settings[key as keyof T_EXPERIMENT_SETTINGS] = _value
         await ChromeStorage.set_experiment_settings(settings)
-        console.log(settings)
     }
 
     return{

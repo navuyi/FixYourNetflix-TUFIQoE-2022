@@ -8,8 +8,9 @@ export type T_EXPERIMENT_SETTINGS = {
   video_url: Array<string>,
   subject_age: number,
   subject_sex: string,
-  subject_netflix_familiarity: string,
-  content_chooser: string
+  subject_netflix_familiarity: string | boolean,
+  subject_selected_content: string | boolean,
+  content_continuation: string | boolean
 }
 
 export type T_EXPERIMENT_VARIABLES = {
@@ -33,8 +34,8 @@ export const STORAGE_KEYS = {
 export const STORAGE_DEFAULT : T_STORAGE= {
   experiment_settings: {
     stats_record_interval_ms: 1000,
-    bitrate_change_interval_ms: 2.5 * 60 * 1000,  //2.5 * 60 * 1000 <-- default
-    bitrate_change_jitter_ms: 25 * 1000,     // 25 * 1000 <-- default
+    bitrate_change_interval_ms: 1 * 100 * 1000,  //2.5 * 60 * 1000 <-- default
+    bitrate_change_jitter_ms: 15 * 1000,     // 25 * 1000 <-- default
     quality_increase_rewind: 3 * 1000,
     video_url: [
       "https://www.netflix.com/watch/70305903"
@@ -42,7 +43,8 @@ export const STORAGE_DEFAULT : T_STORAGE= {
     subject_age: 0,
     subject_sex: "", // empty string, male or female
     subject_netflix_familiarity: "",
-    content_chooser: ""
+    subject_selected_content: "",
+    content_continuation: ""
   },
   experiment_variables: {
     database_experiment_id: -1,

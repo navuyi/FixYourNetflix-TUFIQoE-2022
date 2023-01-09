@@ -41,12 +41,17 @@ const Main = () => {
                     <MenuSelect 
                         label="Netflix familiarity"
                         id="subject_netflix_familiarity"
-                        options={[{label: "Yes", value:"familiar"},{label: "No", value:"unfamiliar"}, {label: "", value:""}]}
+                        options={[{label: "Yes", value:true},{label: "No", value:false}, {label: "", value:""}]}
                     />
                     <MenuSelect 
                         label="Content chooser"
-                        id="content_chooser"
-                        options={[{label: "Subject", value:"subject"},{label: "Admin", value:"admin"}, {label: "", value:""}]}
+                        id="subject_selected_content"
+                        options={[{label: "Subject", value: true},{label: "Admin", value: false}, {label: "", value:""}]}
+                    />
+                    <MenuSelect 
+                        label="Content continuation"
+                        id="content_continuation"
+                        options={[{label: "Yes", value: true},{label: "No", value: false}, {label: "", value:""}]}
                     />
                     <SubjectIDInput value={nextExpID}/> 
                     {

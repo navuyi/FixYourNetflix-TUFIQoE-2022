@@ -5,7 +5,7 @@ import Select from "./Select/Select";
 type T_PROPS = {
     id: string
     label: string
-    options: Array<{label:string, value:string}>
+    options: Array<{label:string, value:string|number|boolean}>
 }
 
 const MenuSelect = (props:T_PROPS) => {

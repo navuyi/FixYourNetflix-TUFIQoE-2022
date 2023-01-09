@@ -15,6 +15,11 @@ CREATE TABLE IF NOT EXISTS experiment(
     video_limit INTEGER NOT NULL,
     subject_age INTEGER NOT NULL,
     subject_sex TEXT NOT NULL,
+
+    subject_selected_content BOOLEAN NOT NULL,
+    subject_netflix_familiarity BOOLEAN NOT NULL,
+    content_continuation BOOLEAN NOT NULL, 
+    
     settings TEXT NOT NULL,
     urls TEXT NOT NULL        
 );

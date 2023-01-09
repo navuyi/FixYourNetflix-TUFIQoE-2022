@@ -20,12 +20,17 @@ def set_experiment():
         video_limit=data["video_limit"],
         subject_age=data["subject_age"],
         subject_sex=data["subject_sex"],
+
+        subject_netflix_familiarity=data["subject_netflix_familiarity"],
+        subject_selected_content=data["subject_selected_content"],
+        content_continuation=data["content_continuation"],
+
         settings=data["settings"],
         urls=data["urls"]
     )
     # Create experiment
-    cursor().execute(f"""INSERT INTO experiment (id, started, video_limit, subject_age, subject_sex, settings, urls) 
-    VALUES (:id, :started, :video_limit, :subject_age, :subject_sex, :settings, :urls)""", insert)
+    cursor().execute(f"""INSERT INTO experiment (id, started, video_limit, subject_age, subject_sex, subject_netflix_familiarity, subject_selected_content, content_continuation, settings, urls) 
+    VALUES (:id, :started, :video_limit, :subject_age, :subject_sex, :subject_netflix_familiarity, :subject_selected_content, :content_continuation, :settings, :urls)""", insert)
 
     #experiment_id = lastrowid()
     return jsonify(dict(msg="Experiment created")), 201

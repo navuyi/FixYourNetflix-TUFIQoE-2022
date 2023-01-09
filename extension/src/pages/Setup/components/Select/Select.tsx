@@ -4,7 +4,7 @@ import style from "./style.module.scss"
 type T_PROPS = {
     label: string
     handle_change: Function
-    options: Array<{label:string, value:string}>
+    options: Array<{label:string, value:string|number|boolean}>
     value: string
 }
 
@@ -15,7 +15,7 @@ const Select = (props:T_PROPS) => {
             <select className={style.select} onChange={(e) => props.handle_change(e)} value={props.value}>
                 {
                     props.options.map((option,index) => {
-                        return <option key={index} value={option.value?.toString()}>{option.label}</option>
+                        return <option key={index} value={option.value.toString()}>{option.label}</option>
                     })
                 }
             </select>
