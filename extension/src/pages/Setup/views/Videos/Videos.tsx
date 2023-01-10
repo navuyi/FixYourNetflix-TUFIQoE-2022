@@ -32,8 +32,8 @@ const Videos = () => {
     return(
         <div className={style.videos}>
             <div className={style.container}>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.netflix.com"> <div className={style.netflix}></div></a>
                 <span className={style.header}>Videos</span>
-
                 <div className={style.select_wrapper}>
                     <span className={style.sub_header}>Select video URLs</span>
                     <select className={style.select} value={videos.length} onChange={handle_video_number_change}>
@@ -43,6 +43,10 @@ const Videos = () => {
                         <option>4</option>
                         <option>5</option>
                         <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
                     </select>
                 </div>
 

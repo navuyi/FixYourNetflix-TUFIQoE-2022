@@ -74,3 +74,24 @@
 .return_btn:hover{
     background-color: $netflix-red;
 }
+
+.netflix{
+    width: 96px;
+    height: 96px;
+    background-image: url("../../../../assets/img/netflix.png");
+    background-size: contain;
+    cursor: pointer;
+    filter: brightness(0.8);
+    transition-duration: 300ms;
+
+    margin-bottom: 2em;
+    border-radius: 15%;
+}
+.netflix:hover{    
+    filter: brightness(1);
+    border-radius: 25%;
+    box-shadow: 0 0 15px 1px white;
+}
+.netflix:active{
+    transform: translate(3px, 2px);
+}

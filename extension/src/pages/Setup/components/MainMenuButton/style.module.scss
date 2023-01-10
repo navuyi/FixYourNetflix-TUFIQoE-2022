@@ -14,13 +14,15 @@
 
     background-color: $netflix-gray;
     color: $netflix-white;
+
+    transition-duration: 500ms;
 }
 .main_menu_button:hover{
     background-color: $netflix-red;
 }
 .main_menu_button:active{
     background-color: $netflix-dark-red;
-    filter: brightness(0.9);
+    filter: brightness(0.7);
 }
 
 .main_menu_button[primary]{

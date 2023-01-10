@@ -23,8 +23,8 @@ const Main = () => {
     return(
         <div className={style.main}>
             <div className={style.wrapper}>
-                <span className={style.header}>Fix Your Netflix Experiment</span>
-                <div className={style.button_wrapper}>
+                    <span className={style.header}>Fix Your Netflix Experiment</span>
+                    <div className={style.button_wrapper}>
                     <VideoButton />
                     <SimpleNavigationButton 
                         text="About"
