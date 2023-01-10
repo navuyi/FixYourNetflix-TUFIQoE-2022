@@ -34,8 +34,8 @@ export const STORAGE_KEYS = {
 export const STORAGE_DEFAULT : T_STORAGE= {
   experiment_settings: {
     stats_record_interval_ms: 1000,
-    bitrate_change_interval_ms: 2.5 * 100 * 1000,  //2.5 * 60 * 1000 <-- default
-    bitrate_change_jitter_ms: 25 * 1000,     // 25 * 1000 <-- default
+    bitrate_change_interval_ms: 150 * 1000,  //2.5 * 60 * 1000 <-- default || 60, 100, 150
+    bitrate_change_jitter_ms: 25 * 1000,     // 25 * 1000 <-- default || 10, 15, 150
     quality_increase_rewind: 3 * 1000,
     video_url: [
       "https://www.netflix.com/watch/70305903"
