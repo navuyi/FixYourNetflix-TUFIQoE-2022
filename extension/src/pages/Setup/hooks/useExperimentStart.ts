@@ -53,7 +53,7 @@ export const useExperimentStart = () => {
             started: get_local_datetime(new Date()),
             video_limit: settings.video_url.length,
             subject_age: settings.subject_age,
-            subject_sex: settings.subject_age,
+            subject_sex: settings.subject_sex,
             subject_netflix_familiarity: settings.subject_netflix_familiarity,
             subject_selected_content: settings.subject_selected_content,
             content_continuation: settings.content_continuation,
