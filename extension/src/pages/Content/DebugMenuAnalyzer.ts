@@ -39,7 +39,7 @@ export class DebugMenuAnalyzer{
             }
             
             // Send data to backend
-            await post_playback_data(data, archive)
+            post_playback_data(data, archive)
 
             // Check if video has finished
             await this.check_video_finished()
@@ -73,13 +73,15 @@ export class DebugMenuAnalyzer{
             
             // Update current video finished time
             await patch_video_ended()
+           
 
             if(variables.video_index < settings.video_url.length){
                 variables.video_index += 1
                 await ChromeStorage.set_experiment_variables(variables)
             }
-            else{
-                // Experiment finished
+
+            // Check if experiment has finished
+            if(variables.video_index === settings.video_url.length){
                 await patch_experiment_ended()
             }
 

@@ -4,7 +4,7 @@ import { backend_urls } from "./config"
 
 
 
-export const post_new_experiment = async (data : object) : Promise<number|undefined> => {
+export const post_new_experiment = async (data : object) : Promise<void> => {
     try{
         const response = await axios.post(backend_urls.experiment, data)
     }catch(err : any){
@@ -16,10 +16,6 @@ export const post_new_experiment = async (data : object) : Promise<number|undefi
             // Anything else
         }
     }
-    
-    
-
-    return 1
 }
 
 /*
