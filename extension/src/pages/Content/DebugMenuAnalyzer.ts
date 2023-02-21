@@ -74,22 +74,18 @@ export class DebugMenuAnalyzer{
             // Update current video finished time
             await patch_video_ended()
            
-
-            if(variables.video_index < settings.video_url.length){
-                variables.video_index += 1
-                await ChromeStorage.set_experiment_variables(variables)
-            }
+            // Increment video_index
+            variables.video_index += 1
+            await ChromeStorage.set_experiment_variables(variables)
+            
 
             // Check if experiment has finished
             if(variables.video_index === settings.video_url.length){
                 await patch_experiment_ended()
             }
 
-            // Send FINISHED signal to the BackgroundScript
-            const message : T_MESSAGE = {
-                header: MESSAGE_HEADERS.FINISHED
-            }
-            await chrome.runtime.sendMessage(message)
+            // Send msg with FINISHED header in order to navigate to break page // cannot use window.location.href, page must be found within extension bundle
+            chrome.runtime.sendMessage({header: MESSAGE_HEADERS.FINISHED} as T_MESSAGE)
         }
     }
 }
