@@ -38,7 +38,7 @@ export const STORAGE_DEFAULT : T_STORAGE= {
     bitrate_change_jitter_ms: 15 * 1000,     // 25 * 1000 <-- default || 10, 15, 25
     quality_increase_rewind: 3 * 1000,
     video_url: [
-      
+      "https://www.netflix.com/watch/80200571"
     ],
     subject_age: 0,
     subject_sex: "", // empty string, male or female
