@@ -65,12 +65,15 @@ export class QualityIncreaser{
         this.mark_quality_increase_completed()
 
         // Resume quality decreasing process - resuming 2-5 seconds after resuming playback - giving some time for the highest quality to buffer
-        // Marked as irrelevant for now
-        setTimeout(async () => {
-            await this.qualityDecreaser.init_bitrate_index(true)
-            await this.qualityDecreaser.set_new_bitrate()
-            await this.qualityDecreaser.start_bitrate_changes()
-        }, 5000)
+        // Waiting before returning from this method    
+        await new Promise<void>(resolve => {
+            setTimeout(async () => {
+                await this.qualityDecreaser.init_bitrate_index(true)
+                await this.qualityDecreaser.set_new_bitrate()
+                await this.qualityDecreaser.start_bitrate_changes()
+                resolve()
+            }, 5000) // <-- after some time it returns
+        })
     }
 
     /**
