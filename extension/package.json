@@ -29,7 +29,7 @@
     "react-json-editor-ajrm": "^2.5.13",
     "react-router": "^6.4.5",
     "react-router-dom": "^6.4.5",
-    "update": "^0.7.4"
+    "sass": "^1.63.6"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
