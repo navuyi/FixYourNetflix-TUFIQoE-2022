@@ -1,0 +1,13 @@
+2023-06-23T09:34:52.619475 | INFO |  * Running on http://127.0.0.1:5001 (Press CTRL+C to quit)
+2023-06-23T09:34:52.620157 | INFO |  * Restarting with stat
+2023-06-23T09:34:52.773405 | WARNING |  * Debugger is active!
+2023-06-23T09:34:52.779665 | INFO |  * Debugger PIN: 921-400-120
+2023-06-23T09:35:01.532638 | INFO | 127.0.0.1 - - [23/Jun/2023 09:35:01] "GET /experiment/next_id HTTP/1.1" 500 -
+2023-06-23T09:37:03.519401 | INFO | 127.0.0.1 - - [23/Jun/2023 09:37:03] "GET /experiment/next_id HTTP/1.1" 500 -
+2023-06-23T09:37:58.029562 | INFO |  * Running on http://127.0.0.1:5001 (Press CTRL+C to quit)
+2023-06-23T09:37:58.030256 | INFO |  * Restarting with stat
+2023-06-23T09:37:58.171927 | WARNING |  * Debugger is active!
+2023-06-23T09:37:58.179050 | INFO |  * Debugger PIN: 167-350-800
+2023-06-23T09:38:10.967240 | INFO | 127.0.0.1 - - [23/Jun/2023 09:38:10] "GET /experiment/next_id HTTP/1.1" 200 -
+2023-06-23T09:38:27.905790 | INFO | 127.0.0.1 - - [23/Jun/2023 09:38:27] "POST /experiment/ HTTP/1.1" 201 -
+2023-06-23T09:38:27.914796 | INFO | 127.0.0.1 - - [23/Jun/2023 09:38:27] "POST /video/ HTTP/1.1" 201 -
